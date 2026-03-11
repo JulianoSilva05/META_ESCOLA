@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meta - Módulos</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__content">
+        <div class="brand">
+          <div class="brand__title">Meta</div>
+          <div class="brand__subtitle">Aulas e Materiais</div>
+        </div>
+        <nav class="breadcrumbs" aria-label="Navegação">
+          <a class="breadcrumbs__link" href="#/">Início</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" data-breadcrumbs-current>—</span>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h1 class="page-header__title" data-page-title>Módulos</h1>
+        <p class="page-header__subtitle" data-page-subtitle>
+          Selecione um módulo para ver as disciplinas.
+        </p>
+      </section>
+
+      <section class="grid" aria-label="Itens" data-grid></section>
+    </main>
+
+    <template id="card-template">
+      <a class="card" href="#">
+        <div class="card__icon" aria-hidden="true"></div>
+        <div class="card__body">
+          <div class="card__title"></div>
+          <div class="card__meta"></div>
+        </div>
+      </a>
+    </template>
+  </body>
+</html>
+

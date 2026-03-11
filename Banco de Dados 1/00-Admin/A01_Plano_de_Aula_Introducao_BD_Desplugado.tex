@@ -1,0 +1,112 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Introdução aos Bancos de Dados (Desplugado)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes (estudantes de tecnologia, administração ou curiosos)\\
+\textbf{Recursos Necessários:} Quadro branco/negro, marcadores/giz de cores variadas, blocos de post-its de duas cores, cartões de papel (tipo ficha pautada) ou pedaços de papel sulfite, fita adesiva e canetas para os alunos.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender a diferença entre dado e informação.
+  \item Entender o que é um Banco de Dados (BD) e um Sistema Gerenciador de Banco de Dados (SGBD).
+  \item Dominar as terminologias básicas do modelo relacional: Tabela (Entidade), Coluna (Atributo), Linha (Registro/Tupla).
+  \item Compreender o conceito de Chaves (Primária e Estrangeira) e Relacionamentos básicos.
+\end{itemize}
+
+\section{Metodologia}
+A aula utilizará a Aprendizagem Baseada em Analogias e Atividades Desplugadas (Unplugged). Como não haverá computadores, o foco será transformar a sala de aula física em um ``banco de dados vivo''. A construção do conhecimento será colaborativa, usando objetos do dia a dia (arquivos de aço, agendas telefônicas) para explicar conceitos abstratos.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Introdução e Desmistificação (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{O que é Dado vs.\ Informação? (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item \textbf{Explicação:} Dado é um fato bruto (ex: ``Maria'', ``25'', ``Belo Horizonte''). Informação é o dado processado com contexto (ex: ``Maria tem 25 anos e mora em Belo Horizonte'').
+    \item \textbf{Dinâmica rápida:} Escrever o número ``31999990000'' no quadro. Perguntar o que é. Sem contexto é só um dado (ou um número longo). Com contexto, é o telefone de alguém.
+  \end{itemize}
+
+  \item \textbf{O que é um Banco de Dados e um SGBD? (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item \textbf{Analogia:} Um banco de dados é como um grande arquivo de aço organizado. O SGBD (Sistema Gerenciador de Banco de Dados) é o(a) bibliotecário(a) ou arquivista super eficiente que guarda e busca as pastas para você sob demanda (ex: MySQL, PostgreSQL, Oracle).
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 2: O Modelo Relacional e Terminologias (30 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Tabelas, Linhas e Colunas (15 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Desenhar uma grade no quadro. Explicar que os bancos de dados mais comuns organizam tudo em Tabelas (ou Entidades).
+    \item \textbf{Coluna (Atributo):} É a característica (ex: Nome, Idade, CPF). Representa o que estamos guardando.
+    \item \textbf{Linha (Registro/Tupla):} É a informação completa de um único item (ex: todos os dados da Maria).
+  \end{itemize}
+
+  \item \textbf{Identificadores Únicos: Chave Primária (PK) (15 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item \textbf{Problema proposto:} ``E se tivermos duas alunas chamadas Maria Silva na sala? Como o sistema sabe quem é quem?''
+    \item \textbf{Conceito:} A Chave Primária (Primary Key) é o identificador único (como a impressão digital, CPF ou Matrícula). Ela nunca se repete.
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 3: Atividade Prática 1 - O ``Fichário Humano'' (30 minutos)}
+Nesta etapa, os alunos vão criar um banco de dados físico.
+
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{O Cenário:} A turma vai modelar o sistema de uma ``Clínica Veterinária''.
+  \item \textbf{Passo a passo:}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Dividir a turma em grupos de 4 ou 5 pessoas.
+    \item Entregar cartões de papel para cada grupo. O quadro será o ``Disco Rígido''.
+    \item Pedir que cada grupo crie a estrutura de uma tabela chamada \textbf{CLIENTE}. Eles devem definir quais são as \textbf{Colunas/Atributos} (ex: ID\_Cliente, Nome, Telefone) e escrever isso no topo do cartão com uma cor.
+    \item Cada aluno do grupo preenche 2 ou 3 cartões atuando como \textbf{Linhas/Registros} diferentes, garantindo que o \textbf{ID\_Cliente} (Chave Primária) não se repita.
+    \item Eles colam seus registros no quadro usando fita adesiva, montando a tabela física.
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 4: Relacionamentos e Chave Estrangeira (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{O Problema (10 min):} Olhando para os clientes no quadro, pergunte: ``Como guardamos os pets de cada cliente? Colocamos na mesma ficha?''
+  \item \textbf{A Solução - Chave Estrangeira (FK) (10 min):} Explicar que misturar tudo gera bagunça (redundância). O ideal é criar uma nova tabela chamada \textbf{PET} (ID\_Pet, Nome\_Pet, Tipo, ID\_Cliente).
+  \item O \textbf{ID\_Cliente} dentro da tabela \textbf{PET} é a Chave Estrangeira (Foreign Key). É o ``gancho'' que liga a tabela Pet à tabela Cliente.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade Prática 2 - Consultas ``Manuais'' e Encerramento (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Executando Queries (Consultas) com Papel (15 min):}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Pedir aos alunos para criarem rapidamente a tabela \textbf{PET} em novos post-its (com cores diferentes), conectando-os aos IDs dos clientes que estão no quadro.
+    \item O professor atua como o usuário e os alunos como o ``SGBD''.
+    \item O professor faz perguntas lógicas (consultas/queries): ``SGBD, me traga os nomes de todos os Pets cujo Cliente seja a Maria''.
+    \item Os alunos devem ir ao quadro, olhar o ID da Maria, ir na tabela de Pets, achar os post-its com aquele ID e entregar a resposta.
+  \end{itemize}
+
+  \item \textbf{Revisão e Encerramento (5 min):}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Recapitular rapidamente: Dado vs Informação, Tabela, Coluna, Linha, PK e FK.
+    \item Reforçar que, no mundo real, computadores fazem isso em milissegundos usando uma linguagem chamada SQL.
+  \end{itemize}
+\end{itemize}
+
+\end{document}
+
