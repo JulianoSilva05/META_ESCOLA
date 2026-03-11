@@ -197,3 +197,27 @@ a {
   }
 }
 
+.card[data-kind="file"] .card__icon::before {
+  width: 22px;
+  height: 26px;
+  top: 8px;
+  left: 12px;
+  border-radius: 4px;
+  opacity: 0.12;
+}
+
+.card[data-kind="file"] .card__icon::after {
+  width: 14px;
+  height: 5px;
+  top: 12px;
+  left: 16px;
+  border-radius: 3px;
+  opacity: 0.16;
+}
+
+.card[data-kind="back"] .card__icon::before,
+.card[data-kind="link"] .card__icon::before,
+.card[data-kind="warning"] .card__icon::before,
+.card[data-kind="info"] .card__icon::before {
+  opacity: 0.08;
+}
