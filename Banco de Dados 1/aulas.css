@@ -11,6 +11,77 @@
   --shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
   --radius: 14px;
   --max: 920px;
+  --page-bg: radial-gradient(1100px 600px at 20% -10%, rgba(56, 189, 248, 0.28) 0%, transparent 62%),
+    radial-gradient(1000px 520px at 100% 0%, rgba(167, 139, 250, 0.25) 0%, transparent 60%),
+    radial-gradient(900px 520px at 50% 115%, rgba(34, 211, 238, 0.18) 0%, transparent 60%),
+    var(--bg);
+  --topbar-bg: rgba(5, 8, 20, 0.92);
+  --footer-bg: rgba(5, 8, 20, 0.88);
+  --panel-fade: rgba(255, 255, 255, 0.03);
+  --panel-fade-strong: rgba(255, 255, 255, 0.06);
+  --meta-item-border: rgba(255, 255, 255, 0.12);
+  --meta-item-bg: rgba(255, 255, 255, 0.04);
+  --inline-code-bg: rgba(255, 255, 255, 0.07);
+  --inline-code-border: rgba(255, 255, 255, 0.12);
+  --btn-border: rgba(255, 255, 255, 0.14);
+  --btn-bg: rgba(255, 255, 255, 0.06);
+  --btn-hover-bg: rgba(255, 255, 255, 0.09);
+  --btn-hover-border: rgba(255, 255, 255, 0.2);
+  --progressbar-bg: rgba(255, 255, 255, 0.12);
+  --progressbar-border: rgba(255, 255, 255, 0.14);
+  --kicker-border: rgba(255, 255, 255, 0.24);
+  --kicker-bg: rgba(255, 255, 255, 0.12);
+  --codeblock-bg: rgba(0, 0, 0, 0.42);
+  --codeblock-border: rgba(255, 255, 255, 0.22);
+  --codeblock-text: rgba(255, 255, 255, 0.92);
+  --table-text: rgba(255, 255, 255, 0.98);
+  --table-border: rgba(255, 255, 255, 0.12);
+  --table-header-bg: rgba(255, 255, 255, 0.06);
+  --hint-text: rgba(255, 255, 255, 0.88);
+  --er-border: rgba(255, 255, 255, 0.22);
+  --er-bg: rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --panel: rgba(2, 6, 23, 0.04);
+  --panel-strong: rgba(2, 6, 23, 0.06);
+  --border: rgba(2, 6, 23, 0.14);
+  --text: rgba(2, 6, 23, 0.92);
+  --muted: rgba(2, 6, 23, 0.72);
+  --link: #0369a1;
+  --focus: rgba(2, 132, 199, 0.6);
+  --shadow: 0 10px 35px rgba(2, 6, 23, 0.12);
+  --page-bg: radial-gradient(1100px 600px at 20% -10%, rgba(56, 189, 248, 0.22) 0%, transparent 62%),
+    radial-gradient(1000px 520px at 100% 0%, rgba(167, 139, 250, 0.18) 0%, transparent 60%),
+    radial-gradient(900px 520px at 50% 115%, rgba(34, 211, 238, 0.14) 0%, transparent 60%),
+    var(--bg);
+  --topbar-bg: rgba(248, 250, 252, 0.88);
+  --footer-bg: rgba(248, 250, 252, 0.88);
+  --panel-fade: rgba(2, 6, 23, 0.02);
+  --panel-fade-strong: rgba(2, 6, 23, 0.03);
+  --meta-item-border: rgba(2, 6, 23, 0.12);
+  --meta-item-bg: rgba(2, 6, 23, 0.03);
+  --inline-code-bg: rgba(2, 6, 23, 0.06);
+  --inline-code-border: rgba(2, 6, 23, 0.12);
+  --btn-border: rgba(2, 6, 23, 0.14);
+  --btn-bg: rgba(2, 6, 23, 0.05);
+  --btn-hover-bg: rgba(2, 6, 23, 0.08);
+  --btn-hover-border: rgba(2, 6, 23, 0.2);
+  --progressbar-bg: rgba(2, 6, 23, 0.1);
+  --progressbar-border: rgba(2, 6, 23, 0.12);
+  --kicker-border: rgba(2, 6, 23, 0.18);
+  --kicker-bg: rgba(2, 6, 23, 0.06);
+  --codeblock-bg: rgba(2, 6, 23, 0.06);
+  --codeblock-border: rgba(2, 6, 23, 0.14);
+  --codeblock-text: rgba(2, 6, 23, 0.9);
+  --table-text: rgba(2, 6, 23, 0.92);
+  --table-border: rgba(2, 6, 23, 0.12);
+  --table-header-bg: rgba(2, 6, 23, 0.05);
+  --hint-text: rgba(2, 6, 23, 0.82);
+  --er-border: rgba(2, 6, 23, 0.14);
+  --er-bg: rgba(2, 6, 23, 0.05);
 }
 
 * {
@@ -26,10 +97,7 @@ body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
     "Noto Sans", "Liberation Sans", sans-serif;
-  background: radial-gradient(1100px 600px at 20% -10%, rgba(56, 189, 248, 0.28) 0%, transparent 62%),
-    radial-gradient(1000px 520px at 100% 0%, rgba(167, 139, 250, 0.25) 0%, transparent 60%),
-    radial-gradient(900px 520px at 50% 115%, rgba(34, 211, 238, 0.18) 0%, transparent 60%),
-    var(--bg);
+  background: var(--page-bg);
   color: var(--text);
 }
 
@@ -52,7 +120,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(5, 8, 20, 0.92);
+  background: var(--topbar-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -121,7 +189,7 @@ a:hover {
 .card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(180deg, var(--panel), var(--panel-fade));
   box-shadow: var(--shadow);
   padding: 14px 14px;
 }
@@ -138,9 +206,9 @@ a:hover {
 
 .meta-grid__item {
   padding: 12px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--meta-item-border);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--meta-item-bg);
 }
 
 .meta-grid__label {
@@ -181,10 +249,10 @@ a:hover {
 
 .notice code {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--inline-code-bg);
   padding: 2px 6px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--inline-code-border);
 }
 
 .deck {
@@ -201,7 +269,7 @@ a:hover {
 
 .deck__footer {
   border-top: 1px solid var(--border);
-  background: rgba(5, 8, 20, 0.88);
+  background: var(--footer-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -221,8 +289,8 @@ a:hover {
 
 .btn {
   appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
   color: var(--text);
   padding: 8px 10px;
   border-radius: 12px;
@@ -231,13 +299,24 @@ a:hover {
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
 }
 
 .btn:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
+}
+
+.btn--sm {
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.breadcrumbs .theme-toggle {
+  margin-left: 8px;
+  flex: 0 0 auto;
 }
 
 .deck__progress {
@@ -258,8 +337,8 @@ a:hover {
   width: 220px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--progressbar-bg);
+  border: 1px solid var(--progressbar-border);
   overflow: hidden;
 }
 
@@ -317,8 +396,8 @@ a:hover {
   display: inline-block;
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--kicker-border);
+  background: var(--kicker-bg);
   color: var(--text);
   font-weight: 700;
   letter-spacing: 0.2px;
@@ -328,7 +407,7 @@ a:hover {
   margin-top: 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.06));
+  background: linear-gradient(180deg, var(--panel), var(--panel-fade-strong));
   box-shadow: var(--shadow);
   padding: 16px 16px;
 }
@@ -359,8 +438,8 @@ a:hover {
   margin-top: 12px;
   padding: 14px 14px;
   border-radius: 14px;
-  background: rgba(0, 0, 0, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--codeblock-bg);
+  border: 1px solid var(--codeblock-border);
   overflow: auto;
 }
 
@@ -368,7 +447,7 @@ a:hover {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--codeblock-text);
 }
 
 .table {
@@ -382,19 +461,19 @@ a:hover {
 .table th,
 .table td {
   padding: 10px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid var(--table-border);
   text-align: left;
-  color: rgba(255, 255, 255, 0.98);
+  color: var(--table-text);
 }
 
 .table th {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--table-header-bg);
 }
 
 .hint {
   margin-top: 12px;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--hint-text);
   font-size: 1.02rem;
 }
 
@@ -403,8 +482,8 @@ a:hover {
   margin-top: 12px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--er-border);
+  background: var(--er-bg);
   max-height: 56vh;
   display: grid;
   place-items: center;
