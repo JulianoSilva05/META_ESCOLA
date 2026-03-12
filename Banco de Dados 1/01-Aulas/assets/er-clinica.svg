@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="Diagrama ER simples: Clínica veterinária com Cliente e Pet, relação 1 para N">
+  <defs>
+    <style>
+      .bg { fill: #050814; }
+      .stroke { stroke: rgba(255,255,255,0.92); stroke-width: 3; }
+      .fill { fill: rgba(255,255,255,0.07); }
+      .accent { stroke: #38bdf8; }
+      .text { fill: rgba(255,255,255,0.96); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .h1 { font-size: 40px; font-weight: 800; }
+      .h2 { font-size: 22px; font-weight: 800; letter-spacing: .2px; }
+      .p { font-size: 18px; opacity: .92; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="800" rx="18" />
+  <text class="text h1" x="60" y="90">Exemplo rápido — Clínica Veterinária (1:N)</text>
+  <text class="text p" x="60" y="130">Um cliente pode ter vários pets; cada pet pertence a um único cliente.</text>
+
+  <!-- CLIENTE -->
+  <rect class="stroke fill" x="120" y="240" width="330" height="110" rx="14" />
+  <text class="text h2" x="210" y="305">CLIENTE</text>
+
+  <!-- PET -->
+  <rect class="stroke fill" x="950" y="240" width="330" height="110" rx="14" />
+  <text class="text h2" x="1070" y="305">PET</text>
+
+  <!-- Relacionamento -->
+  <polygon class="stroke fill accent" points="700,250 800,305 700,360 600,305" />
+  <text class="text h2" x="652" y="313">POSSUI</text>
+
+  <!-- Conexões -->
+  <line class="stroke" x1="450" y1="295" x2="600" y2="305" />
+  <line class="stroke" x1="800" y1="305" x2="950" y2="295" />
+
+  <!-- Cardinalidade -->
+  <text class="text p" x="500" y="285">1</text>
+  <text class="text p" x="890" y="285">N</text>
+
+  <!-- Atributos CLIENTE -->
+  <ellipse class="stroke fill accent" cx="220" cy="430" rx="150" ry="55" />
+  <text class="text p" x="175" y="436">ID_Cliente</text>
+  <line class="accent" x1="150" y1="452" x2="290" y2="452" stroke-width="4" />
+  <line class="stroke" x1="240" y1="350" x2="220" y2="375" />
+
+  <ellipse class="stroke fill" cx="420" cy="450" rx="150" ry="55" />
+  <text class="text p" x="380" y="456">Nome</text>
+  <line class="stroke" x1="350" y1="350" x2="420" y2="395" />
+
+  <ellipse class="stroke fill" cx="360" cy="540" rx="170" ry="55" />
+  <text class="text p" x="300" y="546">Telefone</text>
+  <line class="stroke" x1="300" y1="350" x2="360" y2="485" />
+
+  <!-- Atributos PET -->
+  <ellipse class="stroke fill accent" cx="1050" cy="430" rx="150" ry="55" />
+  <text class="text p" x="1015" y="436">ID_Pet</text>
+  <line class="accent" x1="1000" y1="452" x2="1100" y2="452" stroke-width="4" />
+  <line class="stroke" x1="1090" y1="350" x2="1050" y2="375" />
+
+  <ellipse class="stroke fill" cx="1210" cy="450" rx="150" ry="55" />
+  <text class="text p" x="1168" y="456">Nome_Pet</text>
+  <line class="stroke" x1="1200" y1="350" x2="1210" y2="395" />
+
+  <ellipse class="stroke fill" cx="1140" cy="540" rx="150" ry="55" />
+  <text class="text p" x="1112" y="546">Tipo</text>
+  <line class="stroke" x1="1110" y1="350" x2="1140" y2="485" />
+
+  <!-- Observação -->
+  <rect x="60" y="650" width="1280" height="90" rx="16" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="2" />
+  <text class="text p" x="90" y="695">
+    Leitura do modelo: o relacionamento POSSUI indica como as entidades se conectam. A cardinalidade 1:N expressa a regra do domínio.
+  </text>
+</svg>
+

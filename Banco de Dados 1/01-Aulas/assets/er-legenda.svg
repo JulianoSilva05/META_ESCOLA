@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="Legenda do Modelo Entidade-Relacionamento: entidade, relacionamento, atributos e variações">
+  <defs>
+    <style>
+      .bg { fill: #050814; }
+      .stroke { stroke: rgba(255,255,255,0.92); stroke-width: 3; }
+      .muted { stroke: rgba(255,255,255,0.55); }
+      .fill { fill: rgba(255,255,255,0.07); }
+      .accent { stroke: #38bdf8; }
+      .accentFill { fill: rgba(56,189,248,0.12); }
+      .text { fill: rgba(255,255,255,0.96); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .h1 { font-size: 44px; font-weight: 800; letter-spacing: .2px; }
+      .h2 { font-size: 26px; font-weight: 700; }
+      .p { font-size: 20px; opacity: .92; }
+      .small { font-size: 18px; opacity: .9; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+      .num { fill: #050814; font-size: 18px; font-weight: 900; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="800" rx="18" />
+
+  <text class="text h1" x="70" y="95">Legenda do Modelo ER</text>
+  <text class="text p" x="70" y="140">As formas abaixo representam os elementos mais comuns (notação clássica).</text>
+
+  <!-- 1) Entidade -->
+  <rect class="stroke fill accent" x="90" y="200" width="330" height="120" rx="14" />
+  <text class="text h2" x="140" y="270">ENTIDADE</text>
+  <circle cx="110" cy="220" r="18" fill="#38bdf8" />
+  <text class="num" x="104" y="226">1</text>
+  <text class="text small" x="90" y="350">Coisa do mundo real (Cliente, Livro, Pedido).</text>
+
+  <!-- 2) Relacionamento -->
+  <polygon class="stroke fill" points="610,200 720,260 610,320 500,260" />
+  <text class="text h2" x="548" y="268">RELACIONA</text>
+  <circle cx="520" cy="220" r="18" fill="#38bdf8" />
+  <text class="num" x="514" y="226">2</text>
+  <text class="text small" x="500" y="350">Verbo/ligação entre entidades (faz, possui, realiza).</text>
+
+  <!-- 3) Atributo simples -->
+  <ellipse class="stroke fill" cx="1030" cy="260" rx="190" ry="70" />
+  <text class="text h2" x="950" y="270">Atributo</text>
+  <circle cx="870" cy="220" r="18" fill="#38bdf8" />
+  <text class="num" x="864" y="226">3</text>
+  <text class="text small" x="840" y="350">Característica (Nome, Data, Preço).</text>
+
+  <!-- 4) Atributo-chave (identificador) -->
+  <ellipse class="stroke fill accent" cx="300" cy="520" rx="210" ry="70" />
+  <text class="text h2" x="210" y="522">ID_Cliente</text>
+  <line class="accent" x1="200" y1="540" x2="410" y2="540" stroke-width="4" />
+  <circle cx="110" cy="480" r="18" fill="#38bdf8" />
+  <text class="num" x="104" y="486">4</text>
+  <text class="text small" x="90" y="610">Atributo-chave (futura PK). Geralmente sublinhado.</text>
+
+  <!-- 5) Atributo multivalorado -->
+  <ellipse class="stroke fill" cx="760" cy="520" rx="190" ry="70" />
+  <ellipse class="stroke muted" cx="760" cy="520" rx="210" ry="84" />
+  <text class="text h2" x="700" y="525">Telefone</text>
+  <circle cx="560" cy="480" r="18" fill="#38bdf8" />
+  <text class="num" x="554" y="486">5</text>
+  <text class="text small" x="560" y="610">Multivalorado (pode ter mais de um valor por entidade).</text>
+
+  <!-- 6) Atributo derivado -->
+  <ellipse cx="1110" cy="520" rx="190" ry="70" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.92)" stroke-width="3" stroke-dasharray="10 8" />
+  <text class="text h2" x="1050" y="525">Idade</text>
+  <circle cx="910" cy="480" r="18" fill="#38bdf8" />
+  <text class="num" x="904" y="486">6</text>
+  <text class="text small" x="940" y="610">Derivado (calculado), por exemplo a partir da Data_Nascimento.</text>
+
+  <!-- Footer -->
+  <text class="text small" x="70" y="740" opacity=".9">
+    Observação: existem variações de notação (pé-de-galinha, UML). O importante é o significado.
+  </text>
+</svg>
+

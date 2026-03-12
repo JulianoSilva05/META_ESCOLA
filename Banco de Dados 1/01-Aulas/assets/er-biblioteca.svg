@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Diagrama ER de exemplo: Biblioteca com Usuário, Empréstimo, Livro e Autor, incluindo cardinalidades e identificadores">
+  <defs>
+    <style>
+      .bg { fill: #050814; }
+      .stroke { stroke: rgba(255,255,255,0.92); stroke-width: 3; }
+      .muted { stroke: rgba(255,255,255,0.55); }
+      .fill { fill: rgba(255,255,255,0.07); }
+      .accent { stroke: #38bdf8; }
+      .accent2 { stroke: #a78bfa; }
+      .dash { stroke-dasharray: 10 8; }
+      .text { fill: rgba(255,255,255,0.96); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .h1 { font-size: 40px; font-weight: 800; }
+      .h2 { font-size: 22px; font-weight: 800; letter-spacing: .2px; }
+      .p { font-size: 18px; opacity: .92; }
+      .tag { fill: rgba(56,189,248,0.16); stroke: rgba(56,189,248,0.85); stroke-width: 2; }
+      .num { fill: #050814; font-size: 16px; font-weight: 900; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="900" rx="18" />
+  <text class="text h1" x="60" y="80">Exemplo de Diagrama ER — Biblioteca</text>
+  <text class="text p" x="60" y="120">Elementos numerados para facilitar a leitura do modelo.</text>
+
+  <!-- Entities -->
+  <rect class="stroke fill" x="90" y="220" width="320" height="110" rx="14" />
+  <text class="text h2" x="170" y="285">USUARIO</text>
+  <circle cx="110" cy="240" r="16" fill="#38bdf8" />
+  <text class="num" x="105" y="246">1</text>
+
+  <rect class="stroke fill" x="650" y="190" width="320" height="110" rx="14" />
+  <text class="text h2" x="725" y="255">EMPRESTIMO</text>
+  <circle cx="670" cy="210" r="16" fill="#38bdf8" />
+  <text class="num" x="665" y="216">2</text>
+
+  <rect class="stroke fill" x="1180" y="220" width="320" height="110" rx="14" />
+  <text class="text h2" x="1290" y="285">LIVRO</text>
+  <circle cx="1200" cy="240" r="16" fill="#38bdf8" />
+  <text class="num" x="1195" y="246">3</text>
+
+  <rect class="stroke fill" x="1180" y="570" width="320" height="110" rx="14" />
+  <text class="text h2" x="1295" y="635">AUTOR</text>
+  <circle cx="1200" cy="590" r="16" fill="#38bdf8" />
+  <text class="num" x="1195" y="596">4</text>
+
+  <!-- Relationships diamonds -->
+  <polygon class="stroke fill accent" points="560,265 650,315 560,365 470,315" />
+  <text class="text h2" x="515" y="323">REALIZA</text>
+  <circle cx="490" cy="280" r="16" fill="#a78bfa" />
+  <text class="num" x="485" y="286">5</text>
+
+  <polygon class="stroke fill accent" points="1040,265 1130,315 1040,365 950,315" />
+  <text class="text h2" x="1000" y="323">INCLUI</text>
+  <circle cx="970" cy="280" r="16" fill="#a78bfa" />
+  <text class="num" x="965" y="286">6</text>
+
+  <polygon class="stroke fill accent2" points="1340,470 1430,520 1340,570 1250,520" />
+  <text class="text h2" x="1288" y="528">ESCREVE</text>
+  <circle cx="1268" cy="485" r="16" fill="#38bdf8" />
+  <text class="num" x="1263" y="491">7</text>
+
+  <!-- Connectors + cardinalities -->
+  <!-- USUARIO -- REALIZA -- EMPRESTIMO (1:N) -->
+  <line class="stroke" x1="410" y1="275" x2="470" y2="315" />
+  <line class="stroke" x1="650" y1="315" x2="650" y2="300" />
+  <line class="stroke" x1="650" y1="300" x2="650" y2="245" />
+  <text class="text p" x="430" y="290">1</text>
+  <text class="text p" x="664" y="290">N</text>
+  <text class="text p" x="405" y="360">um usuário pode ter vários empréstimos</text>
+
+  <!-- EMPRESTIMO -- INCLUI -- LIVRO (N:M) -->
+  <line class="stroke" x1="970" y1="315" x2="970" y2="245" />
+  <line class="stroke" x1="970" y1="245" x2="1180" y2="275" />
+  <line class="stroke" x1="950" y1="315" x2="970" y2="315" />
+  <text class="text p" x="985" y="290">N</text>
+  <text class="text p" x="1120" y="290">M</text>
+  <text class="text p" x="935" y="390">um empréstimo pode incluir vários livros (e vice-versa no histórico)</text>
+
+  <!-- AUTOR -- ESCREVE -- LIVRO (N:M) -->
+  <line class="stroke" x1="1340" y1="330" x2="1340" y2="470" />
+  <line class="stroke" x1="1340" y1="330" x2="1340" y2="330" />
+  <line class="stroke" x1="1340" y1="570" x2="1340" y2="570" />
+  <line class="stroke" x1="1430" y1="520" x2="1500" y2="520" />
+  <line class="stroke" x1="1500" y1="520" x2="1500" y2="275" />
+  <line class="stroke" x1="1500" y1="275" x2="1500" y2="275" />
+  <text class="text p" x="1352" y="460">N</text>
+  <text class="text p" x="1488" y="460">M</text>
+
+  <!-- Attributes USUARIO -->
+  <ellipse class="stroke fill accent" cx="170" cy="410" rx="150" ry="55" />
+  <text class="text p" x="120" y="416">ID_Usuario</text>
+  <line class="accent" x1="95" y1="432" x2="245" y2="432" stroke-width="4" />
+  <circle cx="55" cy="390" r="16" fill="#38bdf8" />
+  <text class="num" x="50" y="396">8</text>
+  <line class="stroke" x1="250" y1="330" x2="210" y2="365" />
+
+  <ellipse class="stroke fill" cx="330" cy="420" rx="150" ry="55" />
+  <text class="text p" x="292" y="426">Nome</text>
+  <line class="stroke" x1="330" y1="330" x2="330" y2="365" />
+
+  <ellipse class="stroke fill" cx="300" cy="520" rx="160" ry="60" />
+  <ellipse class="stroke muted" cx="300" cy="520" rx="178" ry="74" />
+  <text class="text p" x="245" y="528">Telefone</text>
+  <circle cx="145" cy="560" r="16" fill="#38bdf8" />
+  <text class="num" x="140" y="566">9</text>
+  <line class="stroke" x1="270" y1="330" x2="300" y2="446" />
+
+  <!-- Attributes EMPRESTIMO -->
+  <ellipse class="stroke fill accent" cx="710" cy="360" rx="170" ry="55" />
+  <text class="text p" x="630" y="366">ID_Emprestimo</text>
+  <line class="accent" x1="605" y1="382" x2="815" y2="382" stroke-width="4" />
+  <circle cx="560" cy="390" r="16" fill="#a78bfa" />
+  <text class="num" x="555" y="396">10</text>
+  <line class="stroke" x1="810" y1="300" x2="760" y2="322" />
+
+  <ellipse class="stroke fill" cx="930" cy="420" rx="150" ry="55" />
+  <text class="text p" x="885" y="426">Data</text>
+  <line class="stroke" x1="890" y1="300" x2="930" y2="366" />
+
+  <ellipse class="stroke fill" cx="750" cy="470" rx="190" ry="55" />
+  <text class="text p" x="655" y="476">Data_Devolucao</text>
+  <line class="stroke" x1="750" y1="300" x2="750" y2="415" />
+
+  <ellipse class="fill stroke dash" cx="980" cy="520" rx="170" ry="55" />
+  <text class="text p" x="930" y="526">Atrasado</text>
+  <circle cx="1120" cy="520" r="16" fill="#38bdf8" />
+  <text class="num" x="1115" y="526">11</text>
+  <line class="stroke" x1="860" y1="300" x2="930" y2="475" />
+
+  <!-- Attributes LIVRO -->
+  <ellipse class="stroke fill accent" cx="1270" cy="410" rx="150" ry="55" />
+  <text class="text p" x="1230" y="416">ISBN</text>
+  <line class="accent" x1="1210" y1="432" x2="1330" y2="432" stroke-width="4" />
+  <circle cx="1160" cy="410" r="16" fill="#38bdf8" />
+  <text class="num" x="1155" y="416">12</text>
+  <line class="stroke" x1="1340" y1="330" x2="1270" y2="355" />
+
+  <ellipse class="stroke fill" cx="1450" cy="410" rx="150" ry="55" />
+  <text class="text p" x="1395" y="416">Titulo</text>
+  <line class="stroke" x1="1450" y1="330" x2="1450" y2="355" />
+
+  <ellipse class="stroke fill" cx="1360" cy="500" rx="140" ry="55" />
+  <text class="text p" x="1325" y="506">Ano</text>
+  <line class="stroke" x1="1390" y1="330" x2="1360" y2="445" />
+
+  <!-- Attributes AUTOR -->
+  <ellipse class="stroke fill accent" cx="1270" cy="720" rx="170" ry="55" />
+  <text class="text p" x="1190" y="726">ID_Autor</text>
+  <line class="accent" x1="1185" y1="742" x2="1340" y2="742" stroke-width="4" />
+  <circle cx="1160" cy="720" r="16" fill="#38bdf8" />
+  <text class="num" x="1155" y="726">13</text>
+  <line class="stroke" x1="1340" y1="680" x2="1270" y2="665" />
+
+  <ellipse class="stroke fill" cx="1480" cy="720" rx="150" ry="55" />
+  <text class="text p" x="1440" y="726">Nome</text>
+  <line class="stroke" x1="1480" y1="680" x2="1480" y2="665" />
+
+  <!-- Legend tags (callouts) -->
+  <g>
+    <rect class="tag" x="60" y="135" width="1480" height="54" rx="14" />
+    <text class="text p" x="86" y="170">
+      1–4: entidades • 5–7: relacionamentos • 8,10,12,13: identificadores (atributo-chave) • 9: multivalorado • 11: derivado
+    </text>
+  </g>
+</svg>
+

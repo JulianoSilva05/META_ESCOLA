@@ -7,67 +7,518 @@
     <link rel="stylesheet" href="../aulas.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div class="container topbar__content">
-        <div class="brand">
-          <div class="brand__title">Banco de Dados 1</div>
-          <div class="brand__subtitle">Aula 2</div>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Banco de Dados 1</div>
+            <div class="brand__subtitle">Aula 2 • Apresentação</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/bd1">Banco de Dados 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 2</span>
+          </nav>
         </div>
-        <nav class="breadcrumbs" aria-label="Navegação">
-          <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
-          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
-          <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
-          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
-          <a class="breadcrumbs__link" href="../../index.html#/modulo-1/bd1">Banco de Dados 1</a>
-          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
-          <span>Aula 2</span>
-        </nav>
-      </div>
-    </header>
+      </header>
 
-    <main class="container">
-      <section class="page-header">
-        <h1 class="page-header__title">Aula 2 - O modelo entidade-relacionamento</h1>
-        <p class="page-header__subtitle">Entidades, atributos, relacionamentos, cardinalidade</p>
-      </section>
-
-      <section class="content">
-        <div class="card">
-          <div class="meta-grid">
-            <div class="meta-grid__item">
-              <div class="meta-grid__label">Tópicos</div>
-              <div class="meta-grid__value">Modelo entidade-relacionamento (ER)</div>
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 2</span>
+            <h1>Modelo Entidade-Relacionamento (ER)</h1>
+            <p class="big">
+              Vamos aprender a transformar um cenário do mundo real em um modelo conceitual: entidades, atributos,
+              relacionamentos e cardinalidades.
+            </p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
             </div>
-            <div class="meta-grid__item">
-              <div class="meta-grid__label">Entrega</div>
-              <div class="meta-grid__value">Diagrama ER do domínio proposto</div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai conseguir fazer</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Explicar o que é um <strong>modelo conceitual</strong> e por que ele existe.</li>
+                <li>Identificar <strong>Entidades</strong>, <strong>Atributos</strong> e <strong>Relacionamentos</strong> em um texto.</li>
+                <li>Definir <strong>cardinalidades</strong> (1:1, 1:N, N:M).</li>
+                <li>Propor um <strong>identificador</strong> (futura PK) para cada entidade.</li>
+                <li>Produzir um <strong>diagrama ER</strong> simples e consistente.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Por que ER?</span>
+            <h2>Antes da tabela, vem o significado</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Modelo conceitual</p>
+                <p>
+                  Descreve o <strong>mundo real</strong>: quais “coisas” existem e como se relacionam.
+                </p>
+              </div>
+              <div>
+                <p class="big">Modelo relacional</p>
+                <p>
+                  Descreve <strong>como armazenar</strong> no SGBD: tabelas, colunas, chaves.
+                </p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">
+                Analogia: ER é a planta da casa; tabelas são a obra construída. Se a planta estiver errada, a obra
+                fica cara de corrigir.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceitos</span>
+            <h2>Entidade, Atributo e Relacionamento</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Entidade</p>
+                <p>Uma “coisa” sobre a qual precisamos guardar dados (Cliente, Livro, Pedido).</p>
+              </div>
+              <div>
+                <p class="big">Atributo</p>
+                <p>Uma característica (Nome, CPF, Título, Data).</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="big"><strong>Relacionamento</strong> = ligação entre entidades</p>
+              <p>Ex.: Cliente <strong>faz</strong> Pedido • Autor <strong>escreve</strong> Livro • Usuário <strong>realiza</strong> Empréstimo.</p>
+              <p class="hint">
+                Dica prática: Entidades tendem a ser “substantivos”; relacionamentos parecem “verbos”.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Visual</span>
+            <h2>Legenda do ER (com exemplos)</h2>
+            <div class="panel">
+              <div class="er-figure">
+                <img class="er-image" src="assets/er-legenda.svg" alt="Legenda do ER: entidade, relacionamento, atributo, atributo-chave, multivalorado e derivado" />
+              </div>
+              <ul class="list">
+                <li><strong>1 — Entidade:</strong> coisa do mundo real (Cliente, Livro, Pedido).</li>
+                <li><strong>2 — Relacionamento:</strong> ligação/verbo entre entidades (faz, possui, realiza).</li>
+                <li><strong>3 — Atributo:</strong> característica (Nome, Data, Valor).</li>
+                <li><strong>4 — Atributo-chave:</strong> identificador (futura PK), normalmente sublinhado.</li>
+                <li><strong>5 — Multivalorado:</strong> pode ter vários valores (ex.: mais de um telefone).</li>
+                <li><strong>6 — Derivado:</strong> calculado a partir de outro atributo (ex.: idade).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Modelo completo</span>
+            <h2>Exemplo ER — Biblioteca</h2>
+            <div class="panel">
+              <div class="er-figure">
+                <img class="er-image" src="assets/er-biblioteca.svg?v=1" alt="Diagrama ER de biblioteca com Usuario, Emprestimo, Livro e Autor; relacionamentos e cardinalidades" />
+              </div>
+              <p class="hint">
+                Se não aparecer no seu navegador, abra direto:
+                <a href="assets/er-biblioteca.svg" target="_blank" rel="noopener">er-biblioteca.svg</a>
+              </p>
+            </div>
+            <div class="panel">
+              <p class="big">Como ler os elementos numerados</p>
+              <ul class="list">
+                <li><strong>1–4:</strong> entidades (USUARIO, EMPRESTIMO, LIVRO, AUTOR).</li>
+                <li><strong>5–7:</strong> relacionamentos (REALIZA, INCLUI, ESCREVE).</li>
+                <li><strong>8, 10, 12, 13:</strong> identificadores (atributos-chave) das entidades.</li>
+                <li><strong>9:</strong> atributo multivalorado (Telefone).</li>
+                <li><strong>11:</strong> atributo derivado (Atrasado).</li>
+              </ul>
+              <p class="hint">
+                As letras/numerações ajudam a explicar o modelo. O que manda é a regra do domínio.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Leitura</span>
+            <h2>Exemplo ER — Clínica (1:N)</h2>
+            <div class="panel">
+              <div class="er-figure">
+                <img class="er-image" src="assets/er-clinica.svg?v=1" alt="Diagrama ER simples: Cliente possui Pet com cardinalidade 1 para N" />
+              </div>
+              <p class="hint">
+                Abrir direto:
+                <a href="assets/er-clinica.svg" target="_blank" rel="noopener">er-clinica.svg</a>
+              </p>
+            </div>
+            <div class="panel">
+              <p class="big">Explicando cada parte</p>
+              <ul class="list">
+                <li><strong>Entidades:</strong> CLIENTE e PET (o que queremos cadastrar).</li>
+                <li><strong>Relacionamento:</strong> POSSUI (regra do domínio).</li>
+                <li><strong>Cardinalidade 1:N:</strong> um cliente pode ter vários pets; cada pet pertence a um cliente.</li>
+                <li><strong>Identificadores:</strong> ID_Cliente e ID_Pet distinguem cada instância.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Como identificar</span>
+            <h2>Entidade ou atributo?</h2>
+            <div class="panel">
+              <p class="big">Perguntas rápidas para decidir:</p>
+              <ul class="list">
+                <li>Isso tem <strong>vários atributos</strong> próprios? Então tende a ser entidade.</li>
+                <li>Isso pode aparecer em <strong>várias ocorrências</strong>? Então tende a ser entidade.</li>
+                <li>Isso precisa de <strong>histórico</strong> ou regras próprias? Entidade.</li>
+                <li>Isso é apenas uma “característica” de outra coisa? Atributo.</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <p class="big">Exemplo (Biblioteca)</p>
+              <ul class="list">
+                <li><strong>Livro</strong> (entidade): Título, Ano, ISBN.</li>
+                <li><strong>Autor</strong> (entidade): Nome, Nacionalidade.</li>
+                <li><strong>Telefone</strong> (atributo) do Usuário.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Cardinalidade</span>
+            <h2>1:1, 1:N e N:M</h2>
+            <div class="panel">
+              <p class="big">Cardinalidade responde: “quantos X se relacionam com um Y?”</p>
+              <table class="table" aria-label="Exemplos de cardinalidade">
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Exemplo</th>
+                    <th>Interpretação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1:1</td>
+                    <td>Pessoa — RG</td>
+                    <td>Uma pessoa tem um RG; um RG pertence a uma pessoa.</td>
+                  </tr>
+                  <tr>
+                    <td>1:N</td>
+                    <td>Cliente — Pedido</td>
+                    <td>Um cliente faz muitos pedidos; cada pedido é de um cliente.</td>
+                  </tr>
+                  <tr>
+                    <td>N:M</td>
+                    <td>Aluno — Disciplina</td>
+                    <td>Um aluno cursa muitas disciplinas; uma disciplina tem muitos alunos.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">N:M costuma virar “tabela associativa” no relacional (aula de mapeamento).</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Participação</span>
+            <h2>Obrigatório ou opcional?</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Obrigatório</p>
+                <p>Todo registro deve participar do relacionamento.</p>
+                <p class="muted">Ex.: todo Empréstimo precisa ter um Usuário.</p>
+              </div>
+              <div>
+                <p class="big">Opcional</p>
+                <p>O registro pode existir sem se relacionar.</p>
+                <p class="muted">Ex.: um Cliente pode existir sem ter Pedido (ainda).</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">
+                Dica: escreva frases com “deve” (obrigatório) e “pode” (opcional) para decidir.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Identificadores</span>
+            <h2>Como reconhecer cada entidade?</h2>
+            <div class="panel">
+              <p class="big">
+                Em ER, definimos um identificador para distinguir instâncias (futura <strong>PK</strong>).
+              </p>
+              <ul class="list">
+                <li><strong>ID_Usuario</strong> para Usuário</li>
+                <li><strong>ISBN</strong> para Livro (quando existir)</li>
+                <li><strong>ID_Emprestimo</strong> para Empréstimo</li>
+              </ul>
+              <p class="hint">
+                Analogia: matrícula/crachá. Nomes podem repetir; identificadores não devem repetir.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Exemplo guiado</span>
+            <h2>Biblioteca: primeira versão do ER</h2>
+            <div class="panel">
+              <p class="big">Entidades sugeridas</p>
+              <ul class="list">
+                <li><strong>USUARIO</strong> (ID_Usuario, Nome, Telefone)</li>
+                <li><strong>LIVRO</strong> (ISBN, Titulo, Ano)</li>
+                <li><strong>AUTOR</strong> (ID_Autor, Nome)</li>
+                <li><strong>EMPRESTIMO</strong> (ID_Emprestimo, Data, Data_Devolucao)</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <p class="big">Relacionamentos (perguntas para decidir cardinalidade)</p>
+              <ul class="list">
+                <li>Usuário <strong>realiza</strong> Empréstimo: um usuário pode ter muitos empréstimos?</li>
+                <li>Empréstimo <strong>inclui</strong> Livro: um empréstimo pode ter mais de um livro?</li>
+                <li>Autor <strong>escreve</strong> Livro: um livro pode ter mais de um autor?</li>
+              </ul>
+              <p class="hint">
+                O texto do cenário define as respostas; o ER deve refletir as regras do domínio.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Em grupos (35 min)</span>
+            <h2>Atividade 1: Extrair ER a partir de um texto</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Regras</p>
+                <ul class="list">
+                  <li>Grupos de <strong>4–5</strong> pessoas.</li>
+                  <li>Post-it cor A = <strong>Entidades</strong>.</li>
+                  <li>Post-it cor B = <strong>Relacionamentos</strong>.</li>
+                  <li>Cartões = <strong>atributos</strong> e identificadores.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Entrega</p>
+                <ul class="list">
+                  <li>Diagrama ER em papel ou no quadro.</li>
+                  <li>Cardinalidades explícitas (1:1, 1:N, N:M).</li>
+                  <li>Identificador para cada entidade.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="big">Roteiro de trabalho</p>
+              <ul class="list">
+                <li>Sublinhar substantivos (possíveis entidades) e verbos (relacionamentos).</li>
+                <li>Listar atributos por entidade (o que precisa ser guardado).</li>
+                <li>Escrever as frases do domínio e decidir cardinalidades.</li>
+                <li>Desenhar a versão 1 e depois simplificar (remover duplicações).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Apresentações (25 min)</span>
+            <h2>Socialização e correções</h2>
+            <div class="panel">
+              <p class="big">Checklist rápido de qualidade</p>
+              <ul class="list">
+                <li>Entidades estão bem nomeadas? (singular, claro)</li>
+                <li>Atributos não viraram entidades sem necessidade?</li>
+                <li>Cardinalidades batem com o texto?</li>
+                <li>Há identificadores para todas as entidades?</li>
+                <li>Relacionamentos N:M foram reconhecidos?</li>
+              </ul>
+              <p class="hint">Objetivo: chegar em um ER “de referência” da turma.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Ponte</span>
+            <h2>Do ER para o relacional</h2>
+            <div class="panel">
+              <p class="big">
+                O ER não é o fim: ele vai virar tabelas. Na próxima etapa do curso:
+              </p>
+              <ul class="list">
+                <li>Atributos viram <strong>colunas</strong>.</li>
+                <li>Identificadores viram <strong>PK</strong>.</li>
+                <li>Relacionamentos viram <strong>FK</strong> ou <strong>tabelas associativas</strong>.</li>
+              </ul>
+              <p class="hint">É aqui que erros no ER viram dores no SQL.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Materiais</span>
+            <h2>Plano de aula (PDF)</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>
+                  <strong>Plano de aula (PDF):</strong>
+                  <a href="../00-Admin/A02_Plano_de_Aula_Modelo_Entidade_Relacionamento.pdf" target="_blank" rel="noopener">
+                    A02_Plano_de_Aula_Modelo_Entidade_Relacionamento.pdf
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Traga um cenário real do seu curso/empresa para modelarmos juntos.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
             </div>
           </div>
         </div>
+      </footer>
+    </div>
 
-        <div class="card">
-          <p class="notice"><strong>Materiais</strong></p>
-          <ul class="list">
-            <li>
-              <strong>Plano de aula (PDF):</strong>
-              <a
-                href="../00-Admin/A02_Plano_de_Aula_Modelo_Entidade_Relacionamento.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                A02_Plano_de_Aula_Modelo_Entidade_Relacionamento.pdf
-              </a>
-            </li>
-          </ul>
-        </div>
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
 
-        <div class="card">
-          <p class="notice">
-            Coloque os materiais desta aula na pasta local correspondente e, se desejar, eu
-            organizo a página para listar automaticamente os arquivos publicados.
-          </p>
-        </div>
-      </section>
-    </main>
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Banco de Dados 1`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
   </body>
 </html>

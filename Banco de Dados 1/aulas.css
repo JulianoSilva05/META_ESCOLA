@@ -397,3 +397,23 @@ a:hover {
   color: rgba(255, 255, 255, 0.88);
   font-size: 1.02rem;
 }
+
+.er-figure {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.2);
+  max-height: 56vh;
+  display: grid;
+  place-items: center;
+}
+
+.er-image {
+  width: 100%;
+  height: auto;
+  max-height: 56vh;
+  object-fit: contain;
+  display: block;
+}
