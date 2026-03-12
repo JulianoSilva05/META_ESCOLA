@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 5 - Prototipagem de Interfaces de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 5 • Prototipagem</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 5</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 5</span>
+            <h1>Prototipagem de Interfaces de Software</h1>
+            <p class="big">Fluxos, wireframes e protótipos para validar antes de codificar</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Nesta aula, a ideia é reduzir risco validando interface e fluxo cedo.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Explicar por que prototipar diminui retrabalho.</li>
+                <li>Diferenciar protótipo de <strong>baixa</strong> e <strong>alta fidelidade</strong>.</li>
+                <li>Montar um <strong>fluxo</strong> e um <strong>wireframe</strong>.</li>
+                <li>Definir perguntas de validação com usuários.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Por que prototipar?</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Antes do código</p>
+                <ul class="list">
+                  <li>Explorar alternativas de solução.</li>
+                  <li>Comunicar e alinhar expectativas.</li>
+                  <li>Detectar falhas de usabilidade cedo.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Depois do código</p>
+                <ul class="list">
+                  <li>Mudanças custam mais caro.</li>
+                  <li>Mais risco de retrabalho e atraso.</li>
+                  <li>Mais bugs em alterações rápidas.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Protótipo é uma ferramenta de engenharia: reduzir risco e aumentar entendimento.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Tipos</span>
+            <h2>Baixa x alta fidelidade</h2>
+            <div class="panel">
+              <table class="table" aria-label="Fidelidade de protótipos">
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Características</th>
+                    <th>Uso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Baixa fidelidade</td>
+                    <td>Rápido, simples, papel/quadro</td>
+                    <td>Explorar ideias e fluxos</td>
+                  </tr>
+                  <tr>
+                    <td>Média fidelidade</td>
+                    <td>Wireframes mais detalhados</td>
+                    <td>Validar layout e navegação</td>
+                  </tr>
+                  <tr>
+                    <td>Alta fidelidade</td>
+                    <td>Visual próximo do final</td>
+                    <td>Testar experiência e detalhes</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">A fidelidade deve acompanhar a incerteza: mais dúvida → protótipo mais simples.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fluxo</span>
+            <h2>Fluxo de telas (navegação)</h2>
+            <div class="panel">
+              <p class="big">Perguntas que o fluxo responde</p>
+              <ul class="list">
+                <li>Qual é a primeira ação do usuário?</li>
+                <li>Para onde ele vai depois?</li>
+                <li>Quais estados existem (sucesso, erro, vazio)?</li>
+                <li>Quais dados são necessários em cada etapa?</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Wireframe</span>
+            <h2>Wireframe: tela sem estética</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Priorize hierarquia: o que o usuário precisa ver primeiro?</li>
+                <li>Use componentes simples: botões, campos, listas.</li>
+                <li>Indique mensagens e validações (ex.: erro de campo).</li>
+              </ul>
+              <p class="hint">Wireframe foca em estrutura e interação, não em cores e fontes.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Protótipo do “app organizador”</h2>
+            <div class="panel">
+              <p class="big">Em grupo (15–20 min)</p>
+              <ul class="list">
+                <li>Escolha 1 funcionalidade (ex.: lembrete de prova).</li>
+                <li>Desenhe o fluxo mínimo (3–5 telas).</li>
+                <li>Faça 1 wireframe da tela principal.</li>
+                <li>Escreva 3 perguntas de validação com usuário.</li>
+              </ul>
+              <p class="hint">Objetivo: validar entendimento do requisito com o menor custo possível.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: modelagem (UML) e como representar estrutura e comportamento.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

@@ -43,5 +43,23 @@
       </a>
     </template>
   </body>
+
+    <dialog
+      class="modal"
+      data-topics-modal
+      aria-labelledby="topics-modal-title"
+    >
+      <div class="modal__header">
+        <div class="modal__title" id="topics-modal-title" data-topics-modal-title>
+          —
+        </div>
+        <button class="modal__close" type="button" data-topics-modal-close>
+          Fechar
+        </button>
+      </div>
+      <div class="modal__content">
+        <ul class="modal__list" data-topics-modal-list></ul>
+      </div>
+    </dialog>
 </html>
 

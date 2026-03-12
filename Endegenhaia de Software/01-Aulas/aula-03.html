@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 3 - Desenvolvimento Ágil</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 3 • Desenvolvimento Ágil</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 3</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 3</span>
+            <h1>Desenvolvimento Ágil</h1>
+            <p class="big">Scrum, Kanban e práticas para lidar com mudança</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Nesta aula, vamos conectar “métodos” e “processos” com práticas ágeis.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Entender o que significa trabalhar de forma <strong>iterativa</strong> e <strong>incremental</strong>.</li>
+                <li>Montar um <strong>backlog</strong> e priorizar por valor.</li>
+                <li>Conhecer práticas de <strong>Scrum</strong> e <strong>Kanban</strong>.</li>
+                <li>Identificar riscos: “falso ágil”, falta de definição de pronto, trabalho escondido.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Iterativo x incremental</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Incremental</p>
+                <p>Entrega partes do produto com valor (incrementos).</p>
+                <p class="muted">Ex.: primeiro cadastro, depois relatórios, depois integrações.</p>
+              </div>
+              <div>
+                <p class="big">Iterativo</p>
+                <p>Refina a solução em ciclos de aprendizado.</p>
+                <p class="muted">Ex.: protótipo → feedback → ajuste → nova versão.</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Ágil combina os dois: entregar valor e aprender rápido com mudanças.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Prática</span>
+            <h2>Backlog: transformar problema em trabalho</h2>
+            <div class="panel">
+              <p class="big">Estrutura mínima</p>
+              <ul class="list">
+                <li><strong>Itens:</strong> funcionalidades, melhorias, correções.</li>
+                <li><strong>Prioridade:</strong> valor + risco + dependências.</li>
+                <li><strong>Critérios de aceitação:</strong> o que define “pronto”.</li>
+              </ul>
+              <p class="hint">Sem critérios de aceitação, o time diverge e o retrabalho aumenta.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Scrum</span>
+            <h2>O básico para rodar um sprint</h2>
+            <div class="panel">
+              <table class="table" aria-label="Scrum em resumo">
+                <thead>
+                  <tr>
+                    <th>Elemento</th>
+                    <th>Para que serve</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Product Backlog</td>
+                    <td>Lista priorizada do que gerar valor</td>
+                  </tr>
+                  <tr>
+                    <td>Sprint (1–4 semanas)</td>
+                    <td>Ciclo com entrega de incremento</td>
+                  </tr>
+                  <tr>
+                    <td>Daily</td>
+                    <td>Sincronizar e remover impedimentos</td>
+                  </tr>
+                  <tr>
+                    <td>Review</td>
+                    <td>Inspecionar o incremento com stakeholders</td>
+                  </tr>
+                  <tr>
+                    <td>Retrospectiva</td>
+                    <td>Melhorar o processo de trabalho</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Kanban</span>
+            <h2>Fluxo contínuo e limites de trabalho</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Quadro</p>
+                <ul class="list">
+                  <li>A fazer</li>
+                  <li>Em andamento</li>
+                  <li>Em revisão</li>
+                  <li>Concluído</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">WIP limit</p>
+                <p>Limitar trabalho em andamento reduz multitarefa e aumenta previsibilidade.</p>
+                <p class="muted">Menos itens abertos → mais itens terminados.</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Kanban é excelente para suporte, manutenção e fluxos com entrada contínua.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Monte o backlog e o quadro</h2>
+            <div class="panel">
+              <p class="big">Em grupo (10–15 min)</p>
+              <ul class="list">
+                <li>Escreva 8 itens de backlog para o “app organizador da escola”.</li>
+                <li>Priorize os 3 primeiros e defina critérios de aceitação.</li>
+                <li>Monte um quadro Kanban e mova 2 itens até “Concluído”.</li>
+              </ul>
+              <p class="hint">Objetivo: ver como processo + método reduzem erros e retrabalho.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: requisitos — como descobrir e validar o que precisa ser feito.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

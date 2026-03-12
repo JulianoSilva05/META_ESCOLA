@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 1 - Introdução à Engenharia de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 1 • Apresentação</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 1</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 1</span>
+            <h1>Introdução à Engenharia de Software</h1>
+            <p class="big">Conceitos fundamentais e visão do processo</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Usaremos este livro como referência ao longo das aulas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>Ao final da aula, você será capaz de</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Entender o que é Engenharia de Software.</li>
+                <li>Compreender por que software precisa ser planejado.</li>
+                <li>Identificar problemas causados por falta de organização.</li>
+                <li>Reconhecer sinais de imaturidade e riscos em projetos.</li>
+                <li>Conhecer etapas básicas para criar um software.</li>
+                <li>Trabalhar em equipe para pensar soluções.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Quebra-gelo</span>
+            <h2>Apps do dia a dia</h2>
+            <div class="panel">
+              <p class="big">Pergunta</p>
+              <p>“Quais aplicativos vocês mais usam no celular todos os dias?”</p>
+              <p class="big">Pergunta de conexão</p>
+              <p>“Vocês acham que esses aplicativos foram feitos por apenas uma pessoa?”</p>
+              <p class="hint">
+                Gancho: aplicativos reais exigem times e organização. A área que ajuda a planejar e coordenar esse trabalho
+                é Engenharia de Software.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>O que é Engenharia de Software?</h2>
+            <div class="panel">
+              <p class="big">Definição</p>
+              <p>
+                Engenharia de Software é a área responsável por <strong>planejar</strong>, <strong>organizar</strong>,
+                <strong>desenvolver</strong>, <strong>testar</strong> e <strong>manter</strong> softwares.
+              </p>
+              <p class="hint">Programar é uma parte do processo, mas não é o processo inteiro.</p>
+              <p class="big">Em uma frase</p>
+              <p>
+                Conjunto de métodos, técnicas e boas práticas para criar <strong>softwares de qualidade</strong>,
+                com prazo e atendendo o que o cliente precisa.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Importância</span>
+            <h2>Por que planejamento importa?</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Analogia: construir uma casa</p>
+                <ul class="list">
+                  <li>Planta</li>
+                  <li>Engenheiro</li>
+                  <li>Materiais</li>
+                  <li>Cronograma</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Sem planejamento, em software</p>
+                <ul class="list">
+                  <li>Atrasos e entregas incompletas</li>
+                  <li>Erros, falhas e retrabalho</li>
+                  <li>Desperdício de tempo</li>
+                  <li>Software que não atende o cliente</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Produção</span>
+            <h2>Software é produzido por organizações</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Quando cresce, complica</p>
+                <ul class="list">
+                  <li>Escala: mais módulos, integrações e dependências.</li>
+                  <li>Comunicação: mais pessoas, mais alinhamentos necessários.</li>
+                  <li>Compromissos: prazo, custo, escopo e qualidade competem.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Engenharia organiza</p>
+                <ul class="list">
+                  <li>Processos e papéis claros.</li>
+                  <li>Artefatos: requisitos, modelos, testes, documentação.</li>
+                  <li>Controle de mudanças e acompanhamento do trabalho.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">A ideia é reduzir o “caos” típico quando um software passa de pequeno para grande.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Riscos</span>
+            <h2>Erros clássicos quando falta processo</h2>
+            <div class="panel">
+              <p class="big">Quatro fontes comuns</p>
+              <ul class="list">
+                <li><strong>Produto:</strong> escopo mal definido, requisitos vagos, expectativa desalinhada.</li>
+                <li><strong>Processo:</strong> trabalho sem visibilidade, ausência de critérios de pronto, retrabalho.</li>
+                <li><strong>Pessoas:</strong> comunicação fraca, papéis confusos, decisões centralizadas demais.</li>
+                <li><strong>Tecnologia:</strong> escolhas apressadas, integrações não planejadas, dívida técnica.</li>
+              </ul>
+              <p class="hint">A engenharia de software tenta prevenir esses erros com planejamento e disciplina.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Discussão</span>
+            <h2>O caso do estoque</h2>
+            <div class="panel">
+              <p class="big">Cenário</p>
+              <p>
+                Um programador começou a criar um sistema de controle de estoque sem perguntar nada. Ao entregar, o cliente
+                disse que faltou:
+              </p>
+              <ul class="list">
+                <li>Cadastro de fornecedores</li>
+                <li>Controle de entrada e saída</li>
+                <li>Relatórios</li>
+                <li>Login</li>
+              </ul>
+              <p class="big">Pergunta</p>
+              <p>Qual foi o erro do programador?</p>
+              <p class="hint">Resposta esperada: não levantou e validou os <strong>requisitos</strong> antes de programar.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Etapas</span>
+            <h2>Como um software normalmente é construído</h2>
+            <div class="panel">
+              <table class="table" aria-label="Etapas do desenvolvimento de software">
+                <thead>
+                  <tr>
+                    <th>Etapa</th>
+                    <th>Objetivo</th>
+                    <th>Exemplo de saída</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1. Requisitos</td>
+                    <td>Entender o que o sistema precisa fazer</td>
+                    <td>Lista de funcionalidades e regras</td>
+                  </tr>
+                  <tr>
+                    <td>2. Análise</td>
+                    <td>Entender como o sistema vai funcionar</td>
+                    <td>Fluxos e regras detalhadas</td>
+                  </tr>
+                  <tr>
+                    <td>3. Projeto</td>
+                    <td>Planejar a estrutura e a solução</td>
+                    <td>Telas, arquitetura, banco de dados</td>
+                  </tr>
+                  <tr>
+                    <td>4. Implementação</td>
+                    <td>Escrever o código</td>
+                    <td>Aplicação funcionando</td>
+                  </tr>
+                  <tr>
+                    <td>5. Testes</td>
+                    <td>Verificar se está correto</td>
+                    <td>Casos de teste e correções</td>
+                  </tr>
+                  <tr>
+                    <td>6. Manutenção</td>
+                    <td>Corrigir e evoluir após entrega</td>
+                    <td>Atualizações e melhorias</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Exemplo (biblioteca): cadastrar livros, usuários, registrar empréstimos e gerar relatórios.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Time</span>
+            <h2>Quem participa de um projeto?</h2>
+            <div class="panel">
+              <table class="table" aria-label="Papéis em um time de software">
+                <thead>
+                  <tr>
+                    <th>Papel</th>
+                    <th>Foco</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Analista de Sistemas</td>
+                    <td>Entender o problema e definir regras e requisitos</td>
+                  </tr>
+                  <tr>
+                    <td>Desenvolvedor</td>
+                    <td>Implementar funcionalidades no código</td>
+                  </tr>
+                  <tr>
+                    <td>QA / Testador</td>
+                    <td>Validar, encontrar falhas e garantir qualidade</td>
+                  </tr>
+                  <tr>
+                    <td>Designer</td>
+                    <td>Criar a interface e melhorar a experiência do usuário</td>
+                  </tr>
+                  <tr>
+                    <td>Gerente de Projeto</td>
+                    <td>Planejar, acompanhar e remover impedimentos</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Ideia de aplicativo (em grupo)</h2>
+            <div class="panel">
+              <p class="big">Desafio</p>
+              <p>Criar a ideia de um aplicativo simples que resolva um problema do dia a dia (papel e lápis).</p>
+              <p class="big">Problema proposto</p>
+              <p>Alunos esquecem materiais, trabalhos, datas de prova e horários de aula.</p>
+              <p class="big">O grupo deve entregar</p>
+              <ul class="list">
+                <li>Nome do aplicativo</li>
+                <li>Problema que resolve (descrição)</li>
+                <li>Quem usaria (público-alvo)</li>
+                <li>Principais funções</li>
+                <li>Desenho de uma tela (wireframe)</li>
+              </ul>
+              <p class="hint">Dica: escreva as funções como verbos (ex.: cadastrar tarefas, enviar alertas, mostrar calendário).</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Apresentação</span>
+            <h2>Mostre sua solução</h2>
+            <div class="panel">
+              <p>Cada grupo terá 2–3 minutos para apresentar:</p>
+              <ul class="list">
+                <li>Nome do aplicativo</li>
+                <li>Problema resolvido</li>
+                <li>Funcionalidades</li>
+                <li>Wireframe da tela</li>
+              </ul>
+              <p class="hint">
+                Identificar problema, pensar solução, definir funcionalidades e planejar interface já é aplicar Engenharia de Software.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fechamento</span>
+            <h2>O que fica da aula de hoje</h2>
+            <div class="panel">
+              <p class="big">Mensagem principal</p>
+              <p>
+                Desenvolver software não é apenas programar. Antes do código existem etapas essenciais: entender o problema,
+                planejar, organizar e testar.
+              </p>
+              <p class="big">Pergunta final</p>
+              <p>“O que vocês acham que acontece quando um software é criado sem planejamento?”</p>
+              <p class="hint">Próximos encontros: requisitos, modelagem, UML, métodos ágeis e qualidade.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Melhorias</span>
+            <h2>Sugestões para deixar a aula mais forte</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Mini-projeto: 3 requisitos funcionais + 3 não funcionais + critérios de aceitação.</li>
+                <li>Rubrica rápida (0–2 por item): problema, público-alvo, funções, wireframe, apresentação.</li>
+                <li>Timebox por etapas (10/10/10/10) para garantir entrega.</li>
+                <li>Feedback cruzado: 2 elogios + 1 sugestão entre grupos.</li>
+                <li>Tarefa: 5 histórias de usuário + lista de riscos do app.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Traga um exemplo de app e vamos mapear requisitos juntos.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 8 - Planejamento e Gerenciamento de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 8 • Planejamento e Gerenciamento</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 8</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 8</span>
+            <h1>Planejamento e Gerenciamento de Software</h1>
+            <p class="big">Estimativas, riscos, controle de mudanças e acompanhamento</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Nesta aula, foco em organização do trabalho, riscos e gestão de alterações.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Planejar entregas com base em escopo, prioridades e dependências.</li>
+                <li>Estimar esforço com incerteza (trabalhar com faixas).</li>
+                <li>Identificar e tratar riscos antes de virarem crises.</li>
+                <li>Controlar mudanças e acompanhar progresso com sinais simples.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Motivação</span>
+            <h2>Por que projetos “desandam”?</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Forças de caos</p>
+                <ul class="list">
+                  <li>Mudanças frequentes e urgentes.</li>
+                  <li>Escala (tamanho e complexidade).</li>
+                  <li>Problemas de comunicação.</li>
+                  <li>Pressão por prazo e custo.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Gerência reduz risco</p>
+                <ul class="list">
+                  <li>Planeja o que vem primeiro (valor).</li>
+                  <li>Dá visibilidade do trabalho em andamento.</li>
+                  <li>Monitora riscos e atua cedo.</li>
+                  <li>Controla mudanças com impacto e prioridade.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Plano</span>
+            <h2>Plano mínimo de projeto</h2>
+            <div class="panel">
+              <table class="table" aria-label="Plano mínimo">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Exemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Escopo</td>
+                    <td>Backlog priorizado (o que entra e o que fica fora)</td>
+                  </tr>
+                  <tr>
+                    <td>Entregas</td>
+                    <td>Incrementos por semana/sprint</td>
+                  </tr>
+                  <tr>
+                    <td>Equipe e papéis</td>
+                    <td>Responsáveis por análise, dev, QA</td>
+                  </tr>
+                  <tr>
+                    <td>Riscos</td>
+                    <td>Lista de riscos e ações de mitigação</td>
+                  </tr>
+                  <tr>
+                    <td>Critérios</td>
+                    <td>Definição de pronto + aceitação</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Plano bom não é “grosso”: é claro e atualizável quando o contexto muda.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Estimativa</span>
+            <h2>Estimativa sem ilusão de precisão</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Estime com <strong>faixas</strong> (otimista / provável / pessimista).</li>
+                <li>Separe tamanho (o que precisa ser feito) de esforço (tempo e pessoas).</li>
+                <li>Use histórico quando existir; se não existir, faça pequenas entregas para aprender rápido.</li>
+              </ul>
+              <p class="hint">Quando a incerteza é alta, a melhor “estimativa” é reduzir o risco com protótipo e incremento.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Riscos</span>
+            <h2>Risco: identificar, priorizar, mitigar</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Exemplos</p>
+                <ul class="list">
+                  <li>Requisito crítico mal entendido.</li>
+                  <li>Integração externa instável.</li>
+                  <li>Equipe sem experiência na tecnologia.</li>
+                  <li>Dependência de uma pessoa só.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Ações</p>
+                <ul class="list">
+                  <li>Prototipar e validar cedo.</li>
+                  <li>Fazer spike técnico (prova de conceito).</li>
+                  <li>Automatizar testes e build.</li>
+                  <li>Documentar decisões e treinar o time.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Risco não some sozinho: ou você atua cedo, ou vira crise tarde.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Mudanças</span>
+            <h2>Controle de alterações</h2>
+            <div class="panel">
+              <p class="big">Fluxo simples</p>
+              <ul class="list">
+                <li>Registrar solicitação (o que mudou e por quê).</li>
+                <li>Analisar impacto (prazo, custo, qualidade, risco).</li>
+                <li>Priorizar (valor e urgência).</li>
+                <li>Atualizar plano e comunicar decisão.</li>
+              </ul>
+              <p class="hint">Sem controle de mudanças, o escopo cresce e o prazo “escapa” sem perceber.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Monte um plano mínimo</h2>
+            <div class="panel">
+              <p class="big">Em grupo (15–20 min)</p>
+              <ul class="list">
+                <li>Escolha 6 itens de backlog do “app organizador” e priorize.</li>
+                <li>Quebre em tarefas (WBS leve) e estime com faixas.</li>
+                <li>Liste 5 riscos e 1 ação de mitigação para cada.</li>
+                <li>Defina 3 critérios de “pronto” para uma entrega.</li>
+              </ul>
+              <p class="hint">Objetivo: deixar trabalho visível e reduzir surpresa no final.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: qualidade de software — produto e processo.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

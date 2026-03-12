@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 4 - Engenharia de Requisitos</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 4 • Engenharia de Requisitos</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 4</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 4</span>
+            <h1>Engenharia de Requisitos</h1>
+            <p class="big">Elicitação, análise, especificação e validação</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Requisitos são a base para reduzir retrabalho e alinhar expectativa.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Diferenciar <strong>requisitos funcionais</strong> e <strong>não funcionais</strong>.</li>
+                <li>Aplicar um fluxo: elicitar → analisar → especificar → validar.</li>
+                <li>Escrever requisitos testáveis com critérios de aceitação.</li>
+                <li>Reconhecer riscos: ambiguidade, conflito, escopo invisível.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Tipos de requisitos</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Funcionais</p>
+                <p>O que o sistema faz: funcionalidades e regras.</p>
+                <p class="muted">Ex.: cadastrar, buscar, calcular, emitir relatório.</p>
+              </div>
+              <div>
+                <p class="big">Não funcionais</p>
+                <p>Como o sistema deve ser: qualidade e restrições.</p>
+                <p class="muted">Ex.: desempenho, segurança, usabilidade, disponibilidade.</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Requisito bom é claro, necessário, consistente e verificável.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Processo</span>
+            <h2>Um roteiro prático</h2>
+            <div class="panel">
+              <table class="table" aria-label="Etapas de requisitos">
+                <thead>
+                  <tr>
+                    <th>Etapa</th>
+                    <th>O que fazer</th>
+                    <th>Saídas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Elicitação</td>
+                    <td>Entrevistas, observação, análise de documentos</td>
+                    <td>Lista inicial de necessidades</td>
+                  </tr>
+                  <tr>
+                    <td>Análise</td>
+                    <td>Conflitos, prioridades, regras e dependências</td>
+                    <td>Requisitos refinados</td>
+                  </tr>
+                  <tr>
+                    <td>Especificação</td>
+                    <td>Documentar de forma testável</td>
+                    <td>Backlog, casos de uso, SRS</td>
+                  </tr>
+                  <tr>
+                    <td>Validação</td>
+                    <td>Revisões e aceitação com stakeholders</td>
+                    <td>Versão aprovada</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Ferramentas</span>
+            <h2>Formatos de especificação (práticos)</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">História de usuário</p>
+                <p>Como &lt;tipo&gt;, eu quero &lt;objetivo&gt; para &lt;benefício&gt;.</p>
+                <p class="muted">+ critérios de aceitação</p>
+              </div>
+              <div>
+                <p class="big">Caso de uso</p>
+                <p>Ator, objetivo, fluxo principal, alternativas, exceções.</p>
+                <p class="muted">Bom para regras e integrações</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">O importante é ser compreensível e permitir validar o requisito com testes.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Escreva requisitos com aceitação</h2>
+            <div class="panel">
+              <p class="big">Em grupo (10–15 min)</p>
+              <ul class="list">
+                <li>Escreva 3 requisitos funcionais do “app organizador”.</li>
+                <li>Escreva 2 requisitos não funcionais (segurança, usabilidade, desempenho).</li>
+                <li>Para cada requisito funcional, crie 2 critérios de aceitação.</li>
+              </ul>
+              <p class="hint">Critério de aceitação deve ser observável: alguém consegue testar e dizer “passou/falhou”.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: prototipagem — como validar interface e fluxo antes de codificar.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

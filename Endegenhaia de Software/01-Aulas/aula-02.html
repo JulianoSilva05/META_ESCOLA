@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 2 - Processo de Desenvolvimento de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 2 • Processo de Desenvolvimento</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 2</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 2</span>
+            <h1>Processo de Desenvolvimento de Software</h1>
+            <p class="big">Ciclo de vida, fases e modelos de processo</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Usaremos este livro como referência ao longo das aulas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Entender o que é um <strong>processo de software</strong>.</li>
+                <li>Distinguir <strong>processo</strong>, <strong>método</strong> e <strong>ferramenta</strong>.</li>
+                <li>Comparar modelos de ciclo de vida (cascata, incremental, iterativo).</li>
+                <li>Identificar <strong>papéis</strong>, <strong>atividades</strong> e <strong>artefatos</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Motivação</span>
+            <h2>Por que processos existem?</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Quando o projeto cresce</p>
+                <ul class="list">
+                  <li>Mais pessoas e mais comunicação.</li>
+                  <li>Mais dependências e mais riscos.</li>
+                  <li>Mais mudanças e mais retrabalho.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">O processo ajuda a</p>
+                <ul class="list">
+                  <li>Organizar o trabalho e as entregas.</li>
+                  <li>Reduzir erros repetidos (“erros clássicos”).</li>
+                  <li>Dar previsibilidade para prazo e qualidade.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Ideia central: sem um processo, o time vira “reativo” e a qualidade cai.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Componentes de um processo</h2>
+            <div class="panel">
+              <ul class="list">
+                <li><strong>Atividades:</strong> o que fazer (ex.: especificar requisitos, testar).</li>
+                <li><strong>Papéis:</strong> quem faz (ex.: analista, dev, QA, gerente).</li>
+                <li><strong>Artefatos:</strong> o que é produzido (ex.: backlog, modelos, código, casos de teste).</li>
+                <li><strong>Critérios:</strong> quando considerar “pronto” (definição de pronto/aceitação).</li>
+              </ul>
+              <p class="hint">
+                Um processo descreve o fluxo de trabalho e as regras de passagem entre etapas (com qualidade e controle).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Visão</span>
+            <h2>Processo, método e ferramenta</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Processo</p>
+                <p>Define <strong>como</strong> o trabalho flui: atividades, papéis, artefatos e critérios.</p>
+                <p class="muted">Ex.: como requisitos viram projeto, código e teste.</p>
+              </div>
+              <div>
+                <p class="big">Método + ferramenta</p>
+                <p>
+                  Método define <strong>técnicas</strong> (ex.: Scrum, XP, UML). Ferramenta apoia a execução (ex.: tracker,
+                  repositório, CI).
+                </p>
+                <p class="muted">Método sem processo vira “ritual”; ferramenta sem método vira “cadastro”.</p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Melhoria de processos aumenta previsibilidade e reduz erros clássicos do produto e do time.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Ciclo de vida</span>
+            <h2>Modelos mais comuns</h2>
+            <div class="panel">
+              <table class="table" aria-label="Modelos de processo">
+                <thead>
+                  <tr>
+                    <th>Modelo</th>
+                    <th>Como funciona</th>
+                    <th>Quando faz sentido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Cascata</td>
+                    <td>Fases sequenciais</td>
+                    <td>Escopo estável e alta previsibilidade</td>
+                  </tr>
+                  <tr>
+                    <td>Incremental</td>
+                    <td>Entrega por partes (incrementos)</td>
+                    <td>Valor cedo e evolução gradual</td>
+                  </tr>
+                  <tr>
+                    <td>Iterativo</td>
+                    <td>Evolui por ciclos de aprendizado</td>
+                    <td>Requisitos incertos, descoberta contínua</td>
+                  </tr>
+                  <tr>
+                    <td>Espiral</td>
+                    <td>Ciclos guiados por riscos</td>
+                    <td>Projetos com alto risco e complexidade</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Não existe modelo “perfeito”: escolha depende de risco, equipe, domínio e mudanças.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Prática</span>
+            <h2>Atividade rápida: compare modelos</h2>
+            <div class="panel">
+              <p class="big">Em dupla, responda (5 min)</p>
+              <ul class="list">
+                <li>Qual modelo entrega valor mais cedo?</li>
+                <li>Qual modelo lida melhor com mudanças frequentes?</li>
+                <li>Qual modelo é mais fácil de gerenciar em escopo fixo?</li>
+              </ul>
+              <p class="hint">Compartilhe 1 conclusão e 1 risco de cada modelo.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: desenvolvimento ágil e como organizar entregas em ciclos curtos.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

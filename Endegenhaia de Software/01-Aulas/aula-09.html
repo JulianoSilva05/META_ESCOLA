@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 9 - Qualidade de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 9 • Qualidade</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 9</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 9</span>
+            <h1>Qualidade de Software</h1>
+            <p class="big">Métricas, qualidade de produto e qualidade de processo</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Qualidade é tratada tanto no produto quanto na organização e nos processos.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Diferenciar qualidade de <strong>produto</strong> e de <strong>processo</strong>.</li>
+                <li>Definir critérios de qualidade e formas de verificação.</li>
+                <li>Escolher métricas úteis (e evitar métricas “de vaidade”).</li>
+                <li>Entender melhoria contínua e sintomas de imaturidade.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Qualidade não é “só testar”</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Produto</p>
+                <ul class="list">
+                  <li>Correto e confiável (funciona).</li>
+                  <li>Usável (pessoas conseguem usar).</li>
+                  <li>Seguro (protege dados).</li>
+                  <li>Manutenível (fácil de evoluir).</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Processo</p>
+                <ul class="list">
+                  <li>Trabalho visível e previsível.</li>
+                  <li>Controle de mudanças e decisões.</li>
+                  <li>Revisões e validações em etapas.</li>
+                  <li>Aprendizado e melhoria contínua.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Qualidade de produto sem processo vira sorte. Processo sem produto vira burocracia.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Garantia</span>
+            <h2>Como “construir” qualidade</h2>
+            <div class="panel">
+              <table class="table" aria-label="Qualidade na prática">
+                <thead>
+                  <tr>
+                    <th>Prática</th>
+                    <th>O que reduz</th>
+                    <th>Exemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Requisitos claros</td>
+                    <td>Ambiguidade e retrabalho</td>
+                    <td>Critérios de aceitação</td>
+                  </tr>
+                  <tr>
+                    <td>Modelagem e revisão</td>
+                    <td>Erros de entendimento</td>
+                    <td>Casos de uso e classes</td>
+                  </tr>
+                  <tr>
+                    <td>Testes</td>
+                    <td>Falhas em execução</td>
+                    <td>Unitário → sistema</td>
+                  </tr>
+                  <tr>
+                    <td>Gestão de mudanças</td>
+                    <td>Escopo descontrolado</td>
+                    <td>Análise de impacto</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Qualidade é uma combinação de prevenção + detecção + aprendizado.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Métricas</span>
+            <h2>Medir para melhorar (não para punir)</h2>
+            <div class="panel">
+              <p class="big">Regras simples</p>
+              <ul class="list">
+                <li>Métrica deve orientar decisão (o que faremos diferente?).</li>
+                <li>Evite métricas que incentivam “jogo” (ex.: linhas de código).</li>
+                <li>Combine <strong>produto</strong> (defeitos, performance) e <strong>processo</strong> (lead time, retrabalho).</li>
+              </ul>
+              <p class="big">Exemplos úteis</p>
+              <ul class="list">
+                <li>Taxa de defeitos por entrega / por módulo.</li>
+                <li>Tempo médio para corrigir falhas.</li>
+                <li>Percentual de trabalho refeito.</li>
+                <li>Tempo de ciclo (do “a fazer” ao “concluído”).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Melhoria</span>
+            <h2>Sintomas de imaturidade</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Sinais</p>
+                <ul class="list">
+                  <li>Crises frequentes perto da entrega.</li>
+                  <li>Requisitos mudam sem controle.</li>
+                  <li>Qualidade varia muito entre versões.</li>
+                  <li>Dependência de “heróis” do time.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Ajustes</p>
+                <ul class="list">
+                  <li>Padronizar práticas mínimas.</li>
+                  <li>Revisões e checklists curtos.</li>
+                  <li>Automação (build/test) quando possível.</li>
+                  <li>Treinar e documentar decisões.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Melhoria é contínua: pequenos passos consistentes geram maturidade.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Defina qualidade e métricas</h2>
+            <div class="panel">
+              <p class="big">Em grupo (10–15 min)</p>
+              <ul class="list">
+                <li>Escolha 4 atributos de qualidade do “app organizador” (ex.: usabilidade, segurança).</li>
+                <li>Para cada atributo, defina 1 critério mensurável (como verificar).</li>
+                <li>Defina 3 métricas de processo (ex.: lead time, retrabalho, bugs por entrega).</li>
+                <li>Liste 2 ações para melhorar a qualidade do time (processo).</li>
+              </ul>
+              <p class="hint">Lembre: métrica boa ajuda a decidir o que melhorar na próxima entrega.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Fechamento</h2>
+            <div class="panel">
+              <p class="big">Qualidade é responsabilidade de todo o time.</p>
+              <p class="hint">Próximo passo: aplicar esses critérios no mini-projeto e revisar a cada entrega.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

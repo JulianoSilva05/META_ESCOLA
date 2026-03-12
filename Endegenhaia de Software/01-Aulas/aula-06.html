@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 6 - Modelagem de Software (UML)</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 6 • Modelagem (UML)</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 6</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 6</span>
+            <h1>Modelagem de Software (UML)</h1>
+            <p class="big">Casos de uso, classes e sequência</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Modelos ajudam a comunicar e analisar antes de implementar.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Explicar para que serve modelagem em projetos de software.</li>
+                <li>Modelar um <strong>caso de uso</strong> (atores e objetivos).</li>
+                <li>Modelar um <strong>diagrama de classes</strong> (estrutura).</li>
+                <li>Modelar um <strong>diagrama de sequência</strong> (interações).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Modelar é reduzir incerteza</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Por que modelar</p>
+                <ul class="list">
+                  <li>Comunicar a solução com clareza.</li>
+                  <li>Analisar regras e dependências.</li>
+                  <li>Evitar decisões erradas cedo.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Risco de “modelar demais”</p>
+                <ul class="list">
+                  <li>Modelo vira fim em si mesmo.</li>
+                  <li>Desalinha com o que é implementado.</li>
+                  <li>Gasta tempo sem gerar valor.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">Regra prática: modele o suficiente para decidir e construir com segurança.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">UML</span>
+            <h2>Três perspectivas úteis</h2>
+            <div class="panel">
+              <table class="table" aria-label="Perspectivas de modelagem">
+                <thead>
+                  <tr>
+                    <th>Perspectiva</th>
+                    <th>O que responde</th>
+                    <th>Diagrama típico</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Requisitos</td>
+                    <td>Quem usa e para quê</td>
+                    <td>Caso de uso</td>
+                  </tr>
+                  <tr>
+                    <td>Estrutura</td>
+                    <td>Quais elementos existem</td>
+                    <td>Classes</td>
+                  </tr>
+                  <tr>
+                    <td>Comportamento</td>
+                    <td>Como interagem no tempo</td>
+                    <td>Sequência / atividades</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Caso de uso</span>
+            <h2>Como escrever bem</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Nome no formato <strong>verbo + objeto</strong> (ex.: “Cadastrar tarefa”).</li>
+                <li>Defina <strong>ator</strong> e <strong>objetivo</strong>.</li>
+                <li>Escreva fluxo principal e alternativas.</li>
+                <li>Inclua pré-condições e pós-condições quando necessário.</li>
+              </ul>
+              <p class="hint">Caso de uso é ótimo para alinhar regra de negócio e variações.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Classes</span>
+            <h2>Estrutura do domínio</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Classe representa um conceito do domínio (ex.: Tarefa, Aluno, Lembrete).</li>
+                <li>Atributos são dados importantes; métodos são responsabilidades.</li>
+                <li>Associações mostram relações e multiplicidades.</li>
+                <li>Evite colocar tudo em uma “classe Deus”.</li>
+              </ul>
+              <p class="hint">Comece pelo domínio e refine com base nos casos de uso.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Sequência</span>
+            <h2>Interação entre objetos</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Mostra mensagens ao longo do tempo para um cenário específico.</li>
+                <li>Ajuda a enxergar responsabilidades e dependências.</li>
+                <li>Bom para detalhar fluxos críticos e integrações.</li>
+              </ul>
+              <p class="hint">Use o fluxo principal do caso de uso como base do cenário.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Modele o “app organizador”</h2>
+            <div class="panel">
+              <p class="big">Em grupo (15–20 min)</p>
+              <ul class="list">
+                <li>1 caso de uso: “Cadastrar tarefa” ou “Criar lembrete”.</li>
+                <li>1 diagrama de classes simples (4–6 classes).</li>
+                <li>1 sequência para o fluxo principal do caso de uso.</li>
+              </ul>
+              <p class="hint">Foco: clareza e consistência com requisitos, não perfeição estética.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: testes — como verificar e garantir qualidade.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

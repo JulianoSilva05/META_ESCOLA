@@ -99,7 +99,89 @@ const appData = {
           id: "esw",
           name: "Engenharia de Software",
           folder: "Endegenhaia de Software",
-          lessons: [],
+          syllabus: {
+            competencies: [
+              "Aplicar princípios da engenharia de software para desenvolvimento de sistemas.",
+              "Utilizar metodologias ágeis para gerenciar projetos de software.",
+              "Compreender conceitos de engenharia de software, processos, modelagem, testes e qualidade.",
+            ],
+            skills: [
+              "Conhecer os conceitos fundamentais da engenharia de software.",
+              "Compreender metodologias de desenvolvimento de software.",
+              "Aprender a elaboração de engenharia de requisitos.",
+              "Conhecer e utilizar a linguagem de especificação UML.",
+              "Utilizar uma ferramenta CASE para análise e projeto.",
+              "Analisar e projetar softwares orientados a objetos.",
+              "Entender e implementar principais tipos de teste de software.",
+              "Aprender abordagens para planejamento e gerenciamento de projetos.",
+              "Conhecer medidas de qualidade de software.",
+            ],
+            topics: [
+              "Introdução à Engenharia de Software",
+              "Processo de Desenvolvimento de Software",
+              "Desenvolvimento Ágil",
+              "Engenharia de Requisitos",
+              "Prototipagem de Interfaces de Software",
+              "Modelagem de Software",
+              "Teste de Software",
+              "Gerenciamento e Planejamento de Software",
+              "Introdução a Qualidade de Software",
+            ],
+            references: [
+              {
+                label:
+                  "Engenharia de software: projetos e processos (Wilson de Pádua Paula Filho, 4ª ed., 2019) — PDF",
+                file: "Engenharia de software projetos e processos by Wilson de Pádua Paula Filho .epub.pdf",
+              },
+            ],
+          },
+          lessons: [
+            {
+              id: "aula-01",
+              title: "Aula 1 - Introdução à Engenharia de Software",
+              subtitle: "Conceitos fundamentais e visão do processo",
+            },
+            {
+              id: "aula-02",
+              title: "Aula 2 - Processo de Desenvolvimento de Software",
+              subtitle: "Ciclo de vida, fases e modelos de processo",
+            },
+            {
+              id: "aula-03",
+              title: "Aula 3 - Desenvolvimento Ágil",
+              subtitle: "Scrum/Kanban e práticas ágeis",
+            },
+            {
+              id: "aula-04",
+              title: "Aula 4 - Engenharia de Requisitos",
+              subtitle: "Elicitação, análise, especificação e validação",
+            },
+            {
+              id: "aula-05",
+              title: "Aula 5 - Prototipagem de Interfaces de Software",
+              subtitle: "Fluxos, wireframes e protótipos",
+            },
+            {
+              id: "aula-06",
+              title: "Aula 6 - Modelagem de Software (UML)",
+              subtitle: "Casos de uso, classes e sequência",
+            },
+            {
+              id: "aula-07",
+              title: "Aula 7 - Teste de Software",
+              subtitle: "Tipos de teste e estratégia de validação",
+            },
+            {
+              id: "aula-08",
+              title: "Aula 8 - Planejamento e Gerenciamento de Software",
+              subtitle: "Estimativas, riscos e acompanhamento",
+            },
+            {
+              id: "aula-09",
+              title: "Aula 9 - Qualidade de Software",
+              subtitle: "Métricas, qualidade de produto e processo",
+            },
+          ],
         },
       ],
     },
@@ -127,6 +209,66 @@ function setText(selector, text) {
 function setBreadcrumbs(current) {
   const currentEl = document.querySelector("[data-breadcrumbs-current]");
   if (currentEl) currentEl.textContent = current;
+}
+
+function ensureTopicsModal() {
+  const dialog = document.querySelector("[data-topics-modal]");
+  if (!dialog) return null;
+
+  const titleEl = dialog.querySelector("[data-topics-modal-title]");
+  const listEl = dialog.querySelector("[data-topics-modal-list]");
+  const closeBtn = dialog.querySelector("[data-topics-modal-close]");
+
+  if (!titleEl || !listEl || !closeBtn) return null;
+
+  closeBtn.addEventListener("click", () => {
+    dialog.close?.();
+  });
+
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close?.();
+  });
+
+  return { dialog, titleEl, listEl };
+}
+
+function openTopicsModal({ title, items }) {
+  const modal = ensureTopicsModal();
+  if (!modal) return;
+
+  modal.titleEl.textContent = title;
+  modal.listEl.innerHTML = "";
+
+  for (const item of items) {
+    const li = document.createElement("li");
+    if (typeof item === "string") {
+      li.textContent = item;
+      modal.listEl.appendChild(li);
+      continue;
+    }
+
+    if (item && typeof item === "object" && "href" in item && typeof item.href === "string") {
+      const a = document.createElement("a");
+      a.href = item.href;
+      a.textContent = typeof item.label === "string" ? item.label : item.href;
+      a.target = "_blank";
+      a.rel = "noopener";
+      li.appendChild(a);
+      modal.listEl.appendChild(li);
+      continue;
+    }
+
+    li.textContent = String(item);
+    modal.listEl.appendChild(li);
+  }
+
+  modal.dialog.showModal?.();
+}
+
+function getDisciplineFilePath(disciplineFolder, ...parts) {
+  return `./${encodeURIComponent(disciplineFolder)}/${parts
+    .map((p) => encodeURIComponent(p))
+    .join("/")}`;
 }
 
 function clearGrid() {
@@ -172,7 +314,8 @@ function createInfoCard({ title, meta, kind = "info" }) {
   div.innerHTML =
     '<div class="card__icon" aria-hidden="true"></div><div class="card__body"><div class="card__title"></div><div class="card__meta"></div></div>';
   div.querySelector(".card__title").textContent = title;
-  div.querySelector(".card__meta").textContent = meta;
+  div.querySelector(".card__meta").textContent = meta || "";
+  if (!meta) div.classList.add("is-meta-empty");
   return div;
 }
 
@@ -271,13 +414,51 @@ function renderDisciplineRoot(moduleId, disciplineId) {
   grid.appendChild(back);
 
   if (disc.syllabus?.topics?.length) {
-    grid.appendChild(
-      createInfoCard({
+    const topicsCard = createInfoCard({
+      title: "Ementa (tópicos)",
+      meta: "",
+      kind: "info",
+    });
+
+    topicsCard.classList.add("is-clickable");
+    topicsCard.setAttribute("role", "button");
+    topicsCard.tabIndex = 0;
+    topicsCard.setAttribute("aria-label", "Abrir ementa (tópicos)");
+
+    const open = () => {
+      const items = [];
+
+      if (disc.syllabus?.references?.length) {
+        items.push("Usaremos o livro abaixo como referência nesta disciplina:");
+        for (const ref of disc.syllabus.references) {
+          if (!ref || typeof ref !== "object") continue;
+          if (typeof ref.file === "string") {
+            items.push({
+              label: typeof ref.label === "string" ? ref.label : ref.file,
+              href: getDisciplineFilePath(disc.folder, "99-Materiais", ref.file),
+            });
+          }
+        }
+        items.push("Tópicos da disciplina:");
+      }
+
+      for (const t of disc.syllabus.topics) items.push(t);
+
+      openTopicsModal({
         title: "Ementa (tópicos)",
-        meta: disc.syllabus.topics.join(" • "),
-        kind: "info",
-      })
-    );
+        items,
+      });
+    };
+
+    topicsCard.addEventListener("click", open);
+    topicsCard.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
+
+    grid.appendChild(topicsCard);
   }
 
   if (!disc.lessons?.length) {

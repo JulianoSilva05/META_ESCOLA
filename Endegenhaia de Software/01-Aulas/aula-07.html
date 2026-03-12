@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 7 - Teste de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Engenharia de Software</div>
+            <div class="brand__subtitle">Aula 7 • Teste</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 7</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 7</span>
+            <h1>Teste de Software</h1>
+            <p class="big">Tipos de teste e estratégia de validação</p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Referência</span>
+            <h2>Livro-base da disciplina</h2>
+            <div class="panel">
+              <p class="big">Engenharia de software: projetos e processos</p>
+              <p class="muted">Wilson de Pádua Paula Filho (2019)</p>
+              <p>
+                <a
+                  href="../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Baixar PDF (pasta local)
+                </a>
+              </p>
+              <p class="hint">Teste é parte do processo e reduz riscos de falhas em produção.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Diferenciar níveis de teste: unitário, integração, sistema e aceitação.</li>
+                <li>Escrever casos de teste a partir de requisitos e critérios de aceitação.</li>
+                <li>Entender defeito, falha e causa.</li>
+                <li>Definir uma estratégia mínima de teste para um projeto pequeno.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceitos</span>
+            <h2>O que é testar?</h2>
+            <div class="panel">
+              <ul class="list">
+                <li><strong>Teste</strong> é executar e avaliar para encontrar problemas e confirmar comportamento.</li>
+                <li><strong>Defeito</strong> é um erro no artefato (requisito, código, design).</li>
+                <li><strong>Falha</strong> é o comportamento incorreto observado em execução.</li>
+              </ul>
+              <p class="hint">Testar não prova ausência de defeitos; aumenta confiança e reduz risco.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Níveis</span>
+            <h2>Onde o teste acontece?</h2>
+            <div class="panel">
+              <table class="table" aria-label="Níveis de teste">
+                <thead>
+                  <tr>
+                    <th>Nível</th>
+                    <th>Foco</th>
+                    <th>Exemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Unitário</td>
+                    <td>Funções/métodos isolados</td>
+                    <td>Calcular data de lembrete</td>
+                  </tr>
+                  <tr>
+                    <td>Integração</td>
+                    <td>Integração entre módulos</td>
+                    <td>API + banco + autenticação</td>
+                  </tr>
+                  <tr>
+                    <td>Sistema</td>
+                    <td>Sistema completo</td>
+                    <td>Fluxo: criar tarefa → alertar</td>
+                  </tr>
+                  <tr>
+                    <td>Aceitação</td>
+                    <td>Critérios do usuário/cliente</td>
+                    <td>Validação com professor/aluno</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Quanto mais cedo o defeito é encontrado, menor o custo para corrigir.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Casos de teste</span>
+            <h2>Como escrever um caso de teste</h2>
+            <div class="panel">
+              <ul class="list">
+                <li><strong>Pré-condições:</strong> estado inicial (ex.: usuário logado).</li>
+                <li><strong>Entradas:</strong> dados fornecidos (ex.: tarefa e data).</li>
+                <li><strong>Passos:</strong> ações do usuário/sistema.</li>
+                <li><strong>Resultado esperado:</strong> o que deve acontecer.</li>
+              </ul>
+              <p class="hint">Casos de teste devem ser reprodutíveis e ligados a um requisito.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>Defina testes para requisitos</h2>
+            <div class="panel">
+              <p class="big">Em grupo (10–15 min)</p>
+              <ul class="list">
+                <li>Escolha 2 requisitos do backlog do “app organizador”.</li>
+                <li>Para cada requisito, escreva 2 casos de teste.</li>
+                <li>Inclua 1 caso de erro/limite (ex.: data inválida, campo vazio).</li>
+              </ul>
+              <p class="hint">Use critérios de aceitação para definir o resultado esperado.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Próxima aula: planejamento e gerenciamento — como estimar, acompanhar e reduzir riscos.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Engenharia de Software`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>
