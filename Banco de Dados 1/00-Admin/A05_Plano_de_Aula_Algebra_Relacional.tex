@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Operações da Álgebra Relacional}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Quadro branco/negro, marcadores/giz, cartões/papel, post-its, fita adesiva e canetas.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Apresentar as principais operações da álgebra relacional.
+  \item Interpretar consultas como operações sobre conjuntos de tuplas.
+  \item Relacionar álgebra relacional com a ideia de consultas em SQL.
+  \item Resolver problemas simples usando seleção, projeção e junção (em nível conceitual).
+\end{itemize}
+
+\section{Metodologia}
+Aula conceitual com simulações físicas (tabelas no quadro e cartões como tuplas). Os alunos ``executam'' operações movendo/filtrando cartões, criando o entendimento de consulta antes da sintaxe do SQL.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Introdução --- Consultas como ``operações'' (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Relembrar: tabela como conjunto de tuplas.
+  \item Analogia: peneirar (filtrar), recortar colunas (selecionar atributos), juntar tabelas (conectar informações).
+\end{itemize}
+
+\subsection*{Parte 2: Operações Fundamentais (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Seleção ($\sigma$) (10 min):} filtra linhas por condição.
+  \item \textbf{Projeção ($\pi$) (10 min):} seleciona colunas (remove atributos).
+  \item \textbf{Produto cartesiano e junção (10 min):} combinar linhas de duas relações.
+  \item \textbf{União/Diferença (5 min):} operações entre conjuntos compatíveis.
+\end{itemize}
+
+\subsection*{Parte 3: Exemplo Guiado no Quadro (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Usar tabelas CLIENTE e PET.
+  \item Mostrar uma seleção: ``somente clientes da cidade X''.
+  \item Mostrar uma projeção: ``apenas nomes dos clientes''.
+  \item Mostrar junção conceitual: ``pets com nome do cliente''.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em Grupo --- Álgebra com Cartões (40 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Preparação:} distribuir cartões representando tuplas de duas tabelas (ex.: CLIENTE e PET).
+  \item \textbf{Tarefas (cada grupo executa e registra a resposta):}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Aplicar $\sigma$ para filtrar registros por condição definida pelo professor.
+    \item Aplicar $\pi$ para retornar apenas colunas específicas.
+    \item Fazer uma junção ``manual'' usando a FK para combinar informações.
+  \end{itemize}
+  \item \textbf{Entrega:} resultado das operações (quais tuplas aparecem).
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento e Ponte para SQL (10 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item ``SQL é uma forma de pedir ao SGBD para executar essas operações''.
+  \item Ponte: na próxima aula, sintaxe básica de SQL para criar e manipular dados.
+\end{itemize}
+
+\end{document}
+

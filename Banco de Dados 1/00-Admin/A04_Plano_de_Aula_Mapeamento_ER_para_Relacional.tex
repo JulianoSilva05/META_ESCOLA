@@ -1,0 +1,96 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Mapeamento do Modelo ER para o Modelo Relacional}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Quadro branco/negro, marcadores/giz, folhas/cartões, post-its, (opcional) projetor.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Gerar esquemas relacionais a partir de um esquema conceitual (ER).
+  \item Aplicar regras de transformação para entidades, atributos e relacionamentos.
+  \item Diferenciar mapeamento de relacionamentos 1:1, 1:N e N:M.
+  \item Identificar PKs e FKs resultantes do mapeamento.
+\end{itemize}
+
+\section{Metodologia}
+Aula demonstrativa com regras de mapeamento no quadro e prática em grupos transformando um ER (produzido na Aula 2) em tabelas. A correção é feita comparando soluções e justificando escolhas (onde colocar FKs, como tratar N:M).
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Revisão do ER (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisar rapidamente: entidades, atributos, relacionamentos e cardinalidade.
+  \item Definir o ER base que será mapeado (ex.: Biblioteca).
+\end{itemize}
+
+\subsection*{Parte 2: Regras de Mapeamento (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Entidades viram tabelas (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Atributos simples viram colunas.
+    \item Identificador vira PK.
+  \end{itemize}
+  \item \textbf{Relacionamento 1:N (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item FK do lado 1 vai para o lado N.
+    \item Analogia: ``todo PET aponta para um CLIENTE''.
+  \end{itemize}
+  \item \textbf{Relacionamento 1:1 (5 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Estratégias: FK em uma tabela ou mesclar (dependendo do caso).
+  \end{itemize}
+  \item \textbf{Relacionamento N:M (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Criar tabela associativa com duas FKs.
+    \item PK composta (ou ID próprio).
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 3: Exemplo Guiado (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Mapear no quadro um relacionamento N:M (Aluno--Disciplina).
+  \item Mostrar tabela associativa (MATRICULA) com FKs e atributos do relacionamento (ex.: data\_matricula).
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em Grupo --- ER \textrightarrow\ Tabelas (40 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Entrada:} um diagrama ER (Biblioteca ou Clínica) com pelo menos 3 entidades.
+  \item \textbf{Tarefas:}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Transformar entidades em tabelas com PK.
+    \item Aplicar regras para cada relacionamento (1:1, 1:N, N:M).
+    \item Identificar FKs e justificar onde elas ficaram.
+  \end{itemize}
+  \item \textbf{Entrega:} esquema relacional (lista de tabelas com PK/FK).
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento (10 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisar regras principais e erros comuns (FK no lado errado, esquecer tabela associativa).
+  \item Ponte: ``Próxima aula: operações do modelo relacional e como consultar os dados.''
+\end{itemize}
+
+\end{document}
+

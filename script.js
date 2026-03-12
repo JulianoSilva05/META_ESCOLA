@@ -10,29 +10,96 @@ const appData = {
           id: "bd1",
           name: "Banco de Dados 1",
           folder: "Banco de Dados 1",
-          sections: [
-            "00-Admin",
-            "01-Aulas",
-            "02-Exercicios",
-            "03-Projetos",
-            "04-SQL",
-            "05-Avaliacoes",
-            "99-Materiais",
+          syllabus: {
+            competencies: [
+              "Modelar e implementar bancos de dados relacionais.",
+              "Aplicar comandos SQL para manipulação de dados.",
+            ],
+            skills: [
+              "Apresentar conceitos básicos de BD e SGBD.",
+              "Representar dados usando modelo conceitual.",
+              "Apresentar conceitos do modelo lógico relacional.",
+              "Gerar esquemas relacionais a partir do conceitual.",
+              "Apresentar operações da álgebra relacional.",
+              "Utilizar SQL para implementação, recuperação e manipulação.",
+            ],
+            topics: [
+              "Conceitos básicos e terminologias de bancos de dados",
+              "O modelo entidade-relacionamento",
+              "O modelo relacional",
+              "Mapeamento ER para o modelo relacional",
+              "Álgebra relacional",
+              "A linguagem SQL",
+              "Dependência funcional e normalização",
+              "Procedimentos armazenados",
+              "Asserções",
+              "Gatilhos",
+              "Controle de transações",
+            ],
+          },
+          lessons: [
+            {
+              id: "aula-01",
+              title: "Aula 1 - Introdução a Banco de Dados",
+              subtitle: "Conceitos básicos, terminologias, BD e SGBD",
+            },
+            {
+              id: "aula-02",
+              title: "Aula 2 - O modelo entidade-relacionamento",
+              subtitle: "Entidades, atributos, relacionamentos, cardinalidade",
+            },
+            {
+              id: "aula-03",
+              title: "Aula 3 - O modelo relacional",
+              subtitle: "Tabelas, chaves, integridade e relações",
+            },
+            {
+              id: "aula-04",
+              title: "Aula 4 - Mapeamento ER → Relacional",
+              subtitle: "Geração de esquema relacional a partir do conceitual",
+            },
+            {
+              id: "aula-05",
+              title: "Aula 5 - Álgebra relacional",
+              subtitle: "Seleção, projeção, junção e operações básicas",
+            },
+            {
+              id: "aula-06",
+              title: "Aula 6 - Linguagem SQL (DDL e DML)",
+              subtitle: "CREATE/ALTER/DROP, INSERT/UPDATE/DELETE",
+            },
+            {
+              id: "aula-07",
+              title: "Aula 7 - SQL (consultas e junções)",
+              subtitle: "SELECT, JOIN, filtros e agregações",
+            },
+            {
+              id: "aula-08",
+              title: "Aula 8 - Dependência funcional e normalização",
+              subtitle: "1FN, 2FN, 3FN e boas práticas",
+            },
+            {
+              id: "aula-09",
+              title: "Aula 9 - Procedimentos armazenados",
+              subtitle: "Stored procedures e rotinas no SGBD",
+            },
+            {
+              id: "aula-10",
+              title: "Aula 10 - Asserções e gatilhos",
+              subtitle: "Integridade, regras e triggers",
+            },
+            {
+              id: "aula-11",
+              title: "Aula 11 - Controle de transações",
+              subtitle: "ACID, commit/rollback e concorrência",
+            },
           ],
         },
         {
           id: "esw",
           name: "Engenharia de Software",
           folder: "Endegenhaia de Software",
-          sections: [
-            "00-Admin",
-            "01-Aulas",
-            "02-Exercicios",
-            "03-Projetos",
-            "04-SQL",
-            "05-Avaliacoes",
-            "99-Materiais",
-          ],
+          lessons: [],
         },
       ],
     },
@@ -124,45 +191,10 @@ function decodeHashParts(hash) {
     });
 }
 
-function joinUrlPath(segments, { trailingSlash = false } = {}) {
-  const safeSegments = segments.filter((s) => s != null && String(s).length > 0);
-  const joined = safeSegments.map((s) => encodeURIComponent(s)).join("/");
-  return `./${joined}${trailingSlash ? "/" : ""}`;
-}
-
-async function fetchDirectoryListing(relativePath) {
-  const url = relativePath.endsWith("/") ? relativePath : `${relativePath}/`;
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Falha ao acessar: ${url}`);
-  const html = await res.text();
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const links = Array.from(doc.querySelectorAll("a"));
-
-  const entries = [];
-  for (const a of links) {
-    const href = a.getAttribute("href") || "";
-    const text = (a.textContent || "").trim();
-    if (!href || !text) continue;
-    if (text === "../" || text === "..") continue;
-    if (href.startsWith("?")) continue;
-
-    const isFolder = href.endsWith("/");
-    const name = text.replace(/\/$/, "");
-    if (!name || name === "." || name === "..") continue;
-
-    entries.push({
-      name,
-      isFolder,
-      url: new URL(href, url).pathname + new URL(href, url).search,
-    });
-  }
-
-  entries.sort((a, b) => {
-    if (a.isFolder !== b.isFolder) return a.isFolder ? -1 : 1;
-    return a.name.localeCompare(b.name, "pt-BR", { sensitivity: "base" });
-  });
-
-  return entries;
+function getLessonHtmlPath(disciplineFolder, lessonId) {
+  return `./${encodeURIComponent(disciplineFolder)}/${encodeURIComponent(
+    "01-Aulas"
+  )}/${encodeURIComponent(lessonId)}.html`;
 }
 
 function renderModules() {
@@ -207,7 +239,7 @@ function renderModule(moduleId) {
   for (const d of mod.disciplines) {
     const card = createCard({
       title: d.name,
-      meta: `Pasta: ${d.folder}`,
+      meta: d.lessons?.length ? `${d.lessons.length} aulas` : "Sem aulas por enquanto",
       href: `#/${mod.id}/${d.id}`,
       kind: "folder",
     });
@@ -224,10 +256,7 @@ function renderDisciplineRoot(moduleId, disciplineId) {
   }
 
   setText("[data-page-title]", disc.name);
-  setText(
-    "[data-page-subtitle]",
-    `Pasta: ${disc.folder}. Selecione uma seção para ver os arquivos.`
-  );
+  setText("[data-page-subtitle]", "Selecione uma aula para ver o conteúdo.");
   setBreadcrumbs(`${mod.name} / ${disc.name}`);
 
   const grid = $("[data-grid]");
@@ -241,32 +270,40 @@ function renderDisciplineRoot(moduleId, disciplineId) {
   });
   grid.appendChild(back);
 
-  const directFolderUrl = joinUrlPath([disc.folder], { trailingSlash: true });
-  grid.appendChild(
-    createCard({
-      title: "Abrir pasta (listagem)",
-      meta: disc.folder,
-      href: directFolderUrl,
-      kind: "link",
-      external: true,
-    })
-  );
+  if (disc.syllabus?.topics?.length) {
+    grid.appendChild(
+      createInfoCard({
+        title: "Ementa (tópicos)",
+        meta: disc.syllabus.topics.join(" • "),
+        kind: "info",
+      })
+    );
+  }
 
-  for (const section of disc.sections || []) {
+  if (!disc.lessons?.length) {
+    grid.appendChild(
+      createInfoCard({
+        title: "Em breve",
+        meta: "A lista de aulas desta disciplina ainda não foi cadastrada.",
+        kind: "warning",
+      })
+    );
+    return;
+  }
+
+  for (const lesson of disc.lessons) {
     grid.appendChild(
       createCard({
-        title: section,
-        meta: "Seção",
-        href: `#/${encodeURIComponent(mod.id)}/${encodeURIComponent(
-          disc.id
-        )}/${encodeURIComponent(section)}`,
-        kind: "folder",
+        title: lesson.title,
+        meta: lesson.subtitle || "Aula",
+        href: getLessonHtmlPath(disc.folder, lesson.id),
+        kind: "file",
       })
     );
   }
 }
 
-async function renderDisciplineFolder(moduleId, disciplineId, subpathParts) {
+function renderLesson(moduleId, disciplineId, lessonId) {
   const mod = appData.modules.find((m) => m.id === moduleId);
   const disc = mod?.disciplines.find((d) => d.id === disciplineId);
   if (!mod || !disc) {
@@ -274,10 +311,18 @@ async function renderDisciplineFolder(moduleId, disciplineId, subpathParts) {
     return;
   }
 
-  const folderLabel = [disc.folder, ...subpathParts].join(" / ");
-  setText("[data-page-title]", disc.name);
-  setText("[data-page-subtitle]", `Pasta: ${folderLabel}`);
-  setBreadcrumbs(`${mod.name} / ${disc.name} / ${subpathParts.join(" / ")}`);
+  const lesson = disc.lessons?.find((l) => l.id === lessonId);
+  if (!lesson) {
+    renderNotFound();
+    return;
+  }
+
+  setText("[data-page-title]", lesson.title);
+  setText(
+    "[data-page-subtitle]",
+    lesson.subtitle || "Conteúdo da aula (adicione seus arquivos na pasta local)."
+  );
+  setBreadcrumbs(`${mod.name} / ${disc.name} / ${lesson.title}`);
 
   const grid = $("[data-grid]");
   clearGrid();
@@ -291,72 +336,13 @@ async function renderDisciplineFolder(moduleId, disciplineId, subpathParts) {
     })
   );
 
-  const relativeFolderUrl = joinUrlPath([disc.folder, ...subpathParts], {
-    trailingSlash: true,
-  });
   grid.appendChild(
-    createCard({
-      title: "Abrir pasta (listagem)",
-      meta: subpathParts.join(" / "),
-      href: relativeFolderUrl,
-      kind: "link",
-      external: true,
+    createInfoCard({
+      title: "Conteúdo",
+      meta: "Deixe os materiais desta aula na pasta local. Posso ligar os arquivos a esta aula quando você decidir o padrão de nomes/pastas.",
+      kind: "info",
     })
   );
-
-  let entries;
-  try {
-    entries = await fetchDirectoryListing(relativeFolderUrl);
-  } catch (e) {
-    grid.appendChild(
-      createInfoCard({
-        title: "Não foi possível listar os arquivos",
-        meta: "Abra pelo servidor local (http://localhost:8000/) ou habilite listagem de diretórios no servidor do site.",
-        kind: "warning",
-      })
-    );
-    return;
-  }
-
-  if (!entries.length) {
-    grid.appendChild(
-      createInfoCard({
-        title: "Pasta vazia",
-        meta: "Coloque arquivos aqui para aparecerem nesta seção.",
-        kind: "info",
-      })
-    );
-    return;
-  }
-
-  for (const entry of entries) {
-    if (entry.isFolder) {
-      grid.appendChild(
-        createCard({
-          title: entry.name,
-          meta: "Pasta",
-          href: `#/${encodeURIComponent(mod.id)}/${encodeURIComponent(
-            disc.id
-          )}/${[...subpathParts, entry.name].map(encodeURIComponent).join("/")}`,
-          kind: "folder",
-        })
-      );
-      continue;
-    }
-
-    const fileUrl = joinUrlPath([disc.folder, ...subpathParts, entry.name], {
-      trailingSlash: false,
-    });
-    grid.appendChild(
-      createCard({
-        title: entry.name,
-        meta: "Arquivo",
-        href: fileUrl,
-        kind: "file",
-        external: true,
-      })
-    );
-  }
 }
 
 function renderNotFound() {
@@ -398,8 +384,8 @@ function render() {
     return;
   }
 
-  if (parts.length >= 3) {
-    renderDisciplineFolder(parts[0], parts[1], parts.slice(2));
+  if (parts.length === 3) {
+    renderLesson(parts[0], parts[1], parts[2]);
     return;
   }
 

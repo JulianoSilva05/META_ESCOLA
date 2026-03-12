@@ -1,0 +1,85 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Asserções e Gatilhos (Triggers)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Laboratório com computadores, SGBD e cliente SQL, projetor (opcional), quadro e marcadores.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender mecanismos de integridade e regras no banco de dados.
+  \item Diferenciar restrições (PK/FK/UNIQUE/CHECK) de gatilhos (triggers).
+  \item Implementar gatilhos simples para auditoria e validação.
+  \item Reconhecer limitações e diferenças de suporte a asserções entre SGBDs.
+\end{itemize}
+
+\section{Metodologia}
+Aula prática com exemplos progressivos. Primeiro, reforçar integridade com constraints. Depois, introduzir triggers como automações executadas em eventos (INSERT/UPDATE/DELETE). A atividade final aplica um trigger em um cenário realista.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Integridade e Regras (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisar constraints: PK, FK, UNIQUE e CHECK.
+  \item Analogia: ``catracas'' que impedem entrar dado inválido.
+\end{itemize}
+
+\subsection*{Parte 2: Asserções (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Conceito: regra global que deve ser verdadeira para o banco.
+  \item Discutir suporte do SGBD adotado e alternativas (VIEW + CHECK/trigger).
+\end{itemize}
+
+\subsection*{Parte 3: Triggers --- Conceito e Estrutura (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item O que é trigger: ``uma regra automática que dispara em um evento''.
+  \item Eventos: BEFORE/AFTER INSERT/UPDATE/DELETE (conforme SGBD).
+  \item Usos comuns: auditoria, validação complexa, manutenção de históricos.
+\end{itemize}
+
+\subsection*{Parte 4: Exemplo Guiado (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Criar tabela de auditoria (ex.: LOG\_PET).
+  \item Criar trigger que registra alterações de PET (UPDATE/DELETE).
+  \item Testar e interpretar o log gerado.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade em Duplas --- Regra Automática (30 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Criar um trigger para:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Impedir atualização inválida (ex.: campo vazio).
+    \item Ou manter histórico de alterações em uma tabela de log.
+  \end{itemize}
+  \item Entrega: script do trigger + evidência de execução (antes/depois).
+\end{itemize}
+
+\subsection*{Parte 6: Encerramento (5 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisão: quando usar constraint vs. trigger.
+  \item Ponte: ``Próxima aula: controle de transações e consistência (ACID).''
+\end{itemize}
+
+\end{document}
+

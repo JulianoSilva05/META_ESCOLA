@@ -1,0 +1,85 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Controle de Transações}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Laboratório com computadores, SGBD e cliente SQL (preferencialmente com 2 sessões por dupla), projetor (opcional), quadro e marcadores.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender o conceito de transação e o objetivo de garantir consistência.
+  \item Explicar as propriedades ACID (visão conceitual).
+  \item Utilizar comandos de controle de transação (BEGIN/COMMIT/ROLLBACK, quando aplicável).
+  \item Compreender noções de concorrência e problemas comuns (leituras sujas, perdas de atualização).
+\end{itemize}
+
+\section{Metodologia}
+Prática orientada por experimentos: as duplas simulam operações que devem ``dar tudo certo ou nada'' (ex.: transferência bancária). Em seguida, executam o mesmo cenário com duas sessões para observar concorrência e importância do isolamento.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Motivação (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Cenário: transferência entre contas (debitar e creditar).
+  \item Analogia: compra online --- ou paga e confirma, ou não acontece nada.
+\end{itemize}
+
+\subsection*{Parte 2: Conceito de Transação e ACID (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Atomicidade: tudo ou nada.
+  \item Consistência: regras do banco continuam verdadeiras.
+  \item Isolamento: transações não ``se atrapalham''.
+  \item Durabilidade: após commit, os dados persistem.
+\end{itemize}
+
+\subsection*{Parte 3: Comandos de Controle (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item BEGIN/START TRANSACTION.
+  \item COMMIT e ROLLBACK.
+  \item SAVEPOINT (quando aplicável) como ``ponto de retorno''.
+\end{itemize}
+
+\subsection*{Parte 4: Experimento Guiado (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Criar tabela CONTA e inserir saldos iniciais.
+  \item Executar uma transferência dentro de transação.
+  \item Forçar um erro no meio e aplicar ROLLBACK, observando o estado final.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade em Duplas --- Concorrência (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Abrir 2 sessões (Sessão A e Sessão B).
+  \item Simular duas transações alterando o mesmo saldo.
+  \item Observar bloqueios e discutir isolamento (conforme SGBD/configuração).
+  \item Entrega: breve relato do que ocorreu e por quê.
+\end{itemize}
+
+\subsection*{Parte 6: Encerramento (5 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisão: por que transações existem e onde aparecem no mundo real.
+  \item Fechamento do curso: ligar modelagem, SQL e integridade com consistência transacional.
+\end{itemize}
+
+\end{document}
+

@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aula 1 - Introdução a Banco de Dados</title>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <div class="deck" data-deck>
+      <header class="topbar">
+        <div class="container topbar__content">
+          <div class="brand">
+            <div class="brand__title">Banco de Dados 1</div>
+            <div class="brand__subtitle">Aula 1 • Apresentação</div>
+          </div>
+          <nav class="breadcrumbs" aria-label="Navegação">
+            <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <a class="breadcrumbs__link" href="../../index.html#/modulo-1/bd1">Banco de Dados 1</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+            <span>Aula 1</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="deck__stage" data-stage aria-label="Apresentação">
+        <section class="slide is-active" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Aula 1</span>
+            <h1>Introdução a Banco de Dados</h1>
+            <p class="big">
+              Conceitos básicos, terminologias e a visão geral do que é um Banco de Dados (BD) e um Sistema
+              Gerenciador de Banco de Dados (SGBD).
+            </p>
+            <div class="panel">
+              <p class="hint">
+                Navegação: ← →, PageUp/PageDown, Espaço/Enter • Tela cheia: F • Início/Fim: Home/End
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Objetivos</span>
+            <h2>O que você vai dominar hoje</h2>
+            <div class="panel">
+              <ul class="list">
+                <li><strong>Dado</strong> vs <strong>informação</strong> (contexto).</li>
+                <li>O que é <strong>BD</strong> e o que faz um <strong>SGBD</strong>.</li>
+                <li>Modelo relacional: <strong>Tabela</strong>, <strong>Coluna</strong>, <strong>Linha</strong>.</li>
+                <li><strong>Chave Primária (PK)</strong> e <strong>Chave Estrangeira (FK)</strong>.</li>
+                <li>Como isso vira <strong>consultas</strong> (ideia de SQL).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Ementa</span>
+            <h2>Onde a Aula 1 se encaixa no curso</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Competências</p>
+                <ul class="list">
+                  <li>Modelar e implementar bancos de dados relacionais.</li>
+                  <li>Aplicar SQL para manipulação de dados.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Nesta aula</p>
+                <ul class="list">
+                  <li>Conceitos básicos e terminologias.</li>
+                  <li>Primeiro contato com modelo relacional (o “formato” dos dados).</li>
+                  <li>Próximas aulas: ER, mapeamento, SQL, normalização, transações.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>Dado vs. Informação</h2>
+            <div class="panel">
+              <p class="big">
+                <strong>Dado</strong> é um fato bruto. <strong>Informação</strong> é o dado com contexto e significado.
+              </p>
+              <div class="grid-2">
+                <div>
+                  <p class="big">Exemplos de dados</p>
+                  <ul class="list">
+                    <li>“Maria”</li>
+                    <li>“25”</li>
+                    <li>“Belo Horizonte”</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="big">Exemplo de informação</p>
+                  <p>“Maria tem 25 anos e mora em Belo Horizonte.”</p>
+                </div>
+              </div>
+              <p class="hint">Analogia: peças soltas de um quebra-cabeça vs. o desenho montado.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Dinâmica</span>
+            <h2>Sem contexto, é só um número</h2>
+            <div class="panel">
+              <p class="big"><strong>31999990000</strong></p>
+              <p>
+                Pergunta: o que isso significa? Sem contexto, é só um dado (um número longo). Com contexto,
+                vira informação: telefone de alguém, ou parte de um cadastro.
+              </p>
+              <p class="hint">
+                Ideia de BD: guardar dados + contexto (estrutura) para recuperar informação quando precisamos.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Conceito</span>
+            <h2>BD e SGBD</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Banco de Dados (BD)</p>
+                <p>
+                  É o <strong>conjunto organizado</strong> de dados: tabelas, registros, regras e relacionamentos.
+                </p>
+              </div>
+              <div>
+                <p class="big">SGBD</p>
+                <p>
+                  É o software que <strong>guarda</strong>, <strong>busca</strong>, <strong>protege</strong> e
+                  <strong>controla</strong> o acesso aos dados (ex.: MySQL, PostgreSQL, Oracle).
+                </p>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="hint">
+                Analogia: BD é o “arquivo de aço” com pastas. SGBD é o “arquivista/bibliotecário” que encontra e
+                guarda tudo rápido e com regras.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Modelo Relacional</span>
+            <h2>Tabela, Coluna e Linha</h2>
+            <div class="panel">
+              <p class="big">
+                No modelo relacional, dados vivem em <strong>tabelas</strong>. Cada coluna descreve um
+                <strong>atributo</strong> e cada linha é um <strong>registro</strong>.
+              </p>
+              <table class="table" aria-label="Exemplo de tabela Cliente">
+                <thead>
+                  <tr>
+                    <th>ID_Cliente (PK)</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Cidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Maria</td>
+                    <td>31999990000</td>
+                    <td>Belo Horizonte</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>João</td>
+                    <td>21988887777</td>
+                    <td>Rio de Janeiro</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Analogia: planilha bem organizada, com regras para evitar bagunça.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Chave Primária</span>
+            <h2>Como o sistema sabe “qual Maria”?</h2>
+            <div class="panel">
+              <p class="big">
+                Se existirem duas pessoas com o mesmo nome, precisamos de um identificador que não se repete:
+                a <strong>Chave Primária (PK)</strong>.
+              </p>
+              <div class="grid-2">
+                <div>
+                  <p class="big">Regra mental</p>
+                  <ul class="list">
+                    <li>PK <strong>não se repete</strong>.</li>
+                    <li>PK <strong>não é nula</strong>.</li>
+                    <li>PK identifica 1 registro de forma única.</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="big">Analogia</p>
+                  <p>CPF/Matrícula: podem existir nomes iguais, mas não o mesmo identificador.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Atividade</span>
+            <h2>O “Fichário Humano” (Clínica Veterinária)</h2>
+            <div class="panel">
+              <p class="big">Objetivo: transformar a sala em um banco de dados vivo.</p>
+              <ul class="list">
+                <li>Criar uma tabela <strong>CLIENTE</strong> com colunas (ID_Cliente, Nome, Telefone...).</li>
+                <li>Cada aluno cria registros, garantindo <strong>ID_Cliente único</strong>.</li>
+                <li>Colar os registros no quadro para formar a tabela.</li>
+              </ul>
+              <p class="hint">Analogia: o quadro vira o “disco rígido”; os cartões viram “registros”.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Em grupos (30 min)</span>
+            <h2>Como executar a dinâmica</h2>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Organização</p>
+                <ul class="list">
+                  <li>Grupos de <strong>4–5</strong> pessoas.</li>
+                  <li>O quadro é o “<strong>disco</strong>”.</li>
+                  <li>Cartões/papel = <strong>registros</strong>.</li>
+                  <li>Post-its (2 cores) = <strong>tabelas diferentes</strong>.</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Materiais (por grupo)</p>
+                <ul class="list">
+                  <li>Cartões ou papel cortado (10–15 unidades).</li>
+                  <li>Canetas.</li>
+                  <li>Fita adesiva.</li>
+                  <li>Post-its de duas cores.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="panel">
+              <p class="big">Passo a passo</p>
+              <ul class="list">
+                <li>Definir as colunas da tabela <strong>CLIENTE</strong> e destacar <strong>ID_Cliente</strong> como PK.</li>
+                <li>Criar <strong>2–3 registros por pessoa</strong> (cada cartão é uma linha).</li>
+                <li>Conferir: <strong>ninguém repete o ID_Cliente</strong>.</li>
+                <li>Colar no quadro e “enxergar” a tabela pronta.</li>
+              </ul>
+              <p class="hint">Analogia: PK é a “etiqueta única” do fichário.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Desafio (20 min)</span>
+            <h2>Consultas manuais: professor pergunta, grupos respondem</h2>
+            <div class="panel">
+              <p class="big">Agora crie a tabela <strong>PET</strong> (cor diferente) com FK.</p>
+              <ul class="list">
+                <li>Colunas sugeridas: <strong>ID_Pet (PK)</strong>, Nome_Pet, Tipo, <strong>ID_Cliente (FK)</strong>.</li>
+                <li>Cada grupo cria alguns pets e liga cada um a um cliente por <strong>ID_Cliente</strong>.</li>
+              </ul>
+            </div>
+            <div class="panel grid-2">
+              <div>
+                <p class="big">Perguntas (queries) para o professor</p>
+                <ul class="list">
+                  <li>“Quais pets pertencem ao cliente <strong>Maria</strong>?”</li>
+                  <li>“Liste os <strong>clientes</strong> que têm pets do tipo <strong>Gato</strong>.”</li>
+                  <li>“Quantos pets cada cliente tem?”</li>
+                </ul>
+              </div>
+              <div>
+                <p class="big">Formato rápido</p>
+                <ul class="list">
+                  <li>1 ponto por resposta correta.</li>
+                  <li>Bônus se o grupo explicar o <strong>passo a passo</strong> (PK → FK → resultado).</li>
+                  <li>Objetivo: entender lógica, não velocidade.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="hint">Analogia: o grupo vira o “SGBD” executando a consulta no quadro.</p>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Relacionamento</span>
+            <h2>Onde entram os pets?</h2>
+            <div class="panel">
+              <p class="big">
+                Misturar dados de cliente e pet na mesma ficha gera redundância e bagunça. A solução é criar outra
+                tabela: <strong>PET</strong>.
+              </p>
+              <div class="grid-2">
+                <div class="panel">
+                  <p class="big">CLIENTE</p>
+                  <table class="table" aria-label="Tabela Cliente">
+                    <thead>
+                      <tr>
+                        <th>ID_Cliente (PK)</th>
+                        <th>Nome</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Maria</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>João</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="panel">
+                  <p class="big">PET</p>
+                  <table class="table" aria-label="Tabela Pet">
+                    <thead>
+                      <tr>
+                        <th>ID_Pet (PK)</th>
+                        <th>Nome_Pet</th>
+                        <th>Tipo</th>
+                        <th>ID_Cliente (FK)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>10</td>
+                        <td>Thor</td>
+                        <td>Cão</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>11</td>
+                        <td>Mimi</td>
+                        <td>Gato</td>
+                        <td>1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p class="hint">
+                FK é o “gancho” que liga registros: ID_Cliente na tabela PET aponta para CLIENTE.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Consultas</span>
+            <h2>Queries “manuais”</h2>
+            <div class="panel">
+              <p class="big">
+                O professor faz uma pergunta e os alunos atuam como “SGBD”, buscando a informação no quadro.
+              </p>
+              <ul class="list">
+                <li>“Me traga os pets cujo cliente seja a Maria.”</li>
+                <li>Passo 1: localizar o ID_Cliente da Maria.</li>
+                <li>Passo 2: buscar na tabela PET os registros com esse ID.</li>
+                <li>Passo 3: devolver os nomes dos pets.</li>
+              </ul>
+              <p class="hint">Isso é a intuição do que um SELECT + JOIN faz no SQL.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Prévia</span>
+            <h2>Como isso aparece no SQL</h2>
+            <div class="panel">
+              <p class="big">Exemplo de consulta (conceito, não é para decorar hoje):</p>
+              <pre class="codeblock"><code>SELECT p.Nome_Pet
+FROM PET p
+JOIN CLIENTE c ON c.ID_Cliente = p.ID_Cliente
+WHERE c.Nome = 'Maria';</code></pre>
+              <p class="hint">
+                Analogia: “peça” ao SGBD para cruzar tabelas e devolver a informação certa, com regras e rapidez.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Resumo</span>
+            <h2>O que fica da Aula 1</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>Dado vira informação quando ganha <strong>contexto</strong>.</li>
+                <li>BD é dados organizados; SGBD é quem <strong>gerencia</strong> com regras.</li>
+                <li>Tabelas: coluna = atributo; linha = registro.</li>
+                <li>PK identifica de forma única; FK liga tabelas (relacionamentos).</li>
+              </ul>
+              <p class="hint">Próximo passo do curso: ER e como transformar ER em tabelas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Materiais</span>
+            <h2>Arquivos desta aula</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>
+                  <strong>Plano de aula (PDF):</strong>
+                  <a href="../00-Admin/A01_Planos_de_aula___META.pdf" target="_blank" rel="noopener">
+                    A01_Planos_de_aula___META.pdf
+                  </a>
+                </li>
+              </ul>
+              <p class="hint">
+                Você pode anexar aqui também slides, listas e exercícios conforme for adicionando na pasta.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Fim</span>
+            <h2>Perguntas?</h2>
+            <div class="panel">
+              <p class="big">Se quiser, eu adapto o exemplo da clínica para um exercício avaliativo.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="deck__footer">
+        <div class="container deck__footer-content">
+          <div class="deck__controls">
+            <button class="btn" type="button" data-prev>← Anterior</button>
+            <button class="btn" type="button" data-next>Próximo →</button>
+            <button class="btn" type="button" data-fullscreen>Tela cheia</button>
+          </div>
+          <div class="deck__progress">
+            <div class="deck__counter" data-counter>1/1</div>
+            <div class="progressbar" aria-hidden="true">
+              <div class="progressbar__fill" data-progress></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const deckEl = document.querySelector("[data-deck]");
+      const slides = Array.from(document.querySelectorAll("[data-slide]"));
+      const counterEl = document.querySelector("[data-counter]");
+      const progressEl = document.querySelector("[data-progress]");
+      const prevBtn = document.querySelector("[data-prev]");
+      const nextBtn = document.querySelector("[data-next]");
+      const fullscreenBtn = document.querySelector("[data-fullscreen]");
+
+      const total = slides.length;
+      let index = 0;
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setIndex(nextIndex, { focus = false } = {}) {
+        index = clamp(nextIndex, 0, total - 1);
+        for (let i = 0; i < total; i += 1) {
+          slides[i].classList.toggle("is-active", i === index);
+          slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+        }
+
+        const label = `${index + 1}/${total}`;
+        if (counterEl) counterEl.textContent = label;
+        if (progressEl) progressEl.style.width = `${((index + 1) / total) * 100}%`;
+
+        const title = slides[index].querySelector("h1,h2")?.textContent?.trim();
+        if (title) document.title = `${title} • Banco de Dados 1`;
+
+        if (focus) {
+          slides[index].querySelector("a,button,[tabindex]")?.focus?.();
+        }
+      }
+
+      function next() {
+        setIndex(index + 1);
+      }
+
+      function prev() {
+        setIndex(index - 1);
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          (deckEl || document.documentElement).requestFullscreen?.();
+          return;
+        }
+        document.exitFullscreen?.();
+      }
+
+      function handleKeydown(e) {
+        const target = e.target;
+        if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+          return;
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+          e.preventDefault();
+          prev();
+          return;
+        }
+        if (e.key === "Home") {
+          e.preventDefault();
+          setIndex(0);
+          return;
+        }
+        if (e.key === "End") {
+          e.preventDefault();
+          setIndex(total - 1);
+          return;
+        }
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+
+      prevBtn?.addEventListener("click", prev);
+      nextBtn?.addEventListener("click", next);
+      fullscreenBtn?.addEventListener("click", toggleFullscreen);
+      window.addEventListener("keydown", handleKeydown);
+
+      setIndex(0);
+    </script>
+  </body>
+</html>

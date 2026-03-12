@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: O Modelo Entidade-Relacionamento (ER)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Quadro branco/negro, marcadores/giz, post-its (2 cores), cartões de papel, fita adesiva, canetas e (opcional) projetor.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Representar dados usando um modelo conceitual (ER).
+  \item Identificar Entidades, Atributos e Relacionamentos em um cenário real.
+  \item Compreender Cardinalidade (1:1, 1:N, N:M) e regras de participação (quando aplicável).
+  \item Produzir um diagrama ER simples e coerente para um domínio proposto.
+\end{itemize}
+
+\section{Metodologia}
+Aprendizagem baseada em analogias e prática guiada. A aula inicia com leitura de um cenário, extração colaborativa de conceitos (Entidades/Atributos/Relacionamentos) e construção incremental do diagrama no quadro. Em seguida, os grupos modelam um caso e apresentam para discussão e ajustes.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Aquecimento e Conceitos (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{O que é um modelo conceitual? (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Explicação: ER descreve \textbf{o mundo real} (conceitos) antes de virar tabelas.
+    \item Analogia: planta baixa antes de construir a casa; mapa antes do caminho.
+  \end{itemize}
+  \item \textbf{Entidade, Atributo e Relacionamento (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Entidade: ``coisa'' sobre a qual guardamos dados (Cliente, Produto, Pedido).
+    \item Atributo: característica da entidade (Nome, CPF, Preço, Data).
+    \item Relacionamento: ligação entre entidades (Cliente faz Pedido).
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 2: Cardinalidade e Regras Básicas (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Cardinalidade (15 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item 1:1 (Pessoa--RG), 1:N (Cliente--Pedido), N:M (Aluno--Disciplina).
+    \item Pergunta-guia: ``quantos X podem se relacionar com um Y?''
+  \end{itemize}
+  \item \textbf{Atributos-chave e Identificadores (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Discutir a necessidade de identificar instâncias (ex.: ID\_Cliente).
+    \item Analogia: crachá/matrícula para evitar ambiguidade.
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 3: Atividade em Grupo 1 --- Extraindo ER do Texto (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Cenário:} ``Biblioteca'' (ou outro domínio simples definido pelo professor).
+  \item \textbf{Passo a passo:}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Grupos de 4--5 pessoas.
+    \item Entregar um parágrafo com regras do domínio (ex.: Livro, Autor, Empréstimo, Usuário).
+    \item Post-its de uma cor para \textbf{Entidades} e outra para \textbf{Relacionamentos}.
+    \item Listar atributos em cartões e sugerir um identificador por entidade.
+    \item Definir cardinalidades com frases: ``Um usuário pode ter vários empréstimos''.
+  \end{itemize}
+  \item \textbf{Entrega:} diagrama ER no quadro (ou em papel), com legendas.
+\end{itemize}
+
+\subsection*{Parte 4: Socialização e Correções (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Cada grupo apresenta seu diagrama (2--3 min por grupo).
+  \item Discussão orientada: entidades redundantes, atributos que viraram entidades, cardinalidades incoerentes.
+  \item Consolidar um ``ER de referência'' no quadro.
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento e Ponte para a Próxima Aula (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisão: Entidade, Atributo, Relacionamento, Cardinalidade.
+  \item Ponte: ``Na próxima aula, vamos transformar ER em \textbf{tabelas} (modelo relacional).''
+  \item Mini-checklist de qualidade: nomes claros, cardinalidades justificadas, identificadores definidos.
+\end{itemize}
+
+\end{document}
+

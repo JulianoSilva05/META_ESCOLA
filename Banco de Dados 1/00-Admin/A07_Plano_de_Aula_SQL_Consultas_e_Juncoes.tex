@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: SQL --- Consultas e Junções}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Laboratório com computadores, SGBD e cliente SQL, projetor (opcional), quadro e marcadores.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Utilizar SQL para recuperação e manipulação de informações.
+  \item Escrever consultas com SELECT, WHERE, ORDER BY e LIMIT (quando aplicável).
+  \item Aplicar agregações (COUNT, SUM, AVG) com GROUP BY e HAVING.
+  \item Realizar junções (JOIN) entre tabelas usando PK/FK.
+\end{itemize}
+
+\section{Metodologia}
+Prática guiada: o professor demonstra e os alunos resolvem exercícios incrementais. O foco é transformar perguntas do mundo real em consultas e validar resultados com dados de exemplo.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Revisão Rápida (10 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Relembrar DDL/DML e garantir tabelas e dados de exemplo.
+  \item Conectar a ideia de ``query'' com perguntas do usuário.
+\end{itemize}
+
+\subsection*{Parte 2: SELECT e Filtros (30 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item SELECT * vs. selecionar colunas específicas.
+  \item WHERE com comparações e AND/OR.
+  \item ORDER BY para ordenar resultados.
+\end{itemize}
+
+\subsection*{Parte 3: Agregações (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item COUNT/SUM/AVG e uso de GROUP BY.
+  \item HAVING para filtrar grupos.
+  \item Analogia: ``agrupando por categorias e somando totais''.
+\end{itemize}
+
+\subsection*{Parte 4: JOIN --- Cruzando Tabelas (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Por que JOIN existe: dados normalizados em tabelas diferentes.
+  \item INNER JOIN entre CLIENTE e PET usando ID\_Cliente.
+  \item Erros comuns: duplicação por relacionamento N:M e chaves erradas.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade em Duplas --- Perguntas \textrightarrow\ SQL (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Resolver um roteiro de consultas:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item ``Listar todos os pets de um cliente pelo nome.''
+    \item ``Contar quantos pets cada cliente possui.''
+    \item ``Listar clientes que têm ao menos 2 pets.''
+    \item ``Listar pets ordenados por tipo e nome.''
+  \end{itemize}
+  \item Conferir resultados e discutir diferentes soluções.
+\end{itemize}
+
+\subsection*{Parte 6: Encerramento (5 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Ponte: ``Próxima aula: qualidade do esquema --- dependências funcionais e normalização.''
+\end{itemize}
+
+\end{document}
+

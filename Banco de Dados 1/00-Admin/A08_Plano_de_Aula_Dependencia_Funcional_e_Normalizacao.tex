@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Dependência Funcional e Normalização}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Quadro branco/negro, marcadores/giz, folhas/cartões e (opcional) laboratório com SGBD para validação.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender dependência funcional e sua relação com chaves.
+  \item Identificar redundância e anomalias de inserção/atualização/exclusão.
+  \item Aplicar normalização até 3FN (quando apropriado).
+  \item Melhorar esquemas relacionais para facilitar manutenção e consultas.
+\end{itemize}
+
+\section{Metodologia}
+Aprendizagem baseada em problemas: apresentar uma tabela ``bagunçada'' (com repetição) e provocar anomalias. Em grupos, os alunos identificam dependências funcionais e reestruturam em tabelas menores, justificando a decomposição.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Problema Motivador (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Mostrar uma tabela única que mistura dados (ex.: Pedido + Cliente + Produto).
+  \item Pergunta: ``O que acontece se o telefone do cliente mudar?'' (anomalia de atualização).
+  \item Analogia: copiar a mesma informação em vários papéis gera inconsistência.
+\end{itemize}
+
+\subsection*{Parte 2: Dependência Funcional (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Definição: X determina Y (X \textrightarrow\ Y).
+  \item Chaves candidatas e chave primária.
+  \item Exercícios rápidos: identificar FDs em exemplos do quadro.
+\end{itemize}
+
+\subsection*{Parte 3: Formas Normais (30 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{1FN:} atributos atômicos, sem grupos repetidos.
+  \item \textbf{2FN:} eliminar dependência parcial (quando há chave composta).
+  \item \textbf{3FN:} eliminar dependência transitiva.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em Grupo --- Normalizando um Caso (40 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Entrada:} tabela única ``Matrícula'' (Aluno, Curso, Disciplina, Professor, Sala, Nota).
+  \item \textbf{Tarefas:}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Listar dependências funcionais observadas.
+    \item Identificar anomalias (inserção, atualização, exclusão).
+    \item Decompor em tabelas normalizadas e indicar PK/FK.
+  \end{itemize}
+  \item \textbf{Entrega:} conjunto de tabelas resultantes + justificativa breve.
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento e Próximos Passos (10 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisão: por que normalizar e quando fazer.
+  \item Ponte: ``Próximas aulas: recursos do SGBD --- procedures, asserções, gatilhos e transações.''
+\end{itemize}
+
+\end{document}
+

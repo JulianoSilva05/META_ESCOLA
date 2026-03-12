@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: O Modelo Relacional}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Quadro branco/negro, marcadores/giz, folhas/cartões, (opcional) projetor e computador para demonstrações.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Apresentar os conceitos do modelo lógico relacional.
+  \item Compreender relação entre Entidade (ER) e Tabela (Relacional).
+  \item Identificar e diferenciar: Tabela, Coluna (Atributo), Linha (Tupla/Registro).
+  \item Compreender chaves (PK/FK) e restrições básicas de integridade.
+\end{itemize}
+
+\section{Metodologia}
+Aula expositiva dialogada com exemplos concretos (cadastros do dia a dia) e exercícios de transformação de descrições em tabelas. A prática é feita no quadro e em papel, reforçando estrutura e integridade.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Revisão e Contexto (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisar rapidamente ER: entidade, atributo, relacionamento.
+  \item Pergunta-guia: ``Como isso vira armazenamento em tabelas?''
+\end{itemize}
+
+\subsection*{Parte 2: Conceitos do Modelo Relacional (30 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Tabela (Relação) (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Uma tabela representa um conjunto de registros do mesmo tipo.
+    \item Analogia: fichário com fichas no mesmo padrão.
+  \end{itemize}
+  \item \textbf{Coluna e Linha (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Coluna: o que é armazenado (Nome, Data, Valor).
+    \item Linha: o item completo (um cliente, um pedido).
+  \end{itemize}
+  \item \textbf{Integridade e chaves (10 min)}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item PK: identifica unicamente uma linha.
+    \item FK: referência entre tabelas.
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 3: Exemplo Guiado --- Clínica Veterinária (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Construir no quadro as tabelas CLIENTE e PET.
+  \item Mostrar como FK liga PET a CLIENTE.
+  \item Discutir redundância vs. separação correta.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em Grupo --- ``Desenho de Tabelas'' (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Cenário:} ``Sistema de Matrícula'' (Aluno, Disciplina, Turma, Matrícula).
+  \item \textbf{Passo a passo:}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Grupos de 4--5 pessoas.
+    \item Definir 3--4 tabelas e seus atributos.
+    \item Propor PK para cada tabela.
+    \item Identificar pelo menos uma FK e explicar o relacionamento que ela representa.
+  \end{itemize}
+  \item \textbf{Entrega:} esquema de tabelas (nome, colunas, PK/FK).
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisar: tabela/coluna/linha, PK e FK.
+  \item Ponte: ``Na próxima aula, vamos aprender regras para mapear ER em tabelas de forma sistemática.''
+\end{itemize}
+
+\end{document}
+

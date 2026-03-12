@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Linguagem SQL --- DDL e DML}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Laboratório com computadores, SGBD (ex.: PostgreSQL/MySQL) e cliente SQL, projetor (opcional), quadro e marcadores.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Utilizar SQL para implementação de bancos de dados e manipulação de dados.
+  \item Aplicar comandos DDL (CREATE/ALTER/DROP) para definição de tabelas.
+  \item Aplicar comandos DML (INSERT/UPDATE/DELETE) para manipulação de registros.
+  \item Definir PK/FK e restrições básicas na criação das tabelas.
+\end{itemize}
+
+\section{Metodologia}
+Prática guiada em laboratório. O professor demonstra comandos no projetor e os alunos replicam, com checkpoints curtos. A atividade final envolve criar um pequeno esquema e popular com dados, reforçando integridade referencial.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Preparação do Ambiente (15 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Confirmar acesso ao SGBD e abrir o cliente SQL.
+  \item Explicar: banco, schema (quando houver), tabelas, scripts.
+\end{itemize}
+
+\subsection*{Parte 2: DDL --- Criando Estrutura (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{CREATE TABLE (20 min):}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Criar CLIENTE e PET com PK e FK.
+    \item Discutir tipos básicos (texto, número, data) e NOT NULL.
+  \end{itemize}
+  \item \textbf{ALTER e DROP (15 min):}
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Alterar coluna (adicionar/renomear) e cuidados com dados existentes.
+    \item Quando usar DROP e por que é perigoso.
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 3: DML --- Inserindo e Alterando Dados (35 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{INSERT (15 min):} inserir clientes e pets, respeitando FK.
+  \item \textbf{UPDATE (10 min):} atualizar telefone/cidade; boas práticas de WHERE.
+  \item \textbf{DELETE (10 min):} exclusão e impacto em tabelas relacionadas.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em Duplas --- ``Banco da Clínica'' (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Criar um script com:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item 2 tabelas com PK/FK.
+    \item Pelo menos 8 INSERTs.
+    \item 2 UPDATEs e 2 DELETEs.
+  \end{itemize}
+  \item Testar: tentar inserir um PET com ID\_Cliente inexistente e observar o erro.
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento (10 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Recapitular: DDL define estrutura; DML manipula dados.
+  \item Ponte: ``Próxima aula: SELECTs, filtros, agregações e JOINs.''
+\end{itemize}
+
+\end{document}
+

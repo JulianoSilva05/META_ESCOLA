@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Procedimentos Armazenados}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Público-alvo:} Iniciantes\\
+\textbf{Recursos Necessários:} Laboratório com computadores, SGBD e cliente SQL, projetor (opcional), quadro e marcadores.
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender o que são procedimentos armazenados e quando utilizá-los.
+  \item Criar procedimentos com parâmetros de entrada e saída (quando aplicável).
+  \item Encapsular lógica de negócio simples no banco com validações e consultas.
+  \item Relacionar procedures com reutilização, segurança e desempenho.
+\end{itemize}
+
+\section{Metodologia}
+Exposição curta com analogias e prática em laboratório. Os alunos criam procedures pequenas para o domínio da clínica (ex.: cadastrar pet, listar pets de um cliente) e testam com casos de entrada diferentes.
+
+\section{Cronograma e Conteúdo Detalhado (120 Minutos)}
+\subsection*{Parte 1: Conceito e Motivação (20 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item O que é uma procedure: ``uma receita pronta que o SGBD executa''.
+  \item Analogia: ``macro'' que recebe parâmetros e executa passos em sequência.
+  \item Diferença entre executar SQL direto e encapsular em procedure.
+\end{itemize}
+
+\subsection*{Parte 2: Sintaxe e Componentes (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item CREATE PROCEDURE (ou equivalente do SGBD adotado).
+  \item Parâmetros (IN/OUT/INOUT, quando aplicável).
+  \item Variáveis, controle simples (IF) e retorno de resultados.
+\end{itemize}
+
+\subsection*{Parte 3: Exemplo Guiado (25 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Criar procedure \textbf{CadastrarPet} (inserir pet para um cliente existente).
+  \item Validar FK: se o cliente não existir, sinalizar erro (quando suportado) ou retornar mensagem.
+  \item Criar procedure \textbf{ListarPetsDoCliente} (consulta com JOIN).
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em Duplas --- Biblioteca de Procedures (40 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Cada dupla cria 2 procedures:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Uma de \textbf{escrita} (INSERT/UPDATE) com validação.
+    \item Uma de \textbf{leitura} (SELECT) com filtro por parâmetro.
+  \end{itemize}
+  \item Testar com pelo menos 3 casos (entrada válida, inválida e limite).
+  \item Entrega: scripts e evidências (resultados no console).
+\end{itemize}
+
+\subsection*{Parte 5: Encerramento (10 minutos)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Revisar: vantagens, riscos e boas práticas.
+  \item Ponte: ``Próxima aula: regras automáticas --- asserções e gatilhos.''
+\end{itemize}
+
+\end{document}
+
