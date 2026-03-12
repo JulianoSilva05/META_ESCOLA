@@ -259,6 +259,12 @@ a:hover {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--page-bg);
+  color: var(--text);
+}
+
+.deck:fullscreen {
+  background: var(--page-bg);
 }
 
 .deck__stage {
