@@ -213,6 +213,76 @@
 
         <section class="slide" data-slide>
           <div class="slide__content">
+            <span class="kicker">Falhas</span>
+            <h2>Quando software falha, o impacto pode ser enorme</h2>
+            <div class="panel">
+              <p class="big">Nem sempre é “só um bug”</p>
+              <ul class="list">
+                <li>É a soma de <strong>requisitos</strong>, <strong>projeto</strong>, <strong>código</strong>, <strong>testes</strong> e <strong>operação</strong>.</li>
+                <li>Em sistemas críticos, falhas podem causar <strong>mortes</strong>, perdas financeiras e danos ambientais.</li>
+                <li>O objetivo da Engenharia de Software é reduzir risco com processo, validação e disciplina.</li>
+              </ul>
+              <p class="hint">A seguir: casos reais que viraram referência em engenharia.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Casos reais</span>
+            <h2>Falhas graves causadas por software (1/2)</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>
+                  <strong>Therac-25 (1985–1987):</strong> máquina de radioterapia aplicou overdoses por defeitos de software e ausência de intertravamentos de segurança — houve feridos graves e mortes.
+                  <a href="https://en.wikipedia.org/wiki/Therac-25" target="_blank" rel="noopener">Matéria</a>
+                  ·
+                  <a href="https://www.cs.columbia.edu/~junfeng/08fa-e6998/sched/readings/therac25.pdf" target="_blank" rel="noopener">Artigo</a>
+                </li>
+                <li>
+                  <strong>Ariane 5 – Flight 501 (1996):</strong> overflow em conversão numérica de código reutilizado levou a perda do controle e destruição do foguete poucos segundos após o lançamento.
+                  <a href="http://sunnyday.mit.edu/nasa-class/Ariane5-report.html" target="_blank" rel="noopener">Relatório</a>
+                </li>
+                <li>
+                  <strong>Mars Climate Orbiter (1999):</strong> erro de unidades (imperial vs. métrica) em integração de sistemas resultou na perda da sonda.
+                  <a href="https://llis.nasa.gov/llis_lib/pdf/1009464main1_0641-mr.pdf" target="_blank" rel="noopener">Relatório (NASA)</a>
+                </li>
+              </ul>
+              <p class="hint">Lições: validação de requisitos, testes de integração, revisão de suposições e segurança por projeto.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Casos reais</span>
+            <h2>Falhas graves causadas por software (2/2)</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>
+                  <strong>Patriot (Dhahran, 1991):</strong> erro de arredondamento acumulado no tempo degradou o rastreamento, contribuindo para falha de interceptação e mortes.
+                  <a href="https://cs.nyu.edu/~exact/resource/mirror/patriot.htm" target="_blank" rel="noopener">Relatório (GAO)</a>
+                </li>
+                <li>
+                  <strong>Knight Capital (2012):</strong> implantação/configuração incorreta de software de trading gerou ordens indevidas e prejuízo de cerca de US$ 440 milhões em minutos.
+                  <a href="https://www.sec.gov/newsroom/press-releases/2013-222" target="_blank" rel="noopener">Matéria (SEC)</a>
+                  ·
+                  <a href="https://www.sec.gov/files/litigation/admin/2013/34-70694.pdf" target="_blank" rel="noopener">Ordem (PDF)</a>
+                </li>
+                <li>
+                  <strong>Outages em larga escala (diversos):</strong> falhas em atualização, configuração ou rollback podem derrubar serviços bancários, telecom e nuvem por horas.
+                  <a href="https://engineering.fb.com/2021/10/04/networking-traffic/outage/" target="_blank" rel="noopener">Post-mortem (Meta)</a>
+                  ·
+                  <a href="https://blog.cloudflare.com/october-2021-facebook-outage/" target="_blank" rel="noopener">Análise (Cloudflare)</a>
+                </li>
+              </ul>
+              <p class="hint">Lições: controle de mudanças, testes de release, observabilidade, rollback e gestão de risco.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
             <span class="kicker">Etapas</span>
             <h2>Como um software normalmente é construído</h2>
             <div class="panel">
