@@ -1,0 +1,132 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 1 -- Introdução à Engenharia de Software}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-01.html}{slides (HTML)} \quad \href{aula-01.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Aplicar princípios da engenharia de software para desenvolvimento de sistemas.
+  \item Compreender conceitos de engenharia de software, processos de desenvolvimento, modelagem, testes e qualidade.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conhecer os conceitos fundamentais da engenharia de software.
+  \item Compreender metodologias de desenvolvimento de software.
+  \item Identificar riscos e problemas comuns quando não há planejamento e organização.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entender o que é Engenharia de Software e sua diferença em relação à programação.
+  \item Compreender por que software precisa ser planejado e organizado.
+  \item Reconhecer problemas típicos de desenvolvimento sem requisitos e sem processo.
+  \item Conhecer as etapas básicas do desenvolvimento de software e papéis envolvidos.
+  \item Trabalhar em equipe para propor uma solução simples e apresentar ideias com clareza.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conceito de Engenharia de Software e motivação (software como produto e processo).
+  \item Por que planejamento importa: analogia e impactos (prazo, custo, qualidade, risco).
+  \item Falhas de software e consequências (casos reais e lições aprendidas).
+  \item Exemplo prático: erro de começar a desenvolver sem levantar requisitos.
+  \item Etapas do desenvolvimento: requisitos, análise, projeto, implementação, testes, manutenção.
+  \item Papéis no time: analista, dev, QA, designer, gerente.
+  \item Atividade: ideação de aplicativo + wireframe e apresentação.
+\end{itemize}
+
+\section{Metodologia}
+A aula será conduzida com exposição dialogada, perguntas para ativar conhecimento prévio, analogias e discussão de casos. Em seguida, os estudantes realizarão uma atividade em grupo (aprendizagem ativa) para aplicar conceitos: identificar problema, público-alvo, funcionalidades e rascunho de interface (wireframe). Finaliza com apresentações rápidas e fechamento com reflexão.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Slides da aula: \href{aula-01.html}{aula-01.html}.
+  \item Ementa em PDF (a disponibilizar): \href{aula-01.pdf}{aula-01.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Papel e lápis para wireframes; opcionalmente post-its.
+  \item Vídeos/links complementares indicados nos slides.
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e motivação (15 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Quebra-gelo (10 min):} Perguntar quais aplicativos os estudantes usam diariamente e discutir por que não são feitos por uma pessoa só. Conectar com a necessidade de organização e coordenação.
+  \item \textbf{Objetivos e agenda (5 min):} Apresentar objetivos e como a aula será conduzida, incluindo a atividade em grupo.
+\end{itemize}
+
+\subsection*{Parte 2: Conceitos centrais (35 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{O que é Engenharia de Software (15 min):} Definição, processo completo (do planejamento à manutenção), noção de produto e processo.
+  \item \textbf{Por que é importante (10 min):} Analogia com construção civil e consequências da falta de planejamento.
+  \item \textbf{Discussão guiada (10 min):} Cenário do sistema de estoque construído sem requisitos. Identificar o erro e relacionar com a disciplina de requisitos.
+\end{itemize}
+
+\subsection*{Parte 3: Falhas graves e lições (15 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Apresentar 4 a 6 casos reais de falhas por software e discutir lições: requisitos, validação, integração, controle de mudanças, testes e operação.
+  \item Perguntas de checagem: ``qual etapa falhou?'', ``qual controle teria reduzido o risco?''.
+\end{itemize}
+
+\subsection*{Parte 4: Etapas do desenvolvimento e papéis (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item \textbf{Etapas (15 min):} requisitos, análise, projeto, implementação, testes, manutenção; exemplos concretos.
+  \item \textbf{Papéis (5 min):} responsabilidades e como colaboram para entregar valor.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade em grupo (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Dividir em grupos (3--4 alunos) e apresentar o problema proposto (organização escolar).
+  \item Entrega no papel: nome do app, problema, público-alvo, principais funções e um wireframe da tela principal.
+  \item Circular entre grupos, apoiar com perguntas: ``qual é o fluxo mínimo?'', ``qual dado precisa ser cadastrado?'', ``qual regra existe?''.
+\end{itemize}
+
+\subsection*{Parte 6: Apresentações e fechamento (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Apresentação rápida (2--3 min por grupo, com 2--3 grupos) e feedback.
+  \item Fechamento: reforçar que engenharia de software é planejamento + organização + validação + testes + manutenção.
+  \item Pergunta final: ``o que acontece quando um software é criado sem planejamento?''.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Participação nas discussões e respostas às perguntas guiadas.
+  \item Entrega da atividade em grupo (clareza do problema, público-alvo, funções e wireframe).
+  \item Apresentação (objetividade e coerência com o problema proposto).
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+  \item Materiais complementares e matérias sobre falhas de software (links nos slides da aula).
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,127 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 4 -- Engenharia de Requisitos}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-04.html}{slides (HTML)} \quad \href{aula-04.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender o processo de engenharia de requisitos e seu impacto em prazo, custo e qualidade.
+  \item Aplicar princípios de engenharia de software para reduzir retrabalho por requisitos mal definidos.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Elicitar requisitos a partir de um problema e stakeholders.
+  \item Diferenciar requisitos funcionais e não funcionais.
+  \item Escrever requisitos testáveis com critérios de aceitação.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entender o fluxo de requisitos: elicitação, análise, especificação e validação.
+  \item Classificar requisitos (funcionais e não funcionais) com exemplos.
+  \item Produzir histórias de usuário e critérios de aceitação.
+  \item Identificar problemas típicos: ambiguidade, conflitos, escopo implícito.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conceitos e importância de requisitos.
+  \item Tipos de requisitos e características de bons requisitos.
+  \item Técnicas e saídas: backlog, histórias de usuário, casos de uso.
+  \item Validação e verificação: critérios de aceitação e ligação com testes.
+\end{itemize}
+
+\section{Metodologia}
+Exposição dialogada com exemplos curtos e discussão orientada. Atividade prática em grupo para escrever requisitos funcionais e não funcionais e definir critérios de aceitação. O professor revisa com a turma e demonstra como transformar aceitação em casos de teste.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Slides: \href{aula-04.html}{aula-04.html} e ementa: \href{aula-04.pdf}{aula-04.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Folha A4 para grupo e canetas.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e motivação (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Relembrar o caso do estoque (Aula 1) e conectar com requisitos.
+  \item Apresentar objetivos e o formato da atividade.
+\end{itemize}
+
+\subsection*{Parte 2: Conceitos e tipos de requisitos (30 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Definir requisitos e stakeholders.
+  \item Requisitos funcionais x não funcionais: exemplos do ``app organizador''.
+  \item Características de bons requisitos: clareza, necessidade, consistência e verificabilidade.
+\end{itemize}
+
+\subsection*{Parte 3: Processo de requisitos (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Elicitação: como coletar necessidades (entrevista, observação, documento).
+  \item Análise: conflitos, prioridades, regras e dependências.
+  \item Especificação: backlog, histórias de usuário e casos de uso.
+  \item Validação: revisão com stakeholders e critérios de aceitação.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade prática (35 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Dividir em grupos (3--4).
+  \item Cada grupo:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Escreve 3 requisitos funcionais (formato história de usuário).
+    \item Escreve 2 requisitos não funcionais (ex.: desempenho, segurança).
+    \item Para cada requisito funcional, define 2 critérios de aceitação testáveis.
+  \end{itemize}
+  \item Revisão rápida: um requisito por grupo no quadro; melhorar clareza e verificabilidade.
+\end{itemize}
+
+\subsection*{Parte 5: Fechamento e ponte para prototipagem (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Mostrar como requisitos guiam protótipos e testes.
+  \item Reforçar: critérios de aceitação são ``ponte'' para casos de teste.
+  \item Anunciar Aula 5: validar interface e fluxo cedo para reduzir retrabalho.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Coerência e completude do conjunto de requisitos produzido.
+  \item Qualidade dos critérios de aceitação (observáveis e testáveis).
+  \item Participação e melhoria após feedback.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}

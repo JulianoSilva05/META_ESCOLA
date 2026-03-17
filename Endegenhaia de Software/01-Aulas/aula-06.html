@@ -43,6 +43,20 @@
 
         <section class="slide" data-slide>
           <div class="slide__content">
+            <span class="kicker">Ementa (PDF)</span>
+            <h2>Ementa da aula</h2>
+            <div class="panel">
+              <p class="big">Arquivo da aula</p>
+              <p>
+                <a href="./aula-06.pdf" target="_blank" rel="noopener">Baixar aula-06.pdf</a>
+              </p>
+              <p class="hint">Este PDF será disponibilizado com o mesmo conteúdo da aula em slides.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
             <span class="kicker">Referência</span>
             <h2>Livro-base da disciplina</h2>
             <div class="panel">
@@ -54,7 +68,7 @@
                   target="_blank"
                   rel="noopener"
                 >
-                  Baixar PDF (pasta local)
+                  Baixar livro (PDF)
                 </a>
               </p>
               <p class="hint">Modelos ajudam a comunicar e analisar antes de implementar.</p>
@@ -199,6 +213,71 @@
                 <li>1 sequência para o fluxo principal do caso de uso.</li>
               </ul>
               <p class="hint">Foco: clareza e consistência com requisitos, não perfeição estética.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Imagem</span>
+            <h2>Como os diagramas se conectam</h2>
+            <div class="panel">
+              <figure class="er-figure">
+                <svg class="er-image" viewBox="0 0 1000 520" role="img" aria-label="Conexão entre caso de uso, classes e sequência">
+                  <g fill="none" stroke="currentColor" stroke-width="4" opacity="0.9">
+                    <rect x="80" y="120" width="260" height="90" rx="16" />
+                    <rect x="370" y="120" width="260" height="90" rx="16" />
+                    <rect x="660" y="120" width="260" height="90" rx="16" />
+                    <path d="M340 165 L370 165" />
+                    <path d="M630 165 L660 165" />
+                    <path d="M365 165 L350 155 L350 175 Z" fill="currentColor" />
+                    <path d="M655 165 L640 155 L640 175 Z" fill="currentColor" />
+                  </g>
+                  <g fill="currentColor" font-size="20" opacity="0.92">
+                    <text x="210" y="155" text-anchor="middle" font-weight="700">Caso de uso</text>
+                    <text x="210" y="185" text-anchor="middle" opacity="0.85">o que o usuário quer</text>
+                    <text x="500" y="155" text-anchor="middle" font-weight="700">Classes</text>
+                    <text x="500" y="185" text-anchor="middle" opacity="0.85">estrutura do domínio</text>
+                    <text x="790" y="155" text-anchor="middle" font-weight="700">Sequência</text>
+                    <text x="790" y="185" text-anchor="middle" opacity="0.85">interação no tempo</text>
+                  </g>
+
+                  <g fill="none" stroke="currentColor" stroke-width="4" opacity="0.85">
+                    <rect x="140" y="290" width="720" height="150" rx="18" />
+                    <path d="M500 210 C500 250, 500 260, 500 290" />
+                    <path d="M500 280 L490 268 L510 268 Z" fill="currentColor" />
+                  </g>
+                  <g fill="currentColor" font-size="18" opacity="0.9">
+                    <text x="500" y="325" text-anchor="middle" font-weight="700">Consistência</text>
+                    <text x="500" y="355" text-anchor="middle" opacity="0.85">regras → modelos → implementação → testes</text>
+                    <text x="500" y="400" text-anchor="middle" opacity="0.85">se mudar um, revise os outros</text>
+                  </g>
+                </svg>
+              </figure>
+              <p class="hint">Modelagem é comunicação: o mesmo conceito deve aparecer coerente nos diferentes diagramas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-slide>
+          <div class="slide__content">
+            <span class="kicker">Vídeos</span>
+            <h2>Para reforçar o tema</h2>
+            <div class="panel">
+              <ul class="list">
+                <li>
+                  UML básica (caso de uso, classes, sequência):
+                  <a href="https://www.youtube.com/results?search_query=uml+caso+de+uso+classes+sequ%C3%AAncia+explicado" target="_blank" rel="noopener">lista de vídeos</a>
+                </li>
+                <li>
+                  Diagrama de classes do zero:
+                  <a href="https://www.youtube.com/results?search_query=diagrama+de+classes+uml+tutorial" target="_blank" rel="noopener">lista de vídeos</a>
+                </li>
+                <li>
+                  Diagrama de sequência na prática:
+                  <a href="https://www.youtube.com/results?search_query=diagrama+de+sequ%C3%AAncia+uml+tutorial" target="_blank" rel="noopener">lista de vídeos</a>
+                </li>
+              </ul>
             </div>
           </div>
         </section>

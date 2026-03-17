@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 9 -- Qualidade de Software}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-09.html}{slides (HTML)} \quad \href{aula-09.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conhecer medidas de qualidade de software.
+  \item Compreender qualidade de produto e processo e sua relação com engenharia.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Definir critérios de qualidade e formas de verificação.
+  \item Escolher métricas úteis e interpretar resultados.
+  \item Propor ações de melhoria de processo (melhoria contínua).
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Diferenciar qualidade de produto e qualidade de processo.
+  \item Identificar atributos de qualidade e transformá-los em critérios verificáveis.
+  \item Definir métricas úteis (produto e processo) e evitar métricas de vaidade.
+  \item Reconhecer sintomas de imaturidade e propor melhorias práticas.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Qualidade não é ``só testar'': prevenção, detecção e aprendizado.
+  \item Atributos de qualidade (ex.: segurança, desempenho, confiabilidade, manutenibilidade).
+  \item Garantia de qualidade: práticas do processo (requisitos, revisão, testes, mudanças).
+  \item Métricas: produto (defeitos, performance) e processo (lead time, retrabalho).
+  \item Melhoria contínua: sinais de imaturidade e ajustes de processo.
+\end{itemize}
+
+\section{Metodologia}
+Aula expositiva com exemplos e discussão guiada. Atividade em grupo para definir critérios de qualidade e métricas para o ``app organizador'', com foco em tornar tudo mensurável e útil para tomada de decisão. Fechamento com plano de melhoria simples para o time.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Papel A4 para matriz de critérios e métricas.
+  \item Slides: \href{aula-09.html}{aula-09.html} e ementa: \href{aula-09.pdf}{aula-09.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e contexto (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Retomar planejamento/risco (Aula 8) e conectar com qualidade de processo.
+  \item Apresentar objetivos e entregas do encontro (critérios + métricas + ações).
+\end{itemize}
+
+\subsection*{Parte 2: Conceitos de qualidade (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Qualidade de produto x qualidade de processo: exemplos.
+  \item Qualidade como prevenção + detecção + aprendizado.
+\end{itemize}
+
+\subsection*{Parte 3: Atributos e critérios verificáveis (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Apresentar atributos e discutir quais importam no contexto.
+  \item Transformar atributo em critério: ``como verificar?'' e ``qual limite aceitável?''.
+\end{itemize}
+
+\subsection*{Parte 4: Métricas e armadilhas (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Métricas úteis vs.\ métricas que incentivam ``jogo''.
+  \item Exemplos: bugs por entrega, tempo de correção, retrabalho, lead time.
+  \item Regras: métrica deve orientar decisão e melhoria.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade prática (30 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Em grupos, para o ``app organizador'':
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Escolher 4 atributos de qualidade relevantes.
+    \item Para cada atributo, definir 1 critério mensurável (como medir/verificar).
+    \item Definir 3 métricas de processo e 2 de produto.
+    \item Propor 2 ações de melhoria de processo (checklist, revisão, automação, etc.).
+  \end{itemize}
+  \item Socialização rápida e consolidação das melhores métricas/ações.
+\end{itemize}
+
+\subsection*{Parte 6: Fechamento (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Síntese: qualidade é responsabilidade de todo o time e depende do processo.
+  \item Encaminhar como aplicar em projetos futuros e próximas disciplinas.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entrega do conjunto de critérios e métricas (clareza e mensurabilidade).
+  \item Coerência entre atributos, critérios e métricas propostas.
+  \item Participação e justificativas durante a socialização.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}

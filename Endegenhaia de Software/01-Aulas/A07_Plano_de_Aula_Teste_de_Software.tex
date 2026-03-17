@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 7 -- Teste de Software}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-07.html}{slides (HTML)} \quad \href{aula-07.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entender e implementar os principais tipos de teste de software.
+  \item Compreender qualidade como parte do processo de desenvolvimento.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Diferenciar níveis de teste e objetivos.
+  \item Criar casos de teste a partir de requisitos e critérios de aceitação.
+  \item Identificar cenários de erro, limite e exceções.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Definir teste e diferenciar defeito, falha e causa.
+  \item Entender níveis de teste: unitário, integração, sistema e aceitação.
+  \item Escrever casos de teste completos com pré-condições, passos e resultado esperado.
+  \item Discutir estratégia mínima de testes e a ideia da pirâmide de testes.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conceitos: teste, defeito, falha.
+  \item Níveis de teste e quando usar cada um.
+  \item Caso de teste: estrutura e boas práticas.
+  \item Pirâmide de testes e equilíbrio entre velocidade e cobertura.
+  \item Atividade: derivar testes a partir de requisitos do ``app organizador''.
+\end{itemize}
+
+\section{Metodologia}
+Aula expositiva com exemplos curtos e ligação direta com requisitos (Aula 4). Exercício em grupos para escrever casos de teste e identificar cenários de erro/limite. Fechamento com discussão sobre estratégia de testes e trade-offs.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Folhas A4 para escrita de casos de teste.
+  \item Slides: \href{aula-07.html}{aula-07.html} e ementa: \href{aula-07.pdf}{aula-07.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e motivação (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Retomar critérios de aceitação (Aula 4) e conectá-los aos testes.
+  \item Apresentar objetivos e entregas da atividade.
+\end{itemize}
+
+\subsection*{Parte 2: Conceitos e níveis de teste (35 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Definir teste e diferenciar defeito/falha.
+  \item Níveis de teste com exemplos do ``app organizador''.
+  \item Discussão: por que testar cedo reduz custo.
+\end{itemize}
+
+\subsection*{Parte 3: Como escrever casos de teste (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Estrutura: pré-condições, entradas, passos, resultado esperado.
+  \item Exemplos: cenário de sucesso e cenário de erro.
+  \item Checklist: reprodutível, claro, ligado a um requisito.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade prática (35 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Em grupos, selecionar 2 requisitos do backlog.
+  \item Para cada requisito:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Escrever 2 casos de teste (incluindo 1 caso de erro/limite).
+    \item Identificar nível de teste (unitário/integração/sistema/aceitação).
+  \end{itemize}
+  \item Troca entre grupos: revisar um caso de teste de outro grupo e sugerir melhoria.
+\end{itemize}
+
+\subsection*{Parte 5: Estratégia e fechamento (15 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Explicar pirâmide de testes e equilíbrio: muitos testes caros deixam o ciclo lento.
+  \item Ponte para Aula 8: planejamento e gerenciamento também reduzem risco e aumentam qualidade.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Qualidade dos casos de teste (clareza, completude e verificabilidade).
+  \item Cobertura de cenários de erro/limite e coerência com requisitos.
+  \item Participação na revisão cruzada.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,127 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 3 -- Desenvolvimento Ágil}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-03.html}{slides (HTML)} \quad \href{aula-03.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Utilizar metodologias ágeis para gerenciar projetos de software.
+  \item Aplicar princípios de engenharia de software para lidar com mudanças e reduzir riscos.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender desenvolvimento iterativo e incremental.
+  \item Montar backlog e definir critérios de aceitação.
+  \item Entender práticas básicas de Scrum e Kanban.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Diferenciar iterativo vs.\ incremental e relacionar com métodos ágeis.
+  \item Compreender conceitos centrais de Scrum e Kanban.
+  \item Criar backlog simples e priorizar por valor e risco.
+  \item Aplicar WIP limit e discutir efeitos da multitarefa.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Agilidade como resposta a mudanças: ciclos curtos e feedback.
+  \item Iterativo x incremental: definição e exemplos.
+  \item Backlog: itens, priorização e critérios de aceitação.
+  \item Scrum: eventos e objetivos (sprint, daily, review, retro).
+  \item Kanban: fluxo, quadro e limites de trabalho em andamento (WIP).
+\end{itemize}
+
+\section{Metodologia}
+Aula com exposição dialogada e demonstrações (quadros Scrum/Kanban). A atividade central é construir backlog e simular fluxo Kanban, reforçando definição de pronto e critérios de aceitação. O professor intervém com perguntas de clareza (o que é ``pronto''?) e de priorização (por que este item vem antes?).
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores (ou cartolina).
+  \item Post-its (ideal) ou cartões de papel para montar backlog e quadro Kanban.
+  \item Slides: \href{aula-03.html}{aula-03.html} e ementa: \href{aula-03.pdf}{aula-03.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e contexto (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Retomar processo/ciclo de vida (Aula 2) e motivar agilidade com mudança.
+  \item Apresentar objetivos e dinâmica prática do encontro.
+\end{itemize}
+
+\subsection*{Parte 2: Iterativo x incremental (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Explicar diferença e dar exemplos do cotidiano de produto.
+  \item Conectar com redução de risco: entregar cedo e aprender cedo.
+\end{itemize}
+
+\subsection*{Parte 3: Backlog e critérios de aceitação (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Demonstrar um backlog: itens, valor, prioridade, dependências.
+  \item Critérios de aceitação: por que reduzem divergência e retrabalho.
+  \item Exercício guiado: escrever 2 itens de backlog com aceitação.
+\end{itemize}
+
+\subsection*{Parte 4: Scrum e Kanban (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Scrum: sprint, daily, review e retro (objetivo de cada evento).
+  \item Kanban: colunas, fluxo e WIP limit; diferença entre ``começar'' e ``terminar''.
+  \item Mostrar um quadro e simular movimentação de itens.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade prática em grupo (30 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Em grupos, criar 8 itens de backlog para o ``app organizador''.
+  \item Priorizar 3 itens e definir critérios de aceitação.
+  \item Montar quadro Kanban e mover 2 itens até concluído, respeitando WIP.
+  \item Registrar lições: onde travou, por quê, o que mudaria no processo.
+\end{itemize}
+
+\subsection*{Parte 6: Fechamento (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Compartilhar conclusões e conectar com requisitos (Aula 4).
+  \item Síntese: processo + método + ferramenta, com critérios e visibilidade.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Participação na atividade e clareza dos itens de backlog.
+  \item Qualidade dos critérios de aceitação e justificativa de priorização.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}

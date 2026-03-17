@@ -1,0 +1,132 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 5 -- Prototipagem de Interfaces de Software}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-05.html}{slides (HTML)} \quad \href{aula-05.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Aplicar princípios da engenharia de software para reduzir retrabalho por validação tardia.
+  \item Planejar e representar interfaces e fluxos antes da implementação.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Construir fluxo de telas e wireframes.
+  \item Diferenciar protótipo de baixa, média e alta fidelidade.
+  \item Definir perguntas de validação e critérios de sucesso.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Explicar por que prototipar reduz custo de mudança e risco.
+  \item Criar fluxo de navegação mínimo para uma funcionalidade.
+  \item Produzir wireframe da tela principal de uma solução.
+  \item Preparar uma validação rápida com perguntas e observação.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Protótipo como ferramenta de engenharia: reduzir incerteza e retrabalho.
+  \item Fidelidade: baixa, média e alta; quando usar cada uma.
+  \item Fluxo de telas e estados (sucesso, erro, vazio).
+  \item Wireframe: hierarquia, componentes, mensagens e validações.
+  \item Validação: perguntas, observação e registro de feedback.
+\end{itemize}
+
+\section{Metodologia}
+Aula com demonstrações rápidas no quadro (exemplo de fluxo e wireframe). Atividade em grupo para desenhar protótipo em papel (baixa fidelidade) e preparar validação. O professor aplica micro-feedback por ciclos: rascunho $\rightarrow$ perguntas $\rightarrow$ refinamento.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Papel A4, lápis, canetas, post-its (opcional).
+  \item Slides: \href{aula-05.html}{aula-05.html} e ementa: \href{aula-05.pdf}{aula-05.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e contexto (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Retomar requisitos (Aula 4) e reforçar que protótipo ajuda a validar entendimento.
+  \item Apresentar objetivos e entregáveis da atividade (fluxo + wireframe + perguntas).
+\end{itemize}
+
+\subsection*{Parte 2: Conceitos e tipos de protótipo (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Definir prototipagem e fidelidade.
+  \item Discutir custo de mudança e por que prototipar cedo é mais barato.
+  \item Exemplos: papel vs.\ protótipo navegável (quando escolher).
+\end{itemize}
+
+\subsection*{Parte 3: Fluxo de telas e estados (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Montar um fluxo mínimo no quadro (3--5 telas).
+  \item Considerar estados: erro, carregando, vazio, sucesso.
+  \item Checklist de fluxo: início, decisão, retorno, cancelamento.
+\end{itemize}
+
+\subsection*{Parte 4: Wireframe (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Mostrar componentes simples e hierarquia visual.
+  \item Orientar: texto curto, botões claros, mensagens úteis.
+\end{itemize}
+
+\subsection*{Parte 5: Atividade prática (35 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Em grupos, escolher 1 funcionalidade do ``app organizador'' (ex.: lembrete de prova).
+  \item Entregar:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Fluxo mínimo (3--5 telas) desenhado.
+    \item Wireframe da tela principal.
+    \item 3 perguntas de validação com usuários (o que observar).
+  \end{itemize}
+  \item Rodada de ``teste de corredor'': um grupo avalia outro com 2 elogios e 1 sugestão.
+\end{itemize}
+
+\subsection*{Parte 6: Fechamento (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Consolidar lições: validar cedo reduz risco e retrabalho.
+  \item Ponte para a Aula 6: usar requisitos e protótipos para apoiar modelagem (UML).
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entrega do fluxo, wireframe e perguntas de validação.
+  \item Coerência com requisitos e clareza do fluxo.
+  \item Participação no feedback cruzado.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}

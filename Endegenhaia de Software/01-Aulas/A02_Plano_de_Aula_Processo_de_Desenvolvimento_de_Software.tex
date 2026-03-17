@@ -1,0 +1,126 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 2 -- Processo de Desenvolvimento de Software}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-02.html}{slides (HTML)} \quad \href{aula-02.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Aplicar princípios da engenharia de software para desenvolvimento de sistemas.
+  \item Compreender processos e modelos de desenvolvimento para organizar entregas.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender metodologias de desenvolvimento de software.
+  \item Identificar atividades, papéis, artefatos e critérios de um processo.
+  \item Comparar modelos de ciclo de vida e escolher o mais adequado ao cenário.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entender o que é um processo de software e por que ele existe.
+  \item Diferenciar processo, método e ferramenta.
+  \item Conhecer e comparar modelos de ciclo de vida (cascata, incremental, iterativo, espiral).
+  \item Identificar riscos e consequências de processos inadequados ou inexistentes.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conceitos: processo, método e ferramenta; papéis, atividades, artefatos e critérios.
+  \item Ciclo de vida do software e modelos de processo.
+  \item Como escolher um modelo: escopo, risco, mudança, equipe e domínio.
+  \item Atividade: comparar modelos e discutir vantagens, limitações e riscos.
+\end{itemize}
+
+\section{Metodologia}
+Exposição dialogada com exemplos e diagramas (cascata vs.\ iterativo/incremental). Discussão em pequenos grupos e plenária curta para comparação de modelos. O professor conduz perguntas que forçam justificativa (por que um modelo é melhor em determinado cenário) e conecta com riscos e controle de mudanças.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Slides: \href{aula-02.html}{aula-02.html} e ementa em PDF: \href{aula-02.pdf}{aula-02.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Handout para grupos (opcional): 4 cenários de projeto para escolha de processo.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura e objetivos (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Retomar a Aula 1: por que planejamento importa.
+  \item Apresentar os objetivos do encontro e a atividade de comparação.
+\end{itemize}
+
+\subsection*{Parte 2: Processo, método e ferramenta (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Definir \textbf{processo}: fluxo de trabalho, papéis, artefatos e critérios.
+  \item Definir \textbf{método}: técnicas e práticas (ex.: Scrum, UML).
+  \item Definir \textbf{ferramenta}: suporte ao método/processo (tracker, CI, repositório).
+  \item Exemplos de falhas por confusão: ``ritual sem processo'' e ``ferramenta sem método''.
+\end{itemize}
+
+\subsection*{Parte 3: Modelos de ciclo de vida (35 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Apresentar cascata, incremental, iterativo e espiral (objetivos e características).
+  \item Discutir riscos: mudança de requisito, integração tardia, feedback tardio.
+  \item Critérios de escolha: risco, incerteza, complexidade, requisitos, equipe e ambiente.
+\end{itemize}
+
+\subsection*{Parte 4: Atividade em grupos (30 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Dividir em grupos (3--4).
+  \item Cada grupo escolhe um cenário (ex.: sistema escolar, e-commerce pequeno, software crítico).
+  \item Responder:
+  \begin{itemize}[leftmargin=*,itemsep=0.25em]
+    \item Qual modelo de processo escolher e por quê.
+    \item Quais riscos existem e como o modelo ajuda (ou atrapalha).
+    \item Quais artefatos mínimos produzir (requisitos, plano, testes).
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Parte 5: Socialização e fechamento (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item 2--3 grupos apresentam (2--3 min cada).
+  \item Professor consolida: não há modelo perfeito; há adequação ao contexto.
+  \item Ponte para a Aula 3: como métodos ágeis se encaixam em processos iterativos/incrementais.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Participação na discussão e justificativa da escolha do processo.
+  \item Qualidade do raciocínio sobre riscos, artefatos mínimos e critérios.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}

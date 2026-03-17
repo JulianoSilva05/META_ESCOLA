@@ -1,0 +1,126 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+\geometry{margin=2.5cm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{Plano de Aula: Aula 6 -- Modelagem de Software (UML)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{Disciplina:} Engenharia de Software (Curso Técnico em Desenvolvimento de Sistemas)\\
+\textbf{Duração:} 2 horas (120 minutos)\\
+\textbf{Modalidade:} Presencial\\
+\textbf{Materiais da aula:} \href{aula-06.html}{slides (HTML)} \quad \href{aula-06.pdf}{ementa (PDF)}\\
+\textbf{Livro-base (referência):} \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos (PDF)}
+
+\section{Competências e Habilidades}
+\textbf{Competências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Compreender e aplicar modelagem para apoiar análise e projeto.
+  \item Analisar e projetar softwares orientados a objetos.
+\end{itemize}
+
+\textbf{Habilidades}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Conhecer e utilizar UML como linguagem de especificação.
+  \item Representar requisitos (casos de uso), estrutura (classes) e comportamento (sequência).
+  \item Manter consistência entre modelos e implementação.
+\end{itemize}
+
+\section{Objetivos da Aula}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Explicar por que modelar e quando modelar ``o suficiente''.
+  \item Produzir um caso de uso simples com ator, objetivo e fluxo.
+  \item Produzir diagrama de classes básico do domínio.
+  \item Produzir um diagrama de sequência para o fluxo principal.
+\end{itemize}
+
+\section{Assuntos Abordados no Dia}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Modelagem como comunicação e redução de risco.
+  \item UML e perspectivas: requisitos, estrutura e comportamento.
+  \item Caso de uso: atores, objetivos, fluxo principal e alternativas.
+  \item Classes: conceitos do domínio, atributos, métodos e relações.
+  \item Sequência: mensagens e responsabilidades no tempo.
+\end{itemize}
+
+\section{Metodologia}
+Aula expositiva com demonstrações no quadro e exercícios guiados. Os estudantes desenvolvem modelos em grupos a partir do ``app organizador'' e apresentam rapidamente para checagem de consistência. O professor enfatiza rastreabilidade: requisito $\rightarrow$ modelo $\rightarrow$ implementação $\rightarrow$ testes.
+
+\section{Materiais e Recursos}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Quadro e marcadores.
+  \item Papel A4 e canetas para desenhar diagramas (ou ferramenta CASE, se disponível).
+  \item Slides: \href{aula-06.html}{aula-06.html} e ementa: \href{aula-06.pdf}{aula-06.pdf}.
+  \item Livro-base (PDF): \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{Engenharia de software: projetos e processos}.
+  \item Vídeos complementares (links nos slides).
+\end{itemize}
+
+\section{Cronograma e Descrição Detalhada (120 Minutos)}
+\subsection*{Parte 1: Abertura (10 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Conectar com prototipagem (Aula 5): protótipo valida interface; modelo valida estrutura e regras.
+  \item Apresentar objetivos e entregas: caso de uso, classes e sequência.
+\end{itemize}
+
+\subsection*{Parte 2: UML e ``quanto modelar'' (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Mostrar perspectivas e quando usar cada diagrama.
+  \item Discutir risco de excesso: documentação que não vira produto.
+  \item Regra prática: modelar para decidir e construir com segurança.
+\end{itemize}
+
+\subsection*{Parte 3: Caso de uso (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Explicar estrutura: ator, objetivo, fluxo principal, alternativas.
+  \item Exercício guiado: ``Cadastrar tarefa'' (fluxo principal + 1 alternativa).
+\end{itemize}
+
+\subsection*{Parte 4: Classes (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Identificar classes do domínio do ``app organizador''.
+  \item Definir atributos mínimos e relacionamentos.
+  \item Discutir responsabilidades e evitar ``classe Deus''.
+\end{itemize}
+
+\subsection*{Parte 5: Sequência (25 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Montar sequência do fluxo principal do caso de uso.
+  \item Discutir responsabilidades e dependências.
+\end{itemize}
+
+\subsection*{Parte 6: Apresentação e fechamento (20 min)}
+\begin{itemize}[leftmargin=*,itemsep=0.35em]
+  \item Grupos apresentam modelos (2--3 min).
+  \item Checagem de consistência: caso de uso $\leftrightarrow$ classes $\leftrightarrow$ sequência.
+  \item Ponte para Aula 7: como modelos ajudam a derivar casos de teste.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item Entrega do conjunto de modelos (clareza e consistência).
+  \item Participação na discussão e revisão com feedback.
+\end{itemize}
+
+\section{Referências}
+\begin{itemize}[leftmargin=*,itemsep=0.25em]
+  \item \href{../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf}{PAULA FILHO, Wilson de Pádua. Engenharia de software: projetos e processos. 4. ed. 2019.}
+\end{itemize}
+
+\end{document}
