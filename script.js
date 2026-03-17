@@ -285,6 +285,66 @@ function clearGrid() {
   grid.innerHTML = "";
 }
 
+function ensureSearch() {
+  const input = document.querySelector("[data-search-input]");
+  const clear = document.querySelector("[data-search-clear]");
+  const hint = document.querySelector("[data-search-hint]");
+  const wrapper = document.querySelector("[data-search]");
+  if (!input || !(input instanceof HTMLInputElement) || !clear || !(clear instanceof HTMLButtonElement) || !wrapper) {
+    return null;
+  }
+  return { input, clear, hint, wrapper };
+}
+
+function setSearchState({ visible, placeholder }) {
+  const search = ensureSearch();
+  if (!search) return;
+  search.wrapper.hidden = !visible;
+  if (typeof placeholder === "string") search.input.placeholder = placeholder;
+  if (!visible) search.input.value = "";
+  if (search.hint) search.hint.hidden = !visible;
+}
+
+function applyGridFilter(query) {
+  const grid = document.querySelector("[data-grid]");
+  if (!grid) return;
+  const q = (query || "").trim().toLowerCase();
+  const nodes = Array.from(grid.children);
+  for (const node of nodes) {
+    if (!(node instanceof HTMLElement)) continue;
+    const searchable = (node.dataset.searchText || "").toLowerCase();
+    const shouldShow = !q || searchable.includes(q);
+    node.classList.toggle("is-hidden", !shouldShow);
+  }
+}
+
+function initSearch({ placeholder }) {
+  const search = ensureSearch();
+  if (!search) return;
+
+  setSearchState({ visible: true, placeholder });
+  applyGridFilter(search.input.value);
+
+  const onInput = () => applyGridFilter(search.input.value);
+  if (!search.input.dataset.bound) {
+    search.input.dataset.bound = "1";
+    search.input.addEventListener("input", onInput);
+    search.clear.addEventListener("click", () => {
+      search.input.value = "";
+      search.input.focus();
+      applyGridFilter("");
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key !== "/") return;
+      const target = e.target;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+      e.preventDefault();
+      search.input.focus();
+    });
+  }
+}
+
 function createCard({ title, meta, href, kind = "folder", external = false }) {
   const tpl = document.getElementById("card-template");
   if (!tpl || !(tpl instanceof HTMLTemplateElement)) {
@@ -299,6 +359,7 @@ function createCard({ title, meta, href, kind = "folder", external = false }) {
     a.innerHTML = `<div class="card__icon" aria-hidden="true"></div><div class="card__body"><div class="card__title"></div><div class="card__meta"></div></div>`;
     a.querySelector(".card__title").textContent = title;
     a.querySelector(".card__meta").textContent = meta;
+    a.dataset.searchText = `${title || ""} ${meta || ""}`.trim();
     return a;
   }
 
@@ -311,6 +372,7 @@ function createCard({ title, meta, href, kind = "folder", external = false }) {
   }
   node.querySelector(".card__title").textContent = title;
   node.querySelector(".card__meta").textContent = meta;
+  node.dataset.searchText = `${title || ""} ${meta || ""}`.trim();
   return node;
 }
 
@@ -324,6 +386,7 @@ function createInfoCard({ title, meta, kind = "info" }) {
   div.querySelector(".card__title").textContent = title;
   div.querySelector(".card__meta").textContent = meta || "";
   if (!meta) div.classList.add("is-meta-empty");
+  div.dataset.searchText = `${title || ""} ${meta || ""}`.trim();
   return div;
 }
 
@@ -364,6 +427,7 @@ function renderModules() {
 
   const grid = $("[data-grid]");
   clearGrid();
+  initSearch({ placeholder: "Buscar módulos..." });
 
   for (const mod of appData.modules) {
     const card = createCard({
@@ -392,11 +456,17 @@ function renderModule(moduleId) {
 
   const grid = $("[data-grid]");
   clearGrid();
+  initSearch({ placeholder: "Buscar disciplinas..." });
 
   for (const d of mod.disciplines) {
+    const lessonsCount = d.lessons?.length || 0;
+    const activitiesCount = d.activities?.length || 0;
+    const parts = [];
+    parts.push(lessonsCount ? `${lessonsCount} aulas` : "Sem aulas por enquanto");
+    if (activitiesCount) parts.push(`${activitiesCount} atividade${activitiesCount > 1 ? "s" : ""}`);
     const card = createCard({
       title: d.name,
-      meta: d.lessons?.length ? `${d.lessons.length} aulas` : "Sem aulas por enquanto",
+      meta: parts.join(" • "),
       href: `#/${mod.id}/${d.id}`,
       kind: "folder",
     });
@@ -418,6 +488,7 @@ function renderDisciplineRoot(moduleId, disciplineId) {
 
   const grid = $("[data-grid]");
   clearGrid();
+  initSearch({ placeholder: "Buscar aulas e atividades..." });
 
   const back = createCard({
     title: "Voltar para o Módulo",
@@ -430,7 +501,7 @@ function renderDisciplineRoot(moduleId, disciplineId) {
   if (disc.syllabus?.topics?.length) {
     const topicsCard = createInfoCard({
       title: "Ementa (tópicos)",
-      meta: "",
+      meta: "Abrir tópicos e livro de referência",
       kind: "info",
     });
 
@@ -482,7 +553,7 @@ function renderDisciplineRoot(moduleId, disciplineId) {
           title: activity.title,
           meta: activity.subtitle || "Atividade",
           href: getActivityHtmlPath(disc.folder, activity.folder || "02-Atividades", activity.id),
-          kind: "file",
+          kind: "activity",
         })
       );
     }
@@ -534,6 +605,7 @@ function renderLesson(moduleId, disciplineId, lessonId) {
 
   const grid = $("[data-grid]");
   clearGrid();
+  initSearch({ placeholder: "Buscar nesta página..." });
 
   grid.appendChild(
     createCard({
@@ -560,6 +632,7 @@ function renderNotFound() {
 
   const grid = $("[data-grid]");
   clearGrid();
+  setSearchState({ visible: false, placeholder: "" });
 
   grid.appendChild(
     createCard({
