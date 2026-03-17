@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz 01 - Engenharia de Software</title>
+    <script src="../aulas-theme.js"></script>
+    <link rel="stylesheet" href="../aulas.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__content">
+        <div class="brand">
+          <div class="brand__title">Engenharia de Software</div>
+          <div class="brand__subtitle">Quiz 01</div>
+        </div>
+        <nav class="breadcrumbs" aria-label="Navegação">
+          <a class="breadcrumbs__link" href="../../index.html#/">Início</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <a class="breadcrumbs__link" href="../../index.html#/modulo-1">Módulo 1</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <a class="breadcrumbs__link" href="../../index.html#/modulo-1/esw">Engenharia de Software</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <span>Quiz 01</span>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h1 class="page-header__title">Quiz 01 - Engenharia de Software</h1>
+        <p class="page-header__subtitle">
+          10 questões de múltipla escolha • feedback imediato com explicação • revisão final
+        </p>
+      </section>
+
+      <section class="content">
+        <div class="card" id="intro-card">
+          <p class="notice"><strong>Como funciona</strong></p>
+          <ul class="list">
+            <li>Responda todas as 10 questões.</li>
+            <li>Antes de avançar, você verá se está certo ou errado.</li>
+            <li>Se errar, o sistema explica o porquê.</li>
+          </ul>
+          <p class="hint">
+            Dica: leia com calma. As alternativas foram pensadas para não deixarem a resposta “óbvia”.
+          </p>
+          <div class="panel" style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap">
+            <button class="btn" type="button" id="start-btn">Iniciar quiz</button>
+            <span class="muted" style="align-self: center">ou clique em qualquer lugar deste card</span>
+          </div>
+        </div>
+
+        <div class="card" id="quiz-card" hidden>
+          <div class="meta-grid">
+            <div class="meta-grid__item">
+              <div class="meta-grid__label">Progresso</div>
+              <div class="meta-grid__value" id="progress-label">1/10</div>
+            </div>
+            <div class="meta-grid__item">
+              <div class="meta-grid__label">Acertos</div>
+              <div class="meta-grid__value" id="score-label">0</div>
+            </div>
+          </div>
+
+          <h2 class="page-header__title" style="margin-top: 18px" id="question-title"></h2>
+          <p class="big" id="question-stem"></p>
+
+          <form id="options-form" class="panel" style="margin-top: 14px">
+            <div id="options"></div>
+          </form>
+
+          <div class="panel" id="feedback" hidden style="margin-top: 14px"></div>
+
+          <div class="panel" style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap">
+            <button class="btn" type="button" id="check-btn">Conferir</button>
+            <button class="btn" type="button" id="next-btn" disabled>Próxima</button>
+            <button class="btn" type="button" id="restart-btn">Reiniciar</button>
+          </div>
+        </div>
+
+        <div class="card" id="result-card" hidden>
+          <p class="notice"><strong>Resultado</strong></p>
+          <p class="big" id="final-score"></p>
+          <p class="hint" id="final-hint"></p>
+
+          <p class="notice" style="margin-top: 14px"><strong>Sugestões de estudo</strong></p>
+          <ul class="list" id="study-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const BOOK_PDF =
+        "../99-Materiais/Engenharia%20de%20software%20projetos%20e%20processos%20by%20Wilson%20de%20P%C3%A1dua%20Paula%20Filho%20.epub.pdf";
+
+      const LESSONS = [
+        { id: "aula-01", title: "Aula 1 - Introdução à Engenharia de Software" },
+        { id: "aula-02", title: "Aula 2 - Processo de Desenvolvimento de Software" },
+        { id: "aula-03", title: "Aula 3 - Desenvolvimento Ágil" },
+        { id: "aula-04", title: "Aula 4 - Engenharia de Requisitos" },
+        { id: "aula-05", title: "Aula 5 - Prototipagem de Interfaces de Software" },
+        { id: "aula-06", title: "Aula 6 - Modelagem de Software (UML)" },
+        { id: "aula-07", title: "Aula 7 - Teste de Software" },
+        { id: "aula-08", title: "Aula 8 - Planejamento e Gerenciamento de Software" },
+        { id: "aula-09", title: "Aula 9 - Qualidade de Software" },
+      ];
+
+      const bookPages = {
+        intro: { label: "Fundamentos e visão geral", pageStart: 26, pageEnd: null },
+        process: { label: "Processo e ciclo de vida", pageStart: 60, pageEnd: null },
+        agile: { label: "Iterativo/incremental e ágil", pageStart: 156, pageEnd: null },
+        requirements: { label: "Engenharia de requisitos", pageStart: 234, pageEnd: null },
+        prototyping: { label: "Prototipagem e validação", pageStart: 99, pageEnd: null },
+        uml: { label: "Modelagem/UML", pageStart: 192, pageEnd: null },
+        testing: { label: "Testes", pageStart: 159, pageEnd: null },
+        management: { label: "Gerência/planejamento", pageStart: 229, pageEnd: null },
+        quality: { label: "Qualidade e métricas", pageStart: 157, pageEnd: null },
+      };
+
+      const questions = [
+        {
+          id: "q1",
+          title: "Engenharia de Software",
+          stem: "Qual afirmação descreve melhor Engenharia de Software?",
+          correctKey: "b",
+          options: {
+            a: {
+              label: "É escrever código com boas práticas e padrões de projeto.",
+              whyWrong:
+                "Programar bem é importante, mas engenharia de software também envolve requisitos, planejamento, testes, manutenção e gestão de mudanças.",
+            },
+            b: {
+              label:
+                "É uma disciplina que organiza o desenvolvimento com processos, métodos e práticas para entregar software com qualidade.",
+              whyCorrect:
+                "Engenharia de software engloba todo o ciclo: entender o problema, planejar, construir, validar e evoluir, reduzindo risco e retrabalho.",
+            },
+            c: {
+              label: "É usar uma ferramenta CASE para gerar diagramas e documentação.",
+              whyWrong:
+                "Ferramentas ajudam, mas não substituem o processo: decisões, critérios, validação e coordenação do trabalho continuam necessários.",
+            },
+            d: {
+              label: "É aplicar testes automatizados para garantir que não existam bugs.",
+              whyWrong:
+                "Testes aumentam a confiança, mas não provam ausência de defeitos, e qualidade também depende de requisitos, projeto e operação.",
+            },
+          },
+          study: { topicKey: "intro", lessonId: "aula-01" },
+        },
+        {
+          id: "q2",
+          title: "Requisitos e retrabalho",
+          stem: "Um programador entrega um sistema e o cliente diz que faltam login e relatórios. Qual foi o principal erro de processo?",
+          correctKey: "c",
+          options: {
+            a: {
+              label: "Escolher uma linguagem de programação inadequada.",
+              whyWrong:
+                "A linguagem não explica funcionalidades ausentes. O problema é ter desenvolvido sem alinhar o que o cliente precisava.",
+            },
+            b: {
+              label: "Não ter feito testes unitários suficientes.",
+              whyWrong:
+                "Testes verificam o que foi implementado. Aqui o que faltou foi definir o que deveria existir no produto antes de codificar.",
+            },
+            c: {
+              label: "Não levantar e validar requisitos antes de implementar.",
+              whyCorrect:
+                "Sem elicitar e validar requisitos, o time pode entregar algo correto tecnicamente, mas incompleto para o negócio.",
+            },
+            d: {
+              label: "Não ter usado um framework de relatórios.",
+              whyWrong:
+                "Framework é detalhe de implementação. A ausência de relatórios indica requisito não identificado/negociado.",
+            },
+          },
+          study: { topicKey: "requirements", lessonId: "aula-04" },
+        },
+        {
+          id: "q3",
+          title: "Processo vs método vs ferramenta",
+          stem: "Qual combinação está correta?",
+          correctKey: "a",
+          options: {
+            a: {
+              label:
+                "Processo define fluxo e artefatos; método descreve técnicas; ferramenta apoia a execução e automação.",
+              whyCorrect:
+                "Processo organiza trabalho; método traz técnicas/práticas; ferramenta viabiliza e dá eficiência, mas não substitui decisão e coordenação.",
+            },
+            b: {
+              label:
+                "Processo é sempre ágil; método é sempre cascata; ferramenta é sempre um diagrama UML.",
+              whyWrong:
+                "Processo pode ser cascata, iterativo, incremental etc.; método pode ser Scrum, XP, UML; ferramenta pode ser tracker, CI, repositório.",
+            },
+            c: {
+              label:
+                "Processo e método são sinônimos; ferramenta define o que o time precisa construir.",
+              whyWrong:
+                "Processo e método se relacionam, mas não são sinônimos. Ferramenta não define necessidades do cliente.",
+            },
+            d: {
+              label:
+                "Ferramenta é o mais importante; sem ferramenta não existe processo nem método.",
+              whyWrong:
+                "Ferramentas ajudam muito, mas processos e métodos podem existir mesmo com recursos simples (papel/quadro).",
+            },
+          },
+          study: { topicKey: "process", lessonId: "aula-02" },
+        },
+        {
+          id: "q4",
+          title: "Ciclo de vida",
+          stem: "Em qual cenário o modelo cascata tende a ser mais apropriado?",
+          correctKey: "d",
+          options: {
+            a: {
+              label:
+                "Projeto com requisitos mudando semanalmente e necessidade de feedback constante do usuário.",
+              whyWrong:
+                "Mudança frequente pede iteração e entregas incrementais. Cascata tende a sofrer com retrabalho quando requisitos mudam.",
+            },
+            b: {
+              label:
+                "Produto inovador, sem clareza de solução, com alto risco técnico e necessidade de experimentos.",
+              whyWrong:
+                "Incerteza e alto risco costumam pedir ciclos de aprendizado (iterativo/espiral) para reduzir risco cedo.",
+            },
+            c: {
+              label:
+                "Time com alta rotatividade e sem tempo para documentar ou revisar decisões.",
+              whyWrong:
+                "Alta rotatividade pede mais clareza e registro, não menos. Cascata não resolve o problema de comunicação e alinhamento.",
+            },
+            d: {
+              label:
+                "Escopo relativamente estável, regras bem conhecidas e necessidade de previsibilidade e documentação.",
+              whyCorrect:
+                "Quando requisitos são estáveis e a previsibilidade é prioridade, fases sequenciais com entregáveis claros tendem a funcionar melhor.",
+            },
+          },
+          study: { topicKey: "process", lessonId: "aula-02" },
+        },
+        {
+          id: "q5",
+          title: "Ágil: iterativo e incremental",
+          stem: "Qual alternativa descreve melhor o que significa trabalhar de forma iterativa e incremental?",
+          correctKey: "b",
+          options: {
+            a: {
+              label: "Implementar todas as funcionalidades primeiro e melhorar o design no final.",
+              whyWrong:
+                "Isso empurra feedback e validação para o fim. Iteração e incremento buscam aprender e entregar valor em ciclos curtos.",
+            },
+            b: {
+              label:
+                "Entregar partes funcionais e refinar continuamente com base em feedback e aprendizado.",
+              whyCorrect:
+                "Incremento entrega valor por partes; iteração refina a solução com aprendizado. Juntos, reduzem risco e retrabalho.",
+            },
+            c: {
+              label: "Manter o plano fixo e evitar mudanças para não atrasar.",
+              whyWrong:
+                "Agilidade pressupõe lidar com mudança de modo controlado. Evitar mudanças não é realista em muitos contextos.",
+            },
+            d: {
+              label: "Usar apenas Kanban para tudo e dispensar critérios de aceitação.",
+              whyWrong:
+                "Kanban ajuda no fluxo, mas critérios de aceitação ainda são essenciais para alinhar o que significa 'pronto'.",
+            },
+          },
+          study: { topicKey: "agile", lessonId: "aula-03" },
+        },
+        {
+          id: "q6",
+          title: "Requisito não funcional",
+          stem: "Qual alternativa é um requisito não funcional?",
+          correctKey: "a",
+          options: {
+            a: {
+              label: "O sistema deve exigir autenticação e proteger dados sensíveis do usuário.",
+              whyCorrect:
+                "Segurança é uma característica de qualidade/restrição do sistema: descreve 'como' o sistema deve ser, não uma funcionalidade específica.",
+            },
+            b: {
+              label: "O sistema deve permitir cadastrar tarefas e editar o título de uma tarefa.",
+              whyWrong:
+                "Isso descreve funções do sistema (o que faz), portanto é requisito funcional.",
+            },
+            c: {
+              label: "O sistema deve gerar relatório de tarefas por semana.",
+              whyWrong:
+                "Gerar relatório é funcionalidade (o que o sistema faz).",
+            },
+            d: {
+              label: "O sistema deve permitir anexar arquivos em uma tarefa.",
+              whyWrong:
+                "Anexar arquivos é funcionalidade; um não funcional poderia limitar tamanho, performance ou segurança desse recurso.",
+            },
+          },
+          study: { topicKey: "requirements", lessonId: "aula-04" },
+        },
+        {
+          id: "q7",
+          title: "Prototipagem",
+          stem: "Qual é um benefício típico da prototipagem em baixa fidelidade (papel/wireframe simples)?",
+          correctKey: "d",
+          options: {
+            a: {
+              label: "Substituir a etapa de requisitos, pois o protótipo já define tudo.",
+              whyWrong:
+                "Protótipo ajuda a validar interface e fluxo, mas não elimina requisitos e regras de negócio.",
+            },
+            b: {
+              label: "Garantir a performance final, pois o protótipo executa igual ao produto.",
+              whyWrong:
+                "Protótipo de baixa fidelidade não mede performance. Ele valida entendimento e usabilidade, não características técnicas finais.",
+            },
+            c: {
+              label: "Evitar testes, já que o usuário viu o protótipo e aprovou.",
+              whyWrong:
+                "Aprovação de protótipo não substitui testes de implementação. Ainda é preciso validar código, integrações e estados de erro.",
+            },
+            d: {
+              label:
+                "Reduzir retrabalho ao validar cedo a navegação e expectativas com baixo custo de mudança.",
+              whyCorrect:
+                "Mudanças em papel são rápidas e baratas. Isso reduz risco de implementar algo que o usuário não entende ou não quer.",
+            },
+          },
+          study: { topicKey: "prototyping", lessonId: "aula-05" },
+        },
+        {
+          id: "q8",
+          title: "UML e consistência",
+          stem: "Um bom uso de UML em projetos é:",
+          correctKey: "c",
+          options: {
+            a: {
+              label: "Criar diagramas completos para todas as telas, mesmo sem necessidade.",
+              whyWrong:
+                "Modelar demais pode virar burocracia. O ideal é modelar o suficiente para decidir e construir com segurança.",
+            },
+            b: {
+              label: "Produzir diagramas apenas para cumprir formalidades, sem conexão com o código.",
+              whyWrong:
+                "Se o modelo não ajuda a comunicar/analisar e não se mantém consistente com o sistema, ele perde valor.",
+            },
+            c: {
+              label:
+                "Modelar requisitos (casos de uso), estrutura (classes) e comportamento (sequência) de forma coerente.",
+              whyCorrect:
+                "O valor está na comunicação e análise: diferentes visões do mesmo sistema devem se alinhar e apoiar implementação e testes.",
+            },
+            d: {
+              label: "Usar UML como substituto do backlog e da validação com stakeholders.",
+              whyWrong:
+                "UML não substitui alinhamento com stakeholders nem priorização/aceitação. Ela complementa requisitos e projeto.",
+            },
+          },
+          study: { topicKey: "uml", lessonId: "aula-06" },
+        },
+        {
+          id: "q9",
+          title: "Testes: níveis",
+          stem: "Qual alternativa descreve melhor um teste de integração?",
+          correctKey: "b",
+          options: {
+            a: {
+              label: "Testar uma função isolada que calcula o horário do lembrete.",
+              whyWrong:
+                "Isso é tipicamente teste unitário: foco em unidade isolada sem dependências externas.",
+            },
+            b: {
+              label:
+                "Testar a comunicação entre API e banco de dados ao criar uma tarefa, incluindo validação e persistência.",
+              whyCorrect:
+                "Integração verifica se componentes funcionam juntos (módulos/serviços/banco), encontrando falhas em interfaces e contratos.",
+            },
+            c: {
+              label: "Testar a aplicação inteira pelo navegador, do login até a tela final.",
+              whyWrong:
+                "Isso é mais próximo de teste de sistema/UI: envolve o sistema completo.",
+            },
+            d: {
+              label: "Pedir para o cliente aprovar se a interface ficou bonita.",
+              whyWrong:
+                "Aceitação é verificar critérios de negócio/uso; estética pode ser um critério, mas isso não define integração entre componentes.",
+            },
+          },
+          study: { topicKey: "testing", lessonId: "aula-07" },
+        },
+        {
+          id: "q10",
+          title: "Gerência e qualidade",
+          stem: "Qual prática ajuda mais a reduzir riscos de perdas por deploy/configuração incorreta em produção?",
+          correctKey: "a",
+          options: {
+            a: {
+              label:
+                "Controle de mudanças com revisão, validação de release e plano de rollback.",
+              whyCorrect:
+                "Risco de produção diminui com processos de release: validar alterações, observar impacto e ter rollback reduz falhas e tempo de indisponibilidade.",
+            },
+            b: {
+              label: "Adicionar mais funcionalidades antes de cada entrega para aumentar o valor.",
+              whyWrong:
+                "Aumentar o lote de mudanças aumenta risco e dificulta isolar causa de falhas em produção.",
+            },
+            c: {
+              label: "Evitar métricas para não pressionar o time.",
+              whyWrong:
+                "Métricas úteis orientam melhoria; o problema é usar métricas para punir. Sem sinais, você reage tarde.",
+            },
+            d: {
+              label:
+                "Executar apenas testes manuais no final do projeto para economizar tempo.",
+              whyWrong:
+                "Testar só no final aumenta custo e risco. Testes e validações ao longo do processo reduzem problemas antes do deploy.",
+            },
+          },
+          study: { topicKey: "management", lessonId: "aula-08" },
+        },
+      ];
+
+      function shuffle(array) {
+        const a = array.slice();
+        for (let i = a.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      function getLessonTitle(lessonId) {
+        return LESSONS.find((l) => l.id === lessonId)?.title || lessonId;
+      }
+
+      function formatBookPages(topicKey) {
+        const entry = bookPages[topicKey];
+        if (!entry) return null;
+        if (!entry.pageStart) return null;
+        const start = entry.pageStart;
+        const end = entry.pageEnd && entry.pageEnd >= start ? entry.pageEnd : null;
+        return end ? `p. ${start}–${end} (aprox.)` : `p. ${start} (aprox.)`;
+      }
+
+      function getBookHref(topicKey) {
+        const entry = bookPages[topicKey];
+        if (!entry || !entry.pageStart) return BOOK_PDF;
+        return `${BOOK_PDF}#page=${entry.pageStart}`;
+      }
+
+      const introCard = document.getElementById("intro-card");
+      const quizCard = document.getElementById("quiz-card");
+      const resultCard = document.getElementById("result-card");
+      const startBtn = document.getElementById("start-btn");
+
+      const progressLabel = document.getElementById("progress-label");
+      const scoreLabel = document.getElementById("score-label");
+      const questionTitle = document.getElementById("question-title");
+      const questionStem = document.getElementById("question-stem");
+      const optionsEl = document.getElementById("options");
+      const feedbackEl = document.getElementById("feedback");
+
+      const checkBtn = document.getElementById("check-btn");
+      const nextBtn = document.getElementById("next-btn");
+      const restartBtn = document.getElementById("restart-btn");
+
+      let state = {
+        index: 0,
+        score: 0,
+        answered: false,
+        lastSelectionKey: null,
+        order: [],
+        optionOrder: [],
+      };
+
+      function setMode(mode) {
+        if (mode === "quiz") {
+          introCard.hidden = true;
+          quizCard.hidden = false;
+          resultCard.hidden = true;
+          return;
+        }
+        if (mode === "result") {
+          introCard.hidden = true;
+          quizCard.hidden = true;
+          resultCard.hidden = false;
+          return;
+        }
+        introCard.hidden = false;
+        quizCard.hidden = true;
+        resultCard.hidden = true;
+      }
+
+      function renderQuestion() {
+        const q = state.order[state.index];
+        progressLabel.textContent = `${state.index + 1}/${state.order.length}`;
+        scoreLabel.textContent = String(state.score);
+
+        questionTitle.textContent = q.title;
+        questionStem.textContent = q.stem;
+
+        feedbackEl.hidden = true;
+        feedbackEl.innerHTML = "";
+
+        nextBtn.disabled = true;
+        state.answered = false;
+        state.lastSelectionKey = null;
+
+        const optionKeys = shuffle(Object.keys(q.options));
+        state.optionOrder = optionKeys;
+
+        optionsEl.innerHTML = "";
+        for (const key of optionKeys) {
+          const opt = q.options[key];
+          const id = `q-${q.id}-${key}`;
+          const row = document.createElement("div");
+          row.style.display = "flex";
+          row.style.gap = "10px";
+          row.style.alignItems = "flex-start";
+          row.style.padding = "10px 10px";
+          row.style.borderRadius = "12px";
+          row.style.border = "1px solid var(--border)";
+          row.style.background = "var(--panel-fade)";
+          row.style.marginTop = "10px";
+
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "answer";
+          input.id = id;
+          input.value = key;
+          input.style.marginTop = "4px";
+
+          const label = document.createElement("label");
+          label.setAttribute("for", id);
+          label.textContent = opt.label;
+          label.style.cursor = "pointer";
+          label.style.lineHeight = "1.35";
+
+          input.addEventListener("change", () => {
+            state.lastSelectionKey = input.value;
+          });
+
+          row.appendChild(input);
+          row.appendChild(label);
+          optionsEl.appendChild(row);
+        }
+      }
+
+      function renderFeedback({ isCorrect, chosenKey }) {
+        const q = state.order[state.index];
+        const correctKey = q.correctKey;
+        const chosen = q.options[chosenKey];
+        const correct = q.options[correctKey];
+
+        const title = isCorrect ? "Certo" : "Errado";
+        const body = [];
+
+        if (isCorrect) {
+          body.push(`<p class="big">${title}.</p>`);
+          body.push(`<p>${correct.whyCorrect}</p>`);
+        } else {
+          body.push(`<p class="big">${title}.</p>`);
+          body.push(`<p><strong>Por que a sua alternativa não é a melhor:</strong> ${chosen.whyWrong}</p>`);
+          body.push(`<p><strong>Por que a correta é melhor:</strong> ${correct.whyCorrect}</p>`);
+        }
+
+        const lessonTitle = getLessonTitle(q.study.lessonId);
+        const pagesLabel = formatBookPages(q.study.topicKey);
+        const bookHref = getBookHref(q.study.topicKey);
+        body.push(
+          `<p class="hint">Revisão: <a href="../01-Aulas/${q.study.lessonId}.html" target="_blank" rel="noopener">${lessonTitle}</a> • Livro: <a href="${bookHref}" target="_blank" rel="noopener">${pagesLabel || "ver no PDF"}</a></p>`
+        );
+
+        feedbackEl.innerHTML = body.join("");
+        feedbackEl.hidden = false;
+      }
+
+      function handleCheck() {
+        if (state.answered) return;
+        const q = state.order[state.index];
+        const chosenKey = state.lastSelectionKey;
+        if (!chosenKey) return;
+
+        const isCorrect = chosenKey === q.correctKey;
+        if (isCorrect) state.score += 1;
+
+        scoreLabel.textContent = String(state.score);
+        state.answered = true;
+        renderFeedback({ isCorrect, chosenKey });
+        nextBtn.disabled = false;
+      }
+
+      function handleNext() {
+        if (!state.answered) return;
+        if (state.index + 1 >= state.order.length) {
+          renderResult();
+          return;
+        }
+        state.index += 1;
+        renderQuestion();
+      }
+
+      function renderResult() {
+        setMode("result");
+        const total = state.order.length;
+        const final = document.getElementById("final-score");
+        const hint = document.getElementById("final-hint");
+        final.textContent = `Você acertou ${state.score} de ${total}.`;
+
+        const pct = Math.round((state.score / total) * 100);
+        hint.textContent =
+          pct >= 80
+            ? "Ótimo. Foque agora em consolidar exemplos práticos e exercícios."
+            : pct >= 50
+            ? "Bom caminho. Refaça o quiz e revise os tópicos com mais erros."
+            : "Recomendação: revise as aulas e o livro, depois refaça o quiz.";
+
+        const topics = new Map();
+        for (const q of state.order) {
+          const key = q.study.topicKey;
+          if (!topics.has(key)) topics.set(key, new Set());
+          topics.get(key).add(q.study.lessonId);
+        }
+
+        const list = document.getElementById("study-list");
+        list.innerHTML = "";
+
+        const orderedTopics = [
+          "intro",
+          "process",
+          "agile",
+          "requirements",
+          "prototyping",
+          "uml",
+          "testing",
+          "management",
+          "quality",
+        ];
+
+        for (const topicKey of orderedTopics) {
+          if (!topics.has(topicKey)) continue;
+          const entry = bookPages[topicKey];
+          const pagesLabel = formatBookPages(topicKey);
+          const bookHref = getBookHref(topicKey);
+          const lessons = Array.from(topics.get(topicKey));
+          const lessonLinks = lessons
+            .map((lessonId) => {
+              const title = getLessonTitle(lessonId);
+              return `<a href="../01-Aulas/${lessonId}.html" target="_blank" rel="noopener">${title}</a>`;
+            })
+            .join(" • ");
+
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${entry?.label || topicKey}:</strong> ${lessonLinks}<br /><span class="muted">Livro:</span> <a href="${bookHref}" target="_blank" rel="noopener">${pagesLabel || "ver no PDF"}</a>`;
+          list.appendChild(li);
+        }
+      }
+
+      function restart() {
+        state = {
+          index: 0,
+          score: 0,
+          answered: false,
+          lastSelectionKey: null,
+          order: shuffle(questions),
+          optionOrder: [],
+        };
+        setMode("quiz");
+        renderQuestion();
+      }
+
+      checkBtn.addEventListener("click", handleCheck);
+      nextBtn.addEventListener("click", handleNext);
+      restartBtn.addEventListener("click", restart);
+
+      introCard.addEventListener("click", () => restart());
+      introCard.classList.add("is-clickable");
+      introCard.setAttribute("role", "button");
+      introCard.tabIndex = 0;
+      introCard.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          restart();
+        }
+      });
+
+      startBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        restart();
+      });
+    </script>
+  </body>
+</html>

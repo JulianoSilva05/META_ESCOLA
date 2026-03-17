@@ -135,6 +135,14 @@ const appData = {
               },
             ],
           },
+          activities: [
+            {
+              id: "quiz-01",
+              title: "Atividade - Quiz 01",
+              subtitle: "Revisão geral (aulas 1–9) com feedback imediato",
+              folder: "02-Atividades",
+            },
+          ],
           lessons: [
             {
               id: "aula-01",
@@ -340,6 +348,12 @@ function getLessonHtmlPath(disciplineFolder, lessonId) {
   )}/${encodeURIComponent(lessonId)}.html`;
 }
 
+function getActivityHtmlPath(disciplineFolder, activityFolder, activityId) {
+  return `./${encodeURIComponent(disciplineFolder)}/${encodeURIComponent(
+    activityFolder
+  )}/${encodeURIComponent(activityId)}.html`;
+}
+
 function renderModules() {
   setText("[data-page-title]", "Módulos");
   setText(
@@ -459,6 +473,19 @@ function renderDisciplineRoot(moduleId, disciplineId) {
     });
 
     grid.appendChild(topicsCard);
+  }
+
+  if (disc.activities?.length) {
+    for (const activity of disc.activities) {
+      grid.appendChild(
+        createCard({
+          title: activity.title,
+          meta: activity.subtitle || "Atividade",
+          href: getActivityHtmlPath(disc.folder, activity.folder || "02-Atividades", activity.id),
+          kind: "file",
+        })
+      );
+    }
   }
 
   if (!disc.lessons?.length) {
